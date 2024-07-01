@@ -42,8 +42,28 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult XemKhoiLop()
             => View(db.KhoiLop);
 
-        public ActionResult ChinhSuaKhoiLop()
-            => View();
+        public ActionResult ChinhSuaKhoiLop(string id)
+            => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
+        [HttpPost]
+        public ActionResult ChinhSuaKhoiLop(string id, KhoiLop _khoiLop)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Entry(_khoiLop).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    ViewBag.Error = "Something went wrong, please try again later";
+                    return View(_khoiLop);
+                }
+                return RedirectToAction("XemKhoiLop");
+            }
+            ViewBag.ModelError = "Biểu mẫu không đúng";
+            return View(_khoiLop);
+        }
 
         public ActionResult XoaKhoiLop()
             => View();
