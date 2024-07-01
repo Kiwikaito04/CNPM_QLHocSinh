@@ -265,6 +265,7 @@
     <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ChinhSuaThongTinHocSinh.cshtml" />
     <Content Include="Views\LopHoc\XemDanhSachLopHoc.cshtml" />
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />
