@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,9 +133,58 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BangDiem.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CaHoc.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChucVu.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiaoVien.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HocSinh.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhoiLop.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LichGiangDay.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LopHoc.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MonHoc.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLHocSinh.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLHocSinh.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLHocSinh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLHocSinh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrangThaiH.cs">
+      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CNPM_QLHocSinh.mdf" />
+    <Content Include="App_Data\CNPM_QLHocSinh_log.ldf">
+      <DependentUpon>CNPM_QLHocSinh.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -148,12 +205,29 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\DB_QLHocSinh_Demo.sql" />
+    <Content Include="Models\QLHocSinh.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QLHocSinh.Context.cs</LastGenOutput>
+      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QLHocSinh.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+      <LastGenOutput>QLHocSinh.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\QLHocSinh.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLHocSinh.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLHocSinh.edmx.diagram">
+      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -181,9 +255,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
@@ -210,6 +282,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
