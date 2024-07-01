@@ -256,6 +256,7 @@
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\ChinhSuaThongTinHocSinh.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

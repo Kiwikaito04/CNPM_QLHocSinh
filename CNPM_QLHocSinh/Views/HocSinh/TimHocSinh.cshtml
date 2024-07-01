@@ -7,7 +7,7 @@
 <h2>TimHocSinh</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm học sinh", "ThemHocSinh")
 </p>
 <table class="table">
     <tr>
@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.Pass)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new {  id=item.MaHS }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaHS }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaHS })
         </td>
     </tr>
 }

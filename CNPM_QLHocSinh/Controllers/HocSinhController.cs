@@ -12,23 +12,18 @@ namespace CNPM_QLHocSinh.Controllers
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
         
-        // GET: HocSinh
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult ThemHocSinh()
             => View();
 
         public ActionResult TimHocSinh()
-            => View(db.HocSinh);
+            => View(db.HocSinh.ToList());
 
         public ActionResult XemThongTinHocSinh()
             => View();
 
-        public ActionResult ChinhSuaThongTinHocSinh()
-            => View();
+        public ActionResult ChinhSuaThongTinHocSinh(string id)
+            => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
     
         public ActionResult DieuChinhTrangThaiHocSinh()
             => View();
