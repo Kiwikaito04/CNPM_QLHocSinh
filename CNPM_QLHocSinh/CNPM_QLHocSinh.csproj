@@ -264,12 +264,12 @@
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ChinhSuaThongTinHocSinh.cshtml" />
+    <Content Include="Views\LopHoc\XemDanhSachLopHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />
     <Folder Include="Views\KhoiLop\" />
     <Folder Include="Views\LichGiangDay\" />
-    <Folder Include="Views\LopHoc\" />
     <Folder Include="Views\MonHoc\" />
     <Folder Include="Views\QuanLyDiemBoMon\" />
   </ItemGroup>
