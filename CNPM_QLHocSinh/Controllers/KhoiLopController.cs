@@ -18,6 +18,26 @@ namespace CNPM_QLHocSinh.Controllers
 
         public ActionResult ThemKhoiLop() 
             => View();
+        [HttpPost]
+        public ActionResult ThemKhoiLop(KhoiLop _khoiLop)
+        {
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    db.KhoiLop.Add(_khoiLop);
+                    db.SaveChanges();
+                }
+                catch 
+                {
+                    ViewBag.Error = "Something went wrong, please try again later";
+                    return View(_khoiLop);
+                }
+                return RedirectToAction("XemKhoiLop");
+            }
+            ViewBag.ModelError = "Biểu mẫu không đúng";
+            return View(_khoiLop);
+        }
 
         public ActionResult XemKhoiLop()
             => View(db.KhoiLop);

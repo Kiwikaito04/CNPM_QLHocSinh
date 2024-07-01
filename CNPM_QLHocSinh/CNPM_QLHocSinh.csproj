@@ -267,6 +267,7 @@
     <Content Include="Views\LopHoc\XemDanhSachLopHoc.cshtml" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\KhoiLop\XemKhoiLop.cshtml" />
+    <Content Include="Views\KhoiLop\ThemKhoiLop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />
