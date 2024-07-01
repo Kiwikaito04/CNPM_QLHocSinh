@@ -140,50 +140,51 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BangDiem.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaHoc.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChucVu.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_QLHS.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_QLHS.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_QLHS.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_QLHS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_QLHS.edmx</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GiaoVien.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HocSinh.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhoiLop.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LichGiangDay.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LopHoc.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_QLHS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_QLHS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_QLHS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_QLHS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_QLHS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MonHoc.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrangThaiHS.cs">
-      <DependentUpon>DB_QLHS.tt</DependentUpon>
+      <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ViewLopHoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,15 +212,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\DB_QLHocSinh_Demo.sql" />
-    <Content Include="Models\DB_QLHS.Context.tt">
+    <Content Include="Models\Model_QLHS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_QLHS.edmx</DependentUpon>
-      <LastGenOutput>DB_QLHS.Context.cs</LastGenOutput>
+      <DependentUpon>Model_QLHS.edmx</DependentUpon>
+      <LastGenOutput>Model_QLHS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB_QLHS.tt">
+    <Content Include="Models\Model_QLHS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_QLHS.edmx</DependentUpon>
-      <LastGenOutput>DB_QLHS.cs</LastGenOutput>
+      <DependentUpon>Model_QLHS.edmx</DependentUpon>
+      <LastGenOutput>Model_QLHS.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -227,12 +228,12 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DB_QLHS.edmx">
+    <EntityDeploy Include="Models\Model_QLHS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_QLHS.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model_QLHS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DB_QLHS.edmx.diagram">
-      <DependentUpon>DB_QLHS.edmx</DependentUpon>
+    <Content Include="Models\Model_QLHS.edmx.diagram">
+      <DependentUpon>Model_QLHS.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
