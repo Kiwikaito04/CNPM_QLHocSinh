@@ -6,12 +6,16 @@ using System.Web.Mvc;
 
 namespace CNPM_QLHocSinh.Controllers
 {
-    public class StudentController : Controller
+    public class HocSinhController : Controller
     {
-        // GET: Student
+        // GET: HocSinh
         public ActionResult Index()
         {
             return View();
         }
+
+        public ActionResult TimHocSinh()
+            => View();
+
     }
 }
