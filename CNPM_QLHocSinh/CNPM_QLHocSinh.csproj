@@ -131,6 +131,11 @@
     <Compile Include="Controllers\GiaoVienController.cs" />
     <Compile Include="Controllers\HocSinhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhoiLopController.cs" />
+    <Compile Include="Controllers\LichGiangDayController.cs" />
+    <Compile Include="Controllers\LopHocController.cs" />
+    <Compile Include="Controllers\MonHocController.cs" />
+    <Compile Include="Controllers\QuanLyDiemBoMonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -260,6 +265,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />
+    <Folder Include="Views\KhoiLop\" />
+    <Folder Include="Views\LichGiangDay\" />
+    <Folder Include="Views\LopHoc\" />
+    <Folder Include="Views\MonHoc\" />
+    <Folder Include="Views\QuanLyDiemBoMon\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

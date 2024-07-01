@@ -6,21 +6,24 @@ using System.Web.Mvc;
 
 namespace CNPM_QLHocSinh.Controllers
 {
-    public class GiaoVienController : Controller
+    public class MonHocController : Controller
     {
-        // GET: GiaoVien
+        // GET: MonHoc
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult ThemGiaoVien()
+        public ActionResult ThemDanhMucMonHoc() 
             => View();
 
-        public ActionResult XemTHongTinGiaoVien()
+        public ActionResult XemDanhMucMonHoc()
             => View();
 
-        public ActionResult ChinhSuaThongTinGiaoVien()
+        public ActionResult ChinhSuaDanhMucMonHoc()
+            => View();  
+
+        public ActionResult XoaDanhMucMonHoc()
             => View();
     }
 }
