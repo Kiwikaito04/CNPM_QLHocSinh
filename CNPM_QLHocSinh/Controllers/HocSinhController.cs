@@ -14,7 +14,22 @@ namespace CNPM_QLHocSinh.Controllers
             return View();
         }
 
+        public ActionResult ThemHocSinh()
+            => View();
+
         public ActionResult TimHocSinh()
+            => View();
+
+        public ActionResult XemThongTinHocSinh()
+            => View();
+
+        public ActionResult ChinhSuaThongTinHocSinh()
+            => View();
+    
+        public ActionResult DieuChinhTrangThaiHocSinh()
+            => View();
+
+        public ActionResult XoaHocSinh()
             => View();
 
     }

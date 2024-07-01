@@ -180,6 +180,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
