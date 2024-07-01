@@ -12,12 +12,12 @@ namespace CNPM_QLHocSinh.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TrangThaiH
+    public partial class TrangThaiHS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TrangThaiH()
+        public TrangThaiHS()
         {
-            this.HocSinhs = new HashSet<HocSinh>();
+            this.HocSinh = new HashSet<HocSinh>();
         }
     
         public string MaTT { get; set; }
@@ -25,6 +25,6 @@ namespace CNPM_QLHocSinh.Models
         public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HocSinh> HocSinhs { get; set; }
+        public virtual ICollection<HocSinh> HocSinh { get; set; }
     }
 }

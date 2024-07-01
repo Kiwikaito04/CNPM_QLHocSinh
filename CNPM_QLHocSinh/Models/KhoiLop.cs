@@ -17,7 +17,7 @@ namespace CNPM_QLHocSinh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhoiLop()
         {
-            this.LopHocs = new HashSet<LopHoc>();
+            this.LopHoc = new HashSet<LopHoc>();
         }
     
         public string MaKL { get; set; }
@@ -26,6 +26,6 @@ namespace CNPM_QLHocSinh.Models
         public int CapBac { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopHoc> LopHocs { get; set; }
+        public virtual ICollection<LopHoc> LopHoc { get; set; }
     }
 }

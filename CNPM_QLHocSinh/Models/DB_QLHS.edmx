@@ -323,7 +323,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="MaCa" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ThoiGianBatDau" Type="Time" Nullable="false" Precision="7" />
           <Property Name="ThoiGianKetThuc" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="LichGiangDays" Relationship="Self.FK__LichGiangD__MaCa__3A81B327" FromRole="CaHoc" ToRole="LichGiangDay" />
+          <NavigationProperty Name="LichGiangDay" Relationship="Self.FK__LichGiangD__MaCa__3A81B327" FromRole="CaHoc" ToRole="LichGiangDay" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -332,7 +332,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="MaCV" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenCV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="GiaoViens" Relationship="Self.FK__GiaoVien__MaCV__30F848ED" FromRole="ChucVu" ToRole="GiaoVien" />
+          <NavigationProperty Name="GiaoVien" Relationship="Self.FK__GiaoVien__MaCV__30F848ED" FromRole="ChucVu" ToRole="GiaoVien" />
         </EntityType>
         <EntityType Name="GiaoVien">
           <Key>
@@ -348,7 +348,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="MaCV" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChucVu" Relationship="Self.FK__GiaoVien__MaCV__30F848ED" FromRole="GiaoVien" ToRole="ChucVu" />
-          <NavigationProperty Name="LichGiangDays" Relationship="Self.FK__LichGiangD__MaGV__398D8EEE" FromRole="GiaoVien" ToRole="LichGiangDay" />
+          <NavigationProperty Name="LichGiangDay" Relationship="Self.FK__LichGiangD__MaGV__398D8EEE" FromRole="GiaoVien" ToRole="LichGiangDay" />
         </EntityType>
         <EntityType Name="HocSinh">
           <Key>
@@ -364,9 +364,9 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="MaTT" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="MaLop" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BangDiems" Relationship="Self.FK__BangDiem__MaHS__3E52440B" FromRole="HocSinh" ToRole="BangDiem" />
+          <NavigationProperty Name="BangDiem" Relationship="Self.FK__BangDiem__MaHS__3E52440B" FromRole="HocSinh" ToRole="BangDiem" />
           <NavigationProperty Name="LopHoc" Relationship="Self.FK__HocSinh__MaLop__2C3393D0" FromRole="HocSinh" ToRole="LopHoc" />
-          <NavigationProperty Name="TrangThaiH" Relationship="Self.FK__HocSinh__MaTT__2B3F6F97" FromRole="HocSinh" ToRole="TrangThaiHS" />
+          <NavigationProperty Name="TrangThaiHS" Relationship="Self.FK__HocSinh__MaTT__2B3F6F97" FromRole="HocSinh" ToRole="TrangThaiHS" />
         </EntityType>
         <EntityType Name="KhoiLop">
           <Key>
@@ -376,7 +376,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="TenKL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CapBac" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LopHocs" Relationship="Self.FK__LopHoc__MaKL__267ABA7A" FromRole="KhoiLop" ToRole="LopHoc" />
+          <NavigationProperty Name="LopHoc" Relationship="Self.FK__LopHoc__MaKL__267ABA7A" FromRole="KhoiLop" ToRole="LopHoc" />
         </EntityType>
         <EntityType Name="LichGiangDay">
           <Key>
@@ -401,10 +401,10 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="TenLop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MaKL" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="HocSinhs" Relationship="Self.FK__HocSinh__MaLop__2C3393D0" FromRole="LopHoc" ToRole="HocSinh" />
+          <NavigationProperty Name="HocSinh" Relationship="Self.FK__HocSinh__MaLop__2C3393D0" FromRole="LopHoc" ToRole="HocSinh" />
           <NavigationProperty Name="KhoiLop" Relationship="Self.FK__LopHoc__MaKL__267ABA7A" FromRole="LopHoc" ToRole="KhoiLop" />
-          <NavigationProperty Name="LichGiangDays" Relationship="Self.FK__LichGiang__MaLop__37A5467C" FromRole="LopHoc" ToRole="LichGiangDay" />
-          <NavigationProperty Name="BangDiems" Relationship="Self.FK__BangDiem__MaLop__3C69FB99" FromRole="LopHoc" ToRole="BangDiem" />
+          <NavigationProperty Name="LichGiangDay" Relationship="Self.FK__LichGiang__MaLop__37A5467C" FromRole="LopHoc" ToRole="LichGiangDay" />
+          <NavigationProperty Name="BangDiem" Relationship="Self.FK__BangDiem__MaLop__3C69FB99" FromRole="LopHoc" ToRole="BangDiem" />
         </EntityType>
         <EntityType Name="MonHoc">
           <Key>
@@ -413,17 +413,17 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           <Property Name="MaMH" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenMH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LichGiangDays" Relationship="Self.FK__LichGiangD__MaMH__38996AB5" FromRole="MonHoc" ToRole="LichGiangDay" />
-          <NavigationProperty Name="BangDiems" Relationship="Self.FK__BangDiem__MaMH__3D5E1FD2" FromRole="MonHoc" ToRole="BangDiem" />
+          <NavigationProperty Name="LichGiangDay" Relationship="Self.FK__LichGiangD__MaMH__38996AB5" FromRole="MonHoc" ToRole="LichGiangDay" />
+          <NavigationProperty Name="BangDiem" Relationship="Self.FK__BangDiem__MaMH__3D5E1FD2" FromRole="MonHoc" ToRole="BangDiem" />
         </EntityType>
-        <EntityType Name="TrangThaiH">
+        <EntityType Name="TrangThaiHS">
           <Key>
             <PropertyRef Name="MaTT" />
           </Key>
           <Property Name="MaTT" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenTT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="HocSinhs" Relationship="Self.FK__HocSinh__MaTT__2B3F6F97" FromRole="TrangThaiHS" ToRole="HocSinh" />
+          <NavigationProperty Name="HocSinh" Relationship="Self.FK__HocSinh__MaTT__2B3F6F97" FromRole="TrangThaiHS" ToRole="HocSinh" />
         </EntityType>
         <EntityType Name="BangDiem">
           <Key>
@@ -504,7 +504,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HocSinh__MaTT__2B3F6F97">
-          <End Role="TrangThaiHS" Type="Self.TrangThaiH" Multiplicity="0..1" />
+          <End Role="TrangThaiHS" Type="Self.TrangThaiHS" Multiplicity="0..1" />
           <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TrangThaiHS">
@@ -575,60 +575,60 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CaHocs" EntityType="Self.CaHoc" />
-          <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
-          <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
-          <EntitySet Name="HocSinhs" EntityType="Self.HocSinh" />
-          <EntitySet Name="KhoiLops" EntityType="Self.KhoiLop" />
-          <EntitySet Name="LichGiangDays" EntityType="Self.LichGiangDay" />
-          <EntitySet Name="LopHocs" EntityType="Self.LopHoc" />
-          <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
-          <EntitySet Name="TrangThaiHS" EntityType="Self.TrangThaiH" />
-          <EntitySet Name="BangDiems" EntityType="Self.BangDiem" />
+        <EntityContainer Name="CNPM_QLHocSinhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CaHoc" EntityType="Self.CaHoc" />
+          <EntitySet Name="ChucVu" EntityType="Self.ChucVu" />
+          <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" />
+          <EntitySet Name="HocSinh" EntityType="Self.HocSinh" />
+          <EntitySet Name="KhoiLop" EntityType="Self.KhoiLop" />
+          <EntitySet Name="LichGiangDay" EntityType="Self.LichGiangDay" />
+          <EntitySet Name="LopHoc" EntityType="Self.LopHoc" />
+          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" />
+          <EntitySet Name="TrangThaiHS" EntityType="Self.TrangThaiHS" />
+          <EntitySet Name="BangDiem" EntityType="Self.BangDiem" />
           <AssociationSet Name="FK__LichGiangD__MaCa__3A81B327" Association="Self.FK__LichGiangD__MaCa__3A81B327">
-            <End Role="CaHoc" EntitySet="CaHocs" />
-            <End Role="LichGiangDay" EntitySet="LichGiangDays" />
+            <End Role="CaHoc" EntitySet="CaHoc" />
+            <End Role="LichGiangDay" EntitySet="LichGiangDay" />
           </AssociationSet>
           <AssociationSet Name="FK__GiaoVien__MaCV__30F848ED" Association="Self.FK__GiaoVien__MaCV__30F848ED">
-            <End Role="ChucVu" EntitySet="ChucVus" />
-            <End Role="GiaoVien" EntitySet="GiaoViens" />
+            <End Role="ChucVu" EntitySet="ChucVu" />
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
           </AssociationSet>
           <AssociationSet Name="FK__LichGiangD__MaGV__398D8EEE" Association="Self.FK__LichGiangD__MaGV__398D8EEE">
-            <End Role="GiaoVien" EntitySet="GiaoViens" />
-            <End Role="LichGiangDay" EntitySet="LichGiangDays" />
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="LichGiangDay" EntitySet="LichGiangDay" />
           </AssociationSet>
           <AssociationSet Name="FK__BangDiem__MaHS__3E52440B" Association="Self.FK__BangDiem__MaHS__3E52440B">
-            <End Role="HocSinh" EntitySet="HocSinhs" />
-            <End Role="BangDiem" EntitySet="BangDiems" />
+            <End Role="HocSinh" EntitySet="HocSinh" />
+            <End Role="BangDiem" EntitySet="BangDiem" />
           </AssociationSet>
           <AssociationSet Name="FK__HocSinh__MaLop__2C3393D0" Association="Self.FK__HocSinh__MaLop__2C3393D0">
-            <End Role="LopHoc" EntitySet="LopHocs" />
-            <End Role="HocSinh" EntitySet="HocSinhs" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
+            <End Role="HocSinh" EntitySet="HocSinh" />
           </AssociationSet>
           <AssociationSet Name="FK__HocSinh__MaTT__2B3F6F97" Association="Self.FK__HocSinh__MaTT__2B3F6F97">
             <End Role="TrangThaiHS" EntitySet="TrangThaiHS" />
-            <End Role="HocSinh" EntitySet="HocSinhs" />
+            <End Role="HocSinh" EntitySet="HocSinh" />
           </AssociationSet>
           <AssociationSet Name="FK__LopHoc__MaKL__267ABA7A" Association="Self.FK__LopHoc__MaKL__267ABA7A">
-            <End Role="KhoiLop" EntitySet="KhoiLops" />
-            <End Role="LopHoc" EntitySet="LopHocs" />
+            <End Role="KhoiLop" EntitySet="KhoiLop" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
           </AssociationSet>
           <AssociationSet Name="FK__LichGiang__MaLop__37A5467C" Association="Self.FK__LichGiang__MaLop__37A5467C">
-            <End Role="LopHoc" EntitySet="LopHocs" />
-            <End Role="LichGiangDay" EntitySet="LichGiangDays" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
+            <End Role="LichGiangDay" EntitySet="LichGiangDay" />
           </AssociationSet>
           <AssociationSet Name="FK__LichGiangD__MaMH__38996AB5" Association="Self.FK__LichGiangD__MaMH__38996AB5">
-            <End Role="MonHoc" EntitySet="MonHocs" />
-            <End Role="LichGiangDay" EntitySet="LichGiangDays" />
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="LichGiangDay" EntitySet="LichGiangDay" />
           </AssociationSet>
           <AssociationSet Name="FK__BangDiem__MaLop__3C69FB99" Association="Self.FK__BangDiem__MaLop__3C69FB99">
-            <End Role="LopHoc" EntitySet="LopHocs" />
-            <End Role="BangDiem" EntitySet="BangDiems" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
+            <End Role="BangDiem" EntitySet="BangDiem" />
           </AssociationSet>
           <AssociationSet Name="FK__BangDiem__MaMH__3D5E1FD2" Association="Self.FK__BangDiem__MaMH__3D5E1FD2">
-            <End Role="MonHoc" EntitySet="MonHocs" />
-            <End Role="BangDiem" EntitySet="BangDiems" />
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="BangDiem" EntitySet="BangDiem" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -636,8 +636,8 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CNPM_QLHocSinhModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="CaHocs">
+        <EntityContainerMapping StorageEntityContainer="CNPM_QLHocSinhModelStoreContainer" CdmEntityContainer="CNPM_QLHocSinhEntities">
+          <EntitySetMapping Name="CaHoc">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.CaHoc">
               <MappingFragment StoreEntitySet="CaHoc">
                 <ScalarProperty Name="MaCa" ColumnName="MaCa" />
@@ -646,7 +646,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ChucVus">
+          <EntitySetMapping Name="ChucVu">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.ChucVu">
               <MappingFragment StoreEntitySet="ChucVu">
                 <ScalarProperty Name="MaCV" ColumnName="MaCV" />
@@ -655,7 +655,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GiaoViens">
+          <EntitySetMapping Name="GiaoVien">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.GiaoVien">
               <MappingFragment StoreEntitySet="GiaoVien">
                 <ScalarProperty Name="MaGV" ColumnName="MaGV" />
@@ -670,7 +670,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HocSinhs">
+          <EntitySetMapping Name="HocSinh">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.HocSinh">
               <MappingFragment StoreEntitySet="HocSinh">
                 <ScalarProperty Name="MaHS" ColumnName="MaHS" />
@@ -686,7 +686,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KhoiLops">
+          <EntitySetMapping Name="KhoiLop">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.KhoiLop">
               <MappingFragment StoreEntitySet="KhoiLop">
                 <ScalarProperty Name="MaKL" ColumnName="MaKL" />
@@ -696,7 +696,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LichGiangDays">
+          <EntitySetMapping Name="LichGiangDay">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.LichGiangDay">
               <MappingFragment StoreEntitySet="LichGiangDay">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
@@ -706,7 +706,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LopHocs">
+          <EntitySetMapping Name="LopHoc">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.LopHoc">
               <MappingFragment StoreEntitySet="LopHoc">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
@@ -716,7 +716,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MonHocs">
+          <EntitySetMapping Name="MonHoc">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.MonHoc">
               <MappingFragment StoreEntitySet="MonHoc">
                 <ScalarProperty Name="MaMH" ColumnName="MaMH" />
@@ -726,7 +726,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TrangThaiHS">
-            <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.TrangThaiH">
+            <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.TrangThaiHS">
               <MappingFragment StoreEntitySet="TrangThaiHS">
                 <ScalarProperty Name="MaTT" ColumnName="MaTT" />
                 <ScalarProperty Name="TenTT" ColumnName="TenTT" />
@@ -734,7 +734,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BangDiems">
+          <EntitySetMapping Name="BangDiem">
             <EntityTypeMapping TypeName="CNPM_QLHocSinhModel.BangDiem">
               <MappingFragment StoreEntitySet="BangDiem">
                 <ScalarProperty Name="MaLop" ColumnName="MaLop" />
@@ -762,7 +762,7 @@ warning 6002: The table/view 'E:\STUDY\CNPM\CNPM_QLHOCSINH\CNPM_QLHOCSINH\APP_DA
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
