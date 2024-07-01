@@ -17,7 +17,7 @@ namespace CNPM_QLHocSinh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GiaoVien()
         {
-            this.LichGiangDays = new HashSet<LichGiangDay>();
+            this.LichGiangDay = new HashSet<LichGiangDay>();
         }
     
         public string MaGV { get; set; }
@@ -32,6 +32,6 @@ namespace CNPM_QLHocSinh.Models
     
         public virtual ChucVu ChucVu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichGiangDay> LichGiangDays { get; set; }
+        public virtual ICollection<LichGiangDay> LichGiangDay { get; set; }
     }
 }

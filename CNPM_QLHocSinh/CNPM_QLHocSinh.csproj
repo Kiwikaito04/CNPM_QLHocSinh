@@ -135,49 +135,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BangDiem.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaHoc.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChucVu.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_QLHS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_QLHS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_QLHS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_QLHS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_QLHS.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GiaoVien.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HocSinh.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhoiLop.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LichGiangDay.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LopHoc.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MonHoc.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLHocSinh.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLHocSinh.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QLHocSinh.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QLHocSinh.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLHocSinh.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrangThaiH.cs">
-      <DependentUpon>QLHocSinh.tt</DependentUpon>
+    <Compile Include="Models\TrangThaiHS.cs">
+      <DependentUpon>DB_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,15 +206,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\DB_QLHocSinh_Demo.sql" />
-    <Content Include="Models\QLHocSinh.Context.tt">
+    <Content Include="Models\DB_QLHS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QLHocSinh.Context.cs</LastGenOutput>
-      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+      <DependentUpon>DB_QLHS.edmx</DependentUpon>
+      <LastGenOutput>DB_QLHS.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLHocSinh.tt">
+    <Content Include="Models\DB_QLHS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLHocSinh.edmx</DependentUpon>
-      <LastGenOutput>QLHocSinh.cs</LastGenOutput>
+      <DependentUpon>DB_QLHS.edmx</DependentUpon>
+      <LastGenOutput>DB_QLHS.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -222,12 +222,12 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\QLHocSinh.edmx">
+    <EntityDeploy Include="Models\DB_QLHS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLHocSinh.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_QLHS.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QLHocSinh.edmx.diagram">
-      <DependentUpon>QLHocSinh.edmx</DependentUpon>
+    <Content Include="Models\DB_QLHS.edmx.diagram">
+      <DependentUpon>DB_QLHS.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -255,8 +255,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
-    <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />

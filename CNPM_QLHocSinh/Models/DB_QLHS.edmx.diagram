@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f49e94973fc448fca8dba49d31422b63" Name="Diagram1">
+      <Diagram DiagramId="f297dc0cc2a74bf4bf4a288eb8ef53c7" Name="Diagram1">
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.CaHoc" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.ChucVu" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.GiaoVien" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.LichGiangDay" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.LopHoc" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.MonHoc" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CNPM_QLHocSinhModel.TrangThaiH" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPM_QLHocSinhModel.TrangThaiHS" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CNPM_QLHocSinhModel.BangDiem" Width="1.5" PointX="10.5" PointY="4.125" IsExpanded="true" />
         <AssociationConnector Association="CNPM_QLHocSinhModel.FK__LichGiangD__MaCa__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="CNPM_QLHocSinhModel.FK__GiaoVien__MaCV__30F848ED" ManuallyRouted="false" />

@@ -17,7 +17,7 @@ namespace CNPM_QLHocSinh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChucVu()
         {
-            this.GiaoViens = new HashSet<GiaoVien>();
+            this.GiaoVien = new HashSet<GiaoVien>();
         }
     
         public string MaCV { get; set; }
@@ -25,6 +25,6 @@ namespace CNPM_QLHocSinh.Models
         public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiaoVien> GiaoViens { get; set; }
+        public virtual ICollection<GiaoVien> GiaoVien { get; set; }
     }
 }

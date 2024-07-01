@@ -17,7 +17,7 @@ namespace CNPM_QLHocSinh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HocSinh()
         {
-            this.BangDiems = new HashSet<BangDiem>();
+            this.BangDiem = new HashSet<BangDiem>();
         }
     
         public string MaHS { get; set; }
@@ -32,8 +32,8 @@ namespace CNPM_QLHocSinh.Models
         public string Pass { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangDiem> BangDiems { get; set; }
+        public virtual ICollection<BangDiem> BangDiem { get; set; }
         public virtual LopHoc LopHoc { get; set; }
-        public virtual TrangThaiH TrangThaiH { get; set; }
+        public virtual TrangThaiHS TrangThaiHS { get; set; }
     }
 }

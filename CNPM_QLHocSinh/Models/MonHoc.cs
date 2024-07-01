@@ -17,8 +17,8 @@ namespace CNPM_QLHocSinh.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MonHoc()
         {
-            this.LichGiangDays = new HashSet<LichGiangDay>();
-            this.BangDiems = new HashSet<BangDiem>();
+            this.LichGiangDay = new HashSet<LichGiangDay>();
+            this.BangDiem = new HashSet<BangDiem>();
         }
     
         public string MaMH { get; set; }
@@ -26,8 +26,8 @@ namespace CNPM_QLHocSinh.Models
         public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LichGiangDay> LichGiangDays { get; set; }
+        public virtual ICollection<LichGiangDay> LichGiangDay { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangDiem> BangDiems { get; set; }
+        public virtual ICollection<BangDiem> BangDiem { get; set; }
     }
 }
