@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.ViewModels.ViewLopHoc>
+
+@{
+    ViewBag.Title = "XemDanhSachLopHoc";
+}
+
+<h2>XemDanhSachLopHoc</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaLop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.MaKL)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.TenKL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaLop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.MaKL)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

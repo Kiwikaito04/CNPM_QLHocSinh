@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.KhoiLop>
+
+@{
+    ViewBag.Title = "XemKhoiLop";
+}
+
+<h2>XemKhoiLop</h2>
+@if (ViewBag.Error != null)
+{
+    <div>@ViewBag.Error</div>
+}
+
+<p>
+    @Html.ActionLink("Tạo khối mới", "ThemKhoiLop")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã khối lớp
+        </th>
+        <th>
+            Tên khối lớp
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Cấp bậc
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapBac)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "ChinhSuaKhoiLop", new { id = item.MaKL }) |
+                @Html.ActionLink("Xoá", "XoaKhoiLop", new { id = item.MaKL })
+            </td>
+        </tr>
+    }
+
+</table>
