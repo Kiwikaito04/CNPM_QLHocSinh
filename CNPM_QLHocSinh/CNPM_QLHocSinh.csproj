@@ -270,9 +270,9 @@
     <Content Include="Views\KhoiLop\ThemKhoiLop.cshtml" />
     <Content Include="Views\KhoiLop\ChinhSuaKhoiLop.cshtml" />
     <Content Include="Views\KhoiLop\XoaKhoiLop.cshtml" />
+    <Content Include="Views\GiaoVien\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\GiaoVien\" />
     <Folder Include="Views\LichGiangDay\" />
     <Folder Include="Views\MonHoc\" />
     <Folder Include="Views\QuanLyDiemBoMon\" />
