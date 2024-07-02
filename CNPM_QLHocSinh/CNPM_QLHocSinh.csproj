@@ -269,6 +269,7 @@
     <Content Include="Views\KhoiLop\XemKhoiLop.cshtml" />
     <Content Include="Views\KhoiLop\ThemKhoiLop.cshtml" />
     <Content Include="Views\KhoiLop\ChinhSuaKhoiLop.cshtml" />
+    <Content Include="Views\KhoiLop\XoaKhoiLop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />

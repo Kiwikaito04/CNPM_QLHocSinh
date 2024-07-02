@@ -10,12 +10,8 @@ namespace CNPM_QLHocSinh.Controllers
     public class KhoiLopController : Controller
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
-        // GET: KhoiLop
-        public ActionResult Index()
-        {
-            return View();
-        }
 
+        //Thêm khối lớp
         public ActionResult ThemKhoiLop() 
             => View();
         [HttpPost]
@@ -39,9 +35,11 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_khoiLop);
         }
 
+        //Xem khối lớp aka Index
         public ActionResult XemKhoiLop()
             => View(db.KhoiLop);
 
+        //Chỉnh sửa khối lớp
         public ActionResult ChinhSuaKhoiLop(string id)
             => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
         [HttpPost]
@@ -65,7 +63,24 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_khoiLop);
         }
 
-        public ActionResult XoaKhoiLop()
-            => View();
+        //Xoá khối lớp
+        public ActionResult XoaKhoiLop(string id)
+            => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
+        [HttpPost]
+        public ActionResult XoaKhoiLop(string id, KhoiLop _khoiLop)
+        {
+            try
+            {
+                _khoiLop = db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault();
+                db.KhoiLop.Remove(_khoiLop);
+                db.SaveChanges();
+            }
+            catch
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+                return View(_khoiLop);
+            }
+            return RedirectToAction("XemKhoiLop");
+        }
     }
 }

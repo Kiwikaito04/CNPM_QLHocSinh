@@ -47,7 +47,7 @@
             </td>
             <td>
                 @Html.ActionLink("Chỉnh sửa", "ChinhSuaKhoiLop", new { id = item.MaKL }) |
-                @Html.ActionLink("Xoá khối", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Xoá", "XoaKhoiLop", new { id = item.MaKL })
             </td>
         </tr>
     }
