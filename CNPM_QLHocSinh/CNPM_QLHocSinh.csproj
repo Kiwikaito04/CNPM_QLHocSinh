@@ -208,6 +208,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\MyCss.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -264,6 +265,7 @@
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ChinhSuaThongTinHocSinh.cshtml" />
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\GiaoVien\" />
