@@ -19,7 +19,32 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         public ActionResult ThemGiaoVien()
-            => View();
+        {
+            ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemGiaoVien(GiaoVien _giaoVien)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.GiaoVien.Add(_giaoVien);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    ViewBag.Error = "Something went wrong, please try again later";
+                    ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
+                    return View(_giaoVien);
+                }
+                return RedirectToAction("Index");
+            }
+            ViewBag.ModelError = "Biểu mẫu không đúng";
+            ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
+            return View(_giaoVien);
+        }
 
         public ActionResult XemThongTinGiaoVien()
             => View();
