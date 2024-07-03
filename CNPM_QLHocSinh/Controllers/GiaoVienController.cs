@@ -46,8 +46,8 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_giaoVien);
         }
 
-        public ActionResult XemThongTinGiaoVien()
-            => View();
+        public ActionResult XemThongTinGiaoVien(string id)
+            => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
 
         public ActionResult ChinhSuaThongTinGiaoVien()
             => View();

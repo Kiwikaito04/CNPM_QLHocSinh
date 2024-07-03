@@ -273,6 +273,7 @@
     <Content Include="Views\KhoiLop\XoaKhoiLop.cshtml" />
     <Content Include="Views\GiaoVien\Index.cshtml" />
     <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />
+    <Content Include="Views\GiaoVien\XemThongTinGiaoVien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />
