@@ -1,23 +1,16 @@
 ﻿@model CNPM_QLHocSinh.Models.MonHoc
 
 @{
-    ViewBag.Title = "ThemDanhMucMonHoc";
+    ViewBag.Title = "ChinhSuaDanhMucMonHoc";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>ThemDanhMucMonHoc</h2>
-@if (ViewBag.ModelError != null)
-{
-    <div>@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+<h2>ChinhSuaDanhMucMonHoc</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>MonHoc</h4>
         <hr />
@@ -48,7 +41,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>

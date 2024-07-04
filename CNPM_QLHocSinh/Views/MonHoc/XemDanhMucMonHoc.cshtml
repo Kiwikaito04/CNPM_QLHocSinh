@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.MonHoc>
+
+@{
+    ViewBag.Title = "XemDanhMucMonHoc";
+}
+
+<h2>XemDanhMucMonHoc</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div>@ViewBag.Error</div>
+}
+
+<p>
+    <a href="@Url.Action("ThemDanhMucMonHoc")" class="btn btn-primary">
+        Tạo danh mục môn học mới
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Môn Học
+        </th>
+        <th>
+            Tên Môn Học
+        </th>
+        <th>
+            Mô Tả
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaMH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenMH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "ChinhSuaDanhMucMonHoc", new { id = item.MaMH }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Xoá", "XoaDanhMucMonHoc", new { id = item.MaMH }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
