@@ -72,3 +72,18 @@
     font-weight:bold;
     color:white;
 }
+
+
+.red-button {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+}
+
+    .red-button:hover {
+        background-color: #cc0000;
+        border-color: #cc0000;
+    }
