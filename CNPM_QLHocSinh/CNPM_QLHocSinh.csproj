@@ -185,6 +185,7 @@
       <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ViewLopHoc.cs" />
+    <Compile Include="Models\ViewModels\ViewMonHoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -274,10 +275,10 @@
     <Content Include="Views\GiaoVien\Index.cshtml" />
     <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />
     <Content Include="Views\GiaoVien\XemThongTinGiaoVien.cshtml" />
+    <Content Include="Views\MonHoc\ThemDanhMucMonHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />
-    <Folder Include="Views\MonHoc\" />
     <Folder Include="Views\QuanLyDiemBoMon\" />
   </ItemGroup>
   <ItemGroup>
