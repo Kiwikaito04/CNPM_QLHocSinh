@@ -11,7 +11,9 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        Create
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -40,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Chi tiết", "XemThongTinGiaoVien", new { id=item.MaGV  }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Chi tiết", "XemThongTinGiaoVien", new { id=item.MaGV  }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

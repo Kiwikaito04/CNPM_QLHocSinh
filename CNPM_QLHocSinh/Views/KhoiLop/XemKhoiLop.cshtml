@@ -11,7 +11,9 @@
 }
 
 <p>
-    @Html.ActionLink("Tạo khối mới", "ThemKhoiLop")
+    <a href="@Url.Action("ThemKhoiLop")" class="btn btn-primary">
+        Thêm khối lớp mới
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -46,8 +48,8 @@
                 @Html.DisplayFor(modelItem => item.CapBac)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "ChinhSuaKhoiLop", new { id = item.MaKL }) |
-                @Html.ActionLink("Xoá", "XoaKhoiLop", new { id = item.MaKL })
+                @Html.ActionLink("Chỉnh sửa", "ChinhSuaKhoiLop", new { id = item.MaKL }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Xoá", "XoaKhoiLop", new { id = item.MaKL }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

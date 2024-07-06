@@ -7,7 +7,9 @@
 <h2>TimHocSinh</h2>
 
 <p>
-    @Html.ActionLink("Thêm học sinh", "ThemHocSinh")
+    <a href="@Url.Action("ThemHocSinh")" class="btn btn-primary">
+        Thêm Học sinh
+    </a>
 </p>
 <table class="table">
     <tr>
@@ -77,9 +79,9 @@
             @Html.DisplayFor(modelItem => item.Pass)
         </td>
         <td>
-            @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new {  id=item.MaHS }) |
-            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaHS }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MaHS })
+            @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new {  id=item.MaHS }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaHS }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaHS }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
