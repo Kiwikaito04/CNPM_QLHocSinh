@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>XemThongTinHocSinh</h2>
+<h2>Xem Thông Tin Học Sinh</h2>
 
 <div>
-    <h4>HocSinh</h4>
+    <h4>Học Sinh</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -94,6 +94,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new { id = Model.MaHS }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Quay lại", "TimHocSinh", null, new { @class = "btn btn-secondary" })
 </p>

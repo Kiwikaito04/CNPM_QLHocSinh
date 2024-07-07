@@ -282,6 +282,9 @@
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
     <Content Include="Views\GiaoVien\ChinhSuaThongTinGiaoVien.cshtml" />
     <Content Include="Views\GiaoVien\XoaGiaoVien.cshtml" />
+    <Content Include="Views\LopHoc\ThemLopHoc.cshtml" />
+    <Content Include="Views\LopHoc\ChinhSuaLopHoc.cshtml" />
+    <Content Include="Views\LopHoc\XoaLopHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

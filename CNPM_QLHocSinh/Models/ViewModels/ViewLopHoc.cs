@@ -10,7 +10,7 @@ namespace CNPM_QLHocSinh.Models.ViewModels
         public string MaLop { get; set; }
         public string TenLop { get; set; }
         public string MoTa { get; set; }
-        //public string MaKL { get; set; }
-        public string TenKL { get; set; }
+        public string MaKL { get; set; }
+        //public string TenKL { get; set; }
     }
 }

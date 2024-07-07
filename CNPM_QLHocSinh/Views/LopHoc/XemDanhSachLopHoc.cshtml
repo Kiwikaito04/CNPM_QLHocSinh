@@ -8,7 +8,7 @@
 
 <p>
     <a href="@Url.Action("ThemLopHoc")" class="btn btn-primary">
-        Thêm lớp học mới
+        Thêm lớp học mới    
     </a>
 </p>
 <table class="table">
@@ -22,12 +22,12 @@
         <th>
             @Html.DisplayNameFor(model => model.MoTa)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.MaKL)
-        </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.TenKL)
+            @Html.DisplayNameFor(model => model.MaKL)
         </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.TenKL)
+        </th>*@
         <th></th>
     </tr>
 
@@ -42,16 +42,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.MaKL)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.TenKL)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.TenKL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary" }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Chỉnh sửa", "ChinhSuaLopHoc", new { id=item.MaLop }, new { @class = "btn btn-success" }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary" }) |*@
+            @Html.ActionLink("Delete", "XoaLopHoc", new { id=item.MaLop  }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

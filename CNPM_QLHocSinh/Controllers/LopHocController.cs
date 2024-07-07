@@ -15,11 +15,7 @@ namespace CNPM_QLHocSinh.Controllers
         
 
         // GET: LopHoc
-        public ActionResult Index()
-        {
-            
-            return View();
-        }
+
 
         public ActionResult XetDuyetLopMoi()
             => View();
@@ -29,9 +25,34 @@ namespace CNPM_QLHocSinh.Controllers
 
         public ActionResult ChuyenLop()
             => View();
+        
 
+
+        //Thêm lớp học
         public ActionResult ThemLopHoc()
             => View();
+        [HttpPost]
+        public ActionResult ThemLopHoc(LopHoc _lopHoc)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.LopHoc.Add(_lopHoc);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    ViewBag.Error = "Something went wrong, please try again later";
+                    return View(_lopHoc);
+                }
+                return RedirectToAction("XemDanhSachLopHoc");
+            }
+            ViewBag.ModelError = "Wrong";
+            return View(_lopHoc);
+        }
+
+
 
         public ActionResult XemDanhSachLopHoc()
         {
@@ -42,17 +63,55 @@ namespace CNPM_QLHocSinh.Controllers
                         MaLop = x.MaLop,
                         TenLop = x.TenLop,
                         MoTa = x.MoTa,
-                        //MaKL = x.KhoiLop.MaKL,
-                        TenKL = x.KhoiLop.TenKL
+                        MaKL = x.KhoiLop.MaKL,
+                        //TenKL = x.KhoiLop.TenKL
                     }
                 ).ToList();
             return View(viewLopHoc);
         }
 
-        public ActionResult ChinhSuaLopHoc()
-            => View();
+        public ActionResult ChinhSuaLopHoc(string id)
+            => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
+        [HttpPost]
+        public ActionResult ChinhSuaLopHoc(string id, LopHoc _lopHoc)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Entry(_lopHoc).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    ViewBag.Error = "Something went wrong, please try again later";
+                    return View(_lopHoc);
+                }
+                return RedirectToAction("XemDanhSachLopHoc");
+            }
+            ViewBag.ModelError = "Wrong";
+            return View(_lopHoc);
+        }
 
-        public ActionResult XoaLopHoc()
-            => View();
+
+
+        public ActionResult XoaLopHoc(string id)
+            => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
+        [HttpPost]
+        public ActionResult XoaLopHoc(string id, LopHoc _lopHoc)
+        {
+            try
+            {
+                _lopHoc = db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault();
+                db.LopHoc.Remove(_lopHoc);
+                db.SaveChanges();
+            }
+            catch
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+                return View(_lopHoc);
+            }
+            return RedirectToAction("XemDanhSachLopHoc");
+        }
     }
 }
