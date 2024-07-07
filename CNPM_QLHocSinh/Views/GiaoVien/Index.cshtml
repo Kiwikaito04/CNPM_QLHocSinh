@@ -42,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinGiaoVien", new { id=item.MaGV }, new { @class = "btn btn-success" }) |
                 @Html.ActionLink("Chi tiết", "XemThongTinGiaoVien", new { id=item.MaGV  }, new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Xóa", "XoaGiaoVien", new { id=item.MaGV  }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

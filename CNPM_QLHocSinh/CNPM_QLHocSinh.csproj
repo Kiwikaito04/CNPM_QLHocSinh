@@ -280,6 +280,8 @@
     <Content Include="Views\HocSinh\XoaHocSinh.cshtml" />
     <Content Include="Views\HocSinh\ThemHocSinh.cshtml" />
     <Content Include="Views\HocSinh\XemThongTinHocSinh.cshtml" />
+    <Content Include="Views\GiaoVien\ChinhSuaThongTinGiaoVien.cshtml" />
+    <Content Include="Views\GiaoVien\XoaGiaoVien.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

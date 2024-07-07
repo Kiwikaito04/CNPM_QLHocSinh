@@ -1,11 +1,12 @@
 ﻿@model CNPM_QLHocSinh.Models.GiaoVien
 
 @{
-    ViewBag.Title = "XemThongTinGiaoVien";
+    ViewBag.Title = "XoaGiaoVien";
 }
 
-<h2>Xem Chi tiết Thông Tin Giáo Viên</h2>
+<h2>Xóa Giáo Viên</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Giáo Viên</h4>
     <hr />
@@ -67,11 +68,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ChucVu.TenCV)
+            @Html.DisplayNameFor(model => model.MaCV)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ChucVu.TenCV)
+            @Html.DisplayFor(model => model.MaCV)
         </dd>
 
         <dt>
@@ -83,8 +84,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại danh mục", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinGiaoVien", new { id = Model.MaGV }, new { @class = "btn btn-success" }) |
-    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
-</p>
