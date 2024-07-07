@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
-<h2>ChinhSuaDanhMucMonHoc</h2>
+<h2>Chỉnh Sửa Danh Mục Môn Học</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MonHoc</h4>
+        <h4>Môn Học</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -39,16 +39,17 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success" />
+                <a href="@Url.Action("XemDanhMucMonHoc")" class="btn btn-secondary">
+                    Quay lại danh mục
+                </a>
             </div>
         </div>
     </div>
 }
 
 <div>
-    <a href="@Url.Action("XemDanhMucMonHoc")" class="btn btn-secondary">
-        Quay lại danh mục
-    </a>
+    
 </div>
