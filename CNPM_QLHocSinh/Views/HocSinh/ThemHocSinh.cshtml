@@ -2,15 +2,22 @@
 
 @{
     ViewBag.Title = "ThemHocSinh";
-    
 }
 
 <h2>Thêm Học Sinh</h2>
+@if (ViewBag.ModelError != null)
+{
+    <div>@ViewBag.ModelError</div>
+}
+@if (ViewBag.Error != null)
+{
+    <div>@ViewBag.Error</div>
+}
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Học Sinh</h4>
         <hr />
@@ -33,7 +40,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+            <div class="col-md-10" style="margin:10px">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.GioiTinh)
                     @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
@@ -109,5 +117,5 @@
 }
 
 <div>
-    
+ 
 </div>

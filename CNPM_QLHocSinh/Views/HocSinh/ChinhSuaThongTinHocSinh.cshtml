@@ -6,10 +6,19 @@
 
 <h2>Chỉnh Sửa Thông Tin Học Sinh</h2>
 
+@if (ViewBag.ModelError != null)
+{
+    <div>@ViewBag.ModelError</div>
+}
+@if (ViewBag.Error != null)
+{
+    <div>@ViewBag.Error</div>
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Học Sinh</h4>
         <hr />
@@ -108,5 +117,5 @@
 }
 
 <div>
-    
+
 </div>

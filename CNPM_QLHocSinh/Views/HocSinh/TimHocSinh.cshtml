@@ -6,6 +6,15 @@
 
 <h2>Tìm Học Sinh</h2>
 
+@if (ViewBag.ModelError != null)
+{
+    <div>@ViewBag.ModelError</div>
+}
+@if (ViewBag.Error != null)
+{
+    <div>@ViewBag.Error</div>
+}
+
 <p>
     <a href="@Url.Action("ThemHocSinh")" class="btn btn-primary">
         Thêm Học sinh
@@ -46,44 +55,45 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaHS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoTen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgaySinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaTT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaLop)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pass)
-        </td>
-        <td>
-            @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new {  id=item.MaHS }, new { @class = "btn btn-success" }) |
-            @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaHS }, new { @class = "btn btn-primary" }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MaHS }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pass)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new { id = item.MaHS }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Xem chi tiết", "XemThongTinHocSinh", new { id = item.MaHS }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Xóa", "XoaHocSinh", new { id = item.MaHS }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
