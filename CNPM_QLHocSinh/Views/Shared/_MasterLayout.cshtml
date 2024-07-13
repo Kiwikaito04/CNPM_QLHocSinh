@@ -8,15 +8,37 @@
     <link href="~/Content/MyCss.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @section scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var gioiTinhCheckbox = document.getElementById('GioiTinh');
+                var gioiTinhLabel = document.getElementById('GioiTinhLabel');
+
+                updateGioiTinhLabel();
+
+                gioiTinhCheckbox.addEventListener('change', function () {
+                    updateGioiTinhLabel();
+                });
+
+                function updateGioiTinhLabel() {
+                    if (gioiTinhCheckbox.checked) {
+                        gioiTinhLabel.textContent = 'Nam';
+                    } else {
+                        gioiTinhLabel.textContent = 'Nữ';
+                    }
+                }
+            });
+        </script>
+    }
 </head>
 <body>
-    <div id = "div-top">
+    <div id="div-top">
         <a href="" class="name_app">QLHS</a>
     </div>
 
-    <div id = "div-main">
+    <div id="div-main">
 
-        <div id = "div-left">
+        <div id="div-left">
             <div class="menu">
                 <ul class="list_menu">
                     <li class="nav-link">
@@ -29,16 +51,16 @@
                         @Html.ActionLink("Hồ Sơ Học Sinh", "TimHocSinh", "HocSinh")
                     </li>
 
-                    <li class="nav-link">                       
-                        @Html.ActionLink("Quản Lý Khối Lớp", "XemKhoiLop", "KhoiLop")                    
+                    <li class="nav-link">
+                        @Html.ActionLink("Quản Lý Khối Lớp", "XemKhoiLop", "KhoiLop")
                     </li>
 
-                    <li class="nav-link">                     
-                        @Html.ActionLink("Quản Lý Lớp Học", "XemDanhSachLopHoc", "LopHoc")                    
+                    <li class="nav-link">
+                        @Html.ActionLink("Quản Lý Lớp Học", "XemDanhSachLopHoc", "LopHoc")
                     </li>
 
-                    <li class="nav-link">                     
-                        @Html.ActionLink("Quản Lý Môn Học", "XemDanhMucMonHoc", "MonHoc")                     
+                    <li class="nav-link">
+                        @Html.ActionLink("Quản Lý Môn Học", "XemDanhMucMonHoc", "MonHoc")
                     </li>
 
                     <li class="nav-link">
@@ -50,11 +72,11 @@
                     </li>
                 </ul>
             </div>
-    </div>
+        </div>
 
-        <div id = "div-containt">
-        @RenderBody()
-    </div>
+        <div id="div-containt">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
