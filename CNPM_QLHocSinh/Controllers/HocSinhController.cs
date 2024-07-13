@@ -39,7 +39,9 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult TimHocSinh()
             => View(db.HocSinh.ToList());
 
-        public ActionResult XemThongTinHocSinh(string id)
+        //XemThongTinHocSinh
+        //GET: HocSinh/Details/1
+        public ActionResult Details(string id)
             => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
 
         //ChinhSuaThongTinHocSinh
@@ -62,11 +64,12 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_hocsinh);
                 }
-               return RedirectToAction(nameof(XemThongTinHocSinh) + "/" + id.ToString());
+               return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_hocsinh);
         }
+
 
         public ActionResult DieuChinhTrangThaiHocSinh()
             => View();
