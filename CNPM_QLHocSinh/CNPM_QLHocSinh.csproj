@@ -185,7 +185,6 @@
       <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ViewLopHoc.cs" />
-    <Compile Include="Models\ViewModels\ViewMonHoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
