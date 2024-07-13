@@ -11,11 +11,13 @@ namespace CNPM_QLHocSinh.Controllers
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
-        //Thêm khối lớp
-        public ActionResult ThemKhoiLop() 
+        //ThemKhoiLop
+        //GET: KhoiLop/Create
+        public ActionResult Create() 
             => View();
+        //POST: KhoiLop/Create
         [HttpPost]
-        public ActionResult ThemKhoiLop(KhoiLop _khoiLop)
+        public ActionResult Create(KhoiLop _khoiLop)
         {
             if(ModelState.IsValid)
             {
