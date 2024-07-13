@@ -31,8 +31,18 @@
             @Html.DisplayNameFor(model => model.GioiTinh)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.GioiTinh)
+        </dd>*@
+        <dd>
+            @if (Model.GioiTinh)
+            {
+                <text>Nam</text>
+            }
+            else
+            {
+                <text>Nữ</text>
+            }
         </dd>
 
         <dt>
