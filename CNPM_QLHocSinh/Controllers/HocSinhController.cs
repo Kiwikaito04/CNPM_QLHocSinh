@@ -42,10 +42,13 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult XemThongTinHocSinh(string id)
             => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
 
-        public ActionResult ChinhSuaThongTinHocSinh(string id)
+        //ChinhSuaThongTinHocSinh
+        //GET: HocSinh/Edit/1
+        public ActionResult Edit(string id)
             => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
+        //POST: HocSinh/Edit/1
         [HttpPost]
-        public ActionResult ChinhSuaThongTinHocSinh(string id, HocSinh _hocsinh)
+        public ActionResult Edit(string id, HocSinh _hocsinh)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +62,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_hocsinh);
                 }
-                return RedirectToAction("TimHocSinh");
+                return RedirectToAction(nameof(Edit));
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_hocsinh);

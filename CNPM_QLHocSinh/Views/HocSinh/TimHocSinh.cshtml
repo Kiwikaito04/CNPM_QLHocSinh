@@ -89,7 +89,7 @@
                 @Html.DisplayFor(modelItem => item.Pass)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinHocSinh", new { id = item.MaHS }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaHS }, new { @class = "btn btn-success" }) |
                 @Html.ActionLink("Xem chi tiết", "XemThongTinHocSinh", new { id = item.MaHS }, new { @class = "btn btn-primary" }) |
                 @Html.ActionLink("Xóa", "XoaHocSinh", new { id = item.MaHS }, new { @class = "btn btn-danger" })
             </td>

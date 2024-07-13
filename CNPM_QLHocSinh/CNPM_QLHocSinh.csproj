@@ -263,7 +263,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
-    <Content Include="Views\HocSinh\ChinhSuaThongTinHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\Edit.cshtml" />
     <Content Include="Views\LopHoc\XemDanhSachLopHoc.cshtml" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\KhoiLop\XemKhoiLop.cshtml" />
