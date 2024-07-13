@@ -31,14 +31,14 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_khoiLop);
                 }
-                return RedirectToAction("XemKhoiLop");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_khoiLop);
         }
 
-        //Xem khối lớp aka Index
-        public ActionResult XemKhoiLop()
+        //XemKhoiLop
+        public ActionResult Index()
             => View(db.KhoiLop);
 
         //Chỉnh sửa khối lớp
@@ -59,7 +59,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_khoiLop);
                 }
-                return RedirectToAction("XemKhoiLop");
+                return RedirectToAction("Index");
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_khoiLop);
@@ -82,7 +82,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_khoiLop);
             }
-            return RedirectToAction("XemKhoiLop");
+            return RedirectToAction("Index");
         }
     }
 }
