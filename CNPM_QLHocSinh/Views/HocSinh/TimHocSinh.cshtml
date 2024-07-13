@@ -64,8 +64,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.HoTen)
             </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.GioiTinh)
+                @if (item.GioiTinh)
+                {
+                    <text>Nam</text>
+                }
+                else
+                {
+                    <text>Nữ</text>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NgaySinh)
