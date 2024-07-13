@@ -62,7 +62,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_hocsinh);
                 }
-                return RedirectToAction(nameof(Edit));
+               return RedirectToAction(nameof(XemThongTinHocSinh) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_hocsinh);
