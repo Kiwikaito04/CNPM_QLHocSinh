@@ -1,0 +1,100 @@
+﻿@model CNPM_QLHocSinh.Models.GiaoVien
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Xem Chi tiết Thông Tin Giáo Viên</h2>
+
+<div>
+    <h4>Giáo Viên</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaGV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaGV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        @*<dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>*@
+        <dd>
+            @if (Model.GioiTinh)
+            {
+                <text>Nam</text>
+            }
+            else
+            {
+                <text>Nữ</text>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChucVu.TenCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChucVu.TenCV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSuaThongTinGiaoVien", new { id = Model.MaGV }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
+</p>
