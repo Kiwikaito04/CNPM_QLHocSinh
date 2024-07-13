@@ -272,7 +272,7 @@
     <Content Include="Views\GiaoVien\Index.cshtml" />
     <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />
     <Content Include="Views\GiaoVien\XemThongTinGiaoVien.cshtml" />
-    <Content Include="Views\MonHoc\ThemDanhMucMonHoc.cshtml" />
+    <Content Include="Views\MonHoc\Create.cshtml" />
     <Content Include="Views\MonHoc\Index.cshtml" />
     <Content Include="Views\MonHoc\XoaDanhMucMonHoc.cshtml" />
     <Content Include="Views\MonHoc\ChinhSuaDanhMucMonHoc.cshtml" />

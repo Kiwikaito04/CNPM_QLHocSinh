@@ -16,14 +16,15 @@ namespace CNPM_QLHocSinh.Controllers
 
 
         //XemDanhMucMonHoc
-        // GET: MonHoc
+        //GET: MonHoc
         public ActionResult Index() => View(db.MonHoc);
 
-        //Add
-        public ActionResult ThemDanhMucMonHoc()
+        //ThemDanhMucMonHoc
+        //GET: MonHoc/Create
+        public ActionResult Create()
            => View();
         [HttpPost]
-        public ActionResult ThemDanhMucMonHoc(MonHoc _monHoc)
+        public ActionResult Create(MonHoc _monHoc)
         {
             if (ModelState.IsValid)
             {
@@ -42,9 +43,6 @@ namespace CNPM_QLHocSinh.Controllers
             ViewBag.ModelError = "Wrong";
             return View(_monHoc);
         }
-
-
-
 
         //Edit
         public ActionResult ChinhSuaDanhMucMonHoc(string id)
