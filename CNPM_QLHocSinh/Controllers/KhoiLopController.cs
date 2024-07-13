@@ -68,11 +68,13 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_khoiLop);
         }
 
-        //Xoá khối lớp
-        public ActionResult XoaKhoiLop(string id)
+        //XoaKhoiLop
+        //GET: KhoiLop/Delete/1
+        public ActionResult Delete(string id)
             => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
+        //POST: KhoiLop/Delete/1
         [HttpPost]
-        public ActionResult XoaKhoiLop(string id, KhoiLop _khoiLop)
+        public ActionResult Delete(string id, KhoiLop _khoiLop)
         {
             try
             {
@@ -85,7 +87,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_khoiLop);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
