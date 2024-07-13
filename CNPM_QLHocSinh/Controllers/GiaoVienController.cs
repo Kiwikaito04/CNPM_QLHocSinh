@@ -47,8 +47,9 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_giaoVien);
         }
 
-
-        public ActionResult XemThongTinGiaoVien(string id)
+        //XemThongTinGiaoVien
+        //GET: GiaoVien/Details/1
+        public ActionResult Details(string id)
             => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
 
         public ActionResult ChinhSuaThongTinGiaoVien(string id)
@@ -69,7 +70,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
                     return View(_giaoVien);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");

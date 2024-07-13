@@ -13,23 +13,11 @@ namespace CNPM_QLHocSinh.Controllers
     {
 
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+
+
+        //XemDanhMucMonHoc
         // GET: MonHoc
-
-
-        //View
-        public ActionResult XemDanhMucMonHoc()
-        {
-            //List<MonHoc> monhoc = db.MonHoc.ToList();
-            //List<ViewMonHoc> viewMonHoc = monhoc.Select(
-            //        x => new ViewMonHoc
-            //        {
-            //            MaMH = x.MaMH,
-            //            TenMH = x.TenMH,
-            //            MoTa = x.MoTa
-            //        }
-            //    ).ToList();
-            return View(db.MonHoc);
-        }
+        public ActionResult Index() => View(db.MonHoc);
 
         //Add
         public ActionResult ThemDanhMucMonHoc()
@@ -49,7 +37,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_monHoc);
                 }
-                return RedirectToAction("XemDanhMucMonHoc");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_monHoc);
@@ -77,7 +65,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_monHoc);
                 }
-                return RedirectToAction("XemDanhMucMonHoc");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_monHoc);
@@ -102,7 +90,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_monHoc);
             }
-            return RedirectToAction("XemDanhMucMonHoc");
+            return RedirectToAction(nameof(Index));
         }
     }
 }

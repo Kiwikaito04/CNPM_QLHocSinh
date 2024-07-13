@@ -185,7 +185,6 @@
       <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ViewLopHoc.cs" />
-    <Compile Include="Models\ViewModels\ViewMonHoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,17 +263,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\TimHocSinh.cshtml" />
     <Content Include="Views\HocSinh\Edit.cshtml" />
-    <Content Include="Views\LopHoc\XemDanhSachLopHoc.cshtml" />
+    <Content Include="Views\LopHoc\Index.cshtml" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
-    <Content Include="Views\KhoiLop\XemKhoiLop.cshtml" />
-    <Content Include="Views\KhoiLop\ThemKhoiLop.cshtml" />
-    <Content Include="Views\KhoiLop\ChinhSuaKhoiLop.cshtml" />
-    <Content Include="Views\KhoiLop\XoaKhoiLop.cshtml" />
+    <Content Include="Views\KhoiLop\Index.cshtml" />
+    <Content Include="Views\KhoiLop\Create.cshtml" />
+    <Content Include="Views\KhoiLop\Edit.cshtml" />
+    <Content Include="Views\KhoiLop\Delete.cshtml" />
     <Content Include="Views\GiaoVien\Index.cshtml" />
     <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />
     <Content Include="Views\GiaoVien\XemThongTinGiaoVien.cshtml" />
     <Content Include="Views\MonHoc\ThemDanhMucMonHoc.cshtml" />
-    <Content Include="Views\MonHoc\XemDanhMucMonHoc.cshtml" />
+    <Content Include="Views\MonHoc\Index.cshtml" />
     <Content Include="Views\MonHoc\XoaDanhMucMonHoc.cshtml" />
     <Content Include="Views\MonHoc\ChinhSuaDanhMucMonHoc.cshtml" />
     <Content Include="Views\HocSinh\XoaHocSinh.cshtml" />

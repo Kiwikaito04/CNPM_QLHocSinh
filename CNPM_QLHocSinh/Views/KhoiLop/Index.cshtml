@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CNPM_QLHocSinh.Models.KhoiLop>
 
 @{
-    ViewBag.Title = "XemKhoiLop";
+    ViewBag.Title = "Index";
 }
 
 <h2>Xem Khối Lớp</h2>
@@ -11,7 +11,7 @@
 }
 
 <p>
-    <a href="@Url.Action("ThemKhoiLop")" class="btn btn-primary">
+    <a href="@Url.Action("Create")" class="btn btn-primary">
         Thêm khối lớp mới
     </a>
 </p>
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.CapBac)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "ChinhSuaKhoiLop", new { id = item.MaKL }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaKL }, new { @class = "btn btn-success" }) |
                 @Html.ActionLink("Xoá", "XoaKhoiLop", new { id = item.MaKL }, new { @class = "btn btn-danger" })
             </td>
         </tr>

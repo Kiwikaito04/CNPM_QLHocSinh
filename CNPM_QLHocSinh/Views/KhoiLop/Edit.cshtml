@@ -1,10 +1,10 @@
 ﻿@model CNPM_QLHocSinh.Models.KhoiLop
 
 @{
-    ViewBag.Title = "ThemKhoiLop";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Thêm Khối Lớp</h2>
+<h2>Chỉnh sửa khối lớp</h2>
 @if (ViewBag.ModelError != null)
 {
     <div>@ViewBag.ModelError</div>
@@ -56,8 +56,8 @@
 
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
-                <a href="@Url.Action("XemKhoiLop")" class="btn btn-secondary">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a href="@Url.Action("Index")" class="btn btn-secondary">
                     Quay lại
                 </a>
             </div>
