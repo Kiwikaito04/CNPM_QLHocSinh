@@ -12,11 +12,6 @@ namespace CNPM_QLHocSinh.Controllers
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
-        
-
-        // GET: LopHoc
-
-
         public ActionResult XetDuyetLopMoi()
             => View();
 
@@ -46,15 +41,16 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction("XemDanhSachLopHoc");
+                return RedirectToAction("Index");
             }
             ViewBag.ModelError = "Wrong";
             return View(_lopHoc);
         }
 
 
-
-        public ActionResult XemDanhSachLopHoc()
+        //XemDanhSachLopHoc
+        //GET: LopHoc
+        public ActionResult Index()
         {
             List<LopHoc> lopHoc = db.LopHoc.ToList();
             List<ViewLopHoc> viewLopHoc = lopHoc.Select(
@@ -87,7 +83,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction("XemDanhSachLopHoc");
+                return RedirectToAction("Index");
             }
             ViewBag.ModelError = "Wrong";
             return View(_lopHoc);
@@ -111,7 +107,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_lopHoc);
             }
-            return RedirectToAction("XemDanhSachLopHoc");
+            return RedirectToAction("Index");
         }
     }
 }
