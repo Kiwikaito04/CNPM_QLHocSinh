@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.MoTa)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh sửa", "ChinhSuaDanhMucMonHoc", new { id = item.MaMH }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaMH }, new { @class = "btn btn-success" })
                 @Html.ActionLink("Xoá", "XoaDanhMucMonHoc", new { id = item.MaMH }, new { @class = "btn btn-danger" })
             </td>
         </tr>

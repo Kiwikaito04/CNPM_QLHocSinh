@@ -23,6 +23,7 @@ namespace CNPM_QLHocSinh.Controllers
         //GET: MonHoc/Create
         public ActionResult Create()
            => View();
+        //POST: MonHoc/Create
         [HttpPost]
         public ActionResult Create(MonHoc _monHoc)
         {
@@ -44,12 +45,13 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_monHoc);
         }
 
-        //Edit
-        public ActionResult ChinhSuaDanhMucMonHoc(string id)
+        //ChinhSuaDanhMucMonHoc
+        //GET: MonHoc/Edit/1
+        public ActionResult Edit(string id)
             => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
+        //POST: MonHoc/Edit/1
         [HttpPost]
-
-        public ActionResult ChinhSuaDanhMucMonHoc(string id, MonHoc _monHoc)
+        public ActionResult Edit(string id, MonHoc _monHoc)
         {
             if (ModelState.IsValid)
             {
