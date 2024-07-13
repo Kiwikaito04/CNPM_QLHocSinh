@@ -14,6 +14,7 @@
 {
     <div>@ViewBag.Error</div>
 }
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var gioiTinhCheckbox = document.getElementById('GioiTinhCheckbox');
@@ -34,6 +35,7 @@
         }
     });
 </script>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
