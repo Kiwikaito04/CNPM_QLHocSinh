@@ -268,7 +268,7 @@
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\KhoiLop\Index.cshtml" />
     <Content Include="Views\KhoiLop\Create.cshtml" />
-    <Content Include="Views\KhoiLop\ChinhSuaKhoiLop.cshtml" />
+    <Content Include="Views\KhoiLop\Edit.cshtml" />
     <Content Include="Views\KhoiLop\XoaKhoiLop.cshtml" />
     <Content Include="Views\GiaoVien\Index.cshtml" />
     <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />

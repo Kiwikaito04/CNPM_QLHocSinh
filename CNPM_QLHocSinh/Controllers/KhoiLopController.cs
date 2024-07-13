@@ -38,14 +38,17 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         //XemKhoiLop
+        //GET: KhoiLop
         public ActionResult Index()
             => View(db.KhoiLop);
 
-        //Chỉnh sửa khối lớp
-        public ActionResult ChinhSuaKhoiLop(string id)
+        //ChinhSuaKhoiLop
+        //GET: KhoiLop/Edit/1
+        public ActionResult Edit(string id)
             => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
+        //POST: KhoiLop/Edit/1
         [HttpPost]
-        public ActionResult ChinhSuaKhoiLop(string id, KhoiLop _khoiLop)
+        public ActionResult Edit(string id, KhoiLop _khoiLop)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +62,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_khoiLop);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_khoiLop);
