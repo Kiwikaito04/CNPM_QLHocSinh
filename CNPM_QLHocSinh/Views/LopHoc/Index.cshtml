@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CNPM_QLHocSinh.Models.ViewModels.ViewLopHoc>
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.LopHoc>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
 <h2>Xem Danh Sách Lớp Học</h2>
 
 <p>
-    <a href="@Url.Action("ThemLopHoc")" class="btn btn-primary">
+    <a href="@Url.Action("Create")" class="btn btn-primary">
         Thêm lớp học mới    
     </a>
 </p>
@@ -23,11 +23,8 @@
             @Html.DisplayNameFor(model => model.MoTa)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaKL)
+            @Html.DisplayNameFor(model => model.KhoiLop.TenKL)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.TenKL)
-        </th>*@
         <th></th>
     </tr>
 
@@ -43,14 +40,11 @@
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MaKL)
+            @Html.DisplayFor(modelItem => item.KhoiLop.TenKL)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.TenKL)
-        </td>*@
         <td>
             @Html.ActionLink("Chỉnh sửa", "ChinhSuaLopHoc", new { id=item.MaLop }, new { @class = "btn btn-success" }) |
-            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary" }) |*@
+            @Html.ActionLink("Chi tiết", "Details", new {  id=item.MaLop }, new { @class = "btn btn-primary" }) |
             @Html.ActionLink("Delete", "XoaLopHoc", new { id=item.MaLop  }, new { @class = "btn btn-danger" })
         </td>
     </tr>

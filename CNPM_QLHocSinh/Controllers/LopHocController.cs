@@ -2,6 +2,7 @@
 using CNPM_QLHocSinh.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,14 +21,14 @@ namespace CNPM_QLHocSinh.Controllers
 
         public ActionResult ChuyenLop()
             => View();
-        
 
-
-        //Thêm lớp học
-        public ActionResult ThemLopHoc()
+        //ThemLopHoc
+        //GET: LopHoc/Create
+        public ActionResult Create()
             => View();
+        //POST: LopHoc/Create
         [HttpPost]
-        public ActionResult ThemLopHoc(LopHoc _lopHoc)
+        public ActionResult Create(LopHoc _lopHoc)
         {
             if (ModelState.IsValid)
             {
@@ -41,7 +42,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_lopHoc);
@@ -50,21 +51,8 @@ namespace CNPM_QLHocSinh.Controllers
 
         //XemDanhSachLopHoc
         //GET: LopHoc
-        public ActionResult Index()
-        {
-            List<LopHoc> lopHoc = db.LopHoc.ToList();
-            List<ViewLopHoc> viewLopHoc = lopHoc.Select(
-                    x => new ViewLopHoc
-                    {
-                        MaLop = x.MaLop,
-                        TenLop = x.TenLop,
-                        MoTa = x.MoTa,
-                        MaKL = x.KhoiLop.MaKL,
-                        //TenKL = x.KhoiLop.TenKL
-                    }
-                ).ToList();
-            return View(viewLopHoc);
-        }
+        public ActionResult Index() 
+            => View(db.LopHoc.Include(s => s.KhoiLop).ToList());
 
         public ActionResult ChinhSuaLopHoc(string id)
             => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
@@ -83,7 +71,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_lopHoc);
@@ -107,7 +95,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_lopHoc);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
