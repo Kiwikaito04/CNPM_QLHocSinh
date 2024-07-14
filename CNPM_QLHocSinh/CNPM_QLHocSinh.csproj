@@ -276,7 +276,7 @@
     <Content Include="Views\MonHoc\Index.cshtml" />
     <Content Include="Views\MonHoc\XoaDanhMucMonHoc.cshtml" />
     <Content Include="Views\MonHoc\Edit.cshtml" />
-    <Content Include="Views\HocSinh\XoaHocSinh.cshtml" />
+    <Content Include="Views\HocSinh\Delete.cshtml" />
     <Content Include="Views\HocSinh\Create.cshtml" />
     <Content Include="Views\HocSinh\Details.cshtml" />
     <Content Include="Views\GiaoVien\ChinhSuaThongTinGiaoVien.cshtml" />

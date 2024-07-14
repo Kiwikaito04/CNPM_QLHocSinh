@@ -78,10 +78,13 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult DieuChinhTrangThaiHocSinh()
             => View();
 
-        public ActionResult XoaHocSinh(string id)
+        //XoaHocSinh
+        //GET: HocSinh/Delete/1
+        public ActionResult Delete(string id)
             => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
+        //POST: HocSinh/Delete/1
         [HttpPost]
-        public ActionResult XoaHocSinh(string id, HocSinh _hocsinh)
+        public ActionResult Delete(string id, HocSinh _hocsinh)
         {
             try
             {
