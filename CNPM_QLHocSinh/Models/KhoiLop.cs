@@ -23,17 +23,17 @@ namespace CNPM_QLHocSinh.Models
         }
 
         [DisplayName("Mã khối lớp")]
-        [StringLength(2)]
+        [StringLength(2, ErrorMessage = "Mã khối chỉ có thể chứa 2 ký tự.")]
         [Required(ErrorMessage = "Mã khối lớp là bắt buộc")]
         public string MaKL { get; set; }
 
         [DisplayName("Tên khối lớp")]
         [Required(ErrorMessage = "Tên khối lớp là bắt buộc")]
-        [StringLength(20)]
+        [StringLength(20, ErrorMessage = "Tên khối chỉ có thể chứa 20 ký tự.")]
         public string TenKL { get; set; }
 
         [DisplayName("Mô tả")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "Mô tả chỉ có thể chứa 100 ký tự.")]
         public string MoTa { get; set; }
 
         [DisplayName("Cấp bậc")]
