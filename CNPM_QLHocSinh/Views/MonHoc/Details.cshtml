@@ -1,0 +1,40 @@
+﻿@model CNPM_QLHocSinh.Models.MonHoc
+
+@{
+    ViewBag.Title = "Môn học";
+}
+
+<h2>Chi tiết môn học</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaMH }) |
+    @Html.Partial("_BackButton")
+</p>
