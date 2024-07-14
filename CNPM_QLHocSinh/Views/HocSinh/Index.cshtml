@@ -15,8 +15,23 @@
     <div>@ViewBag.Error</div>
 }
 
+<form method="get" action="@Url.Action("Index")">
+    <div class="search">
+        <div id="search_text">
+            <input type="text" name="searchHS" class="form-control" placeholder="Nhập tên học sinh" value="@ViewBag.SearchHS" />
+        </div>
+        <div id="button_search">
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </div>
+        <div id="partial_button">
+            @Html.Partial("_CreateButton")
+        </div>
+    </div>
+    
+</form>
+
 <p>
-    @Html.Partial("_CreateButton")
+    
 </p>
 <table class="table">
     <tr>
