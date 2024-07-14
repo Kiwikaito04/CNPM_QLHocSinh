@@ -1,0 +1,48 @@
+﻿@model CNPM_QLHocSinh.Models.KhoiLop
+
+@{
+    ViewBag.Title = "Khối lớp";
+}
+
+<h2>Chi tiết khối lớp</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenKL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapBac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapBac)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaKL }, new { @class = "btn btn-success" }) |
+    @Html.Partial("_BackButton")
+</p>

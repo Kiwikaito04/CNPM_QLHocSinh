@@ -36,7 +36,7 @@ namespace CNPM_QLHocSinh.Controllers
 
             if (model.SelectedNumber == null || model.SelectedNumber < 1 || model.SelectedNumber > 9)
             {
-                ModelState.AddModelError("SelectedNumber", "Vui lòng chọn số từ 1 đến 9.");
+                ModelState.AddModelError("SelectedNumber", "Vui lòng chọn số khả dụng.");
                 return View(model);
             }
 
@@ -66,6 +66,11 @@ namespace CNPM_QLHocSinh.Controllers
         //GET: KhoiLop
         public ActionResult Index()
             => View(db.KhoiLop);
+
+        //XemThongTinKhoi
+        //GET: KhoiLop/Details/1
+        public ActionResult Details(string id)
+            => View(db.KhoiLop.Where(s => s.MaKL == id).FirstOrDefault());
 
         //ChinhSuaKhoiLop
         //GET: KhoiLop/Edit/1
