@@ -280,7 +280,7 @@
     <Content Include="Views\HocSinh\Create.cshtml" />
     <Content Include="Views\HocSinh\Details.cshtml" />
     <Content Include="Views\GiaoVien\Edit.cshtml" />
-    <Content Include="Views\GiaoVien\XoaGiaoVien.cshtml" />
+    <Content Include="Views\GiaoVien\Delete.cshtml" />
     <Content Include="Views\LopHoc\ThemLopHoc.cshtml" />
     <Content Include="Views\LopHoc\ChinhSuaLopHoc.cshtml" />
     <Content Include="Views\LopHoc\XoaLopHoc.cshtml" />

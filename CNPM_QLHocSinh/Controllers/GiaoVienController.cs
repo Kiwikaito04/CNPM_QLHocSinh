@@ -81,10 +81,14 @@ namespace CNPM_QLHocSinh.Controllers
             ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View(_giaoVien);
         }
-        public ActionResult XoaGiaoVien(string id)
+
+        //XoaGiaoVien
+        //GET: GiaoVien/Delete/1
+        public ActionResult Delete(string id)
             => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
+        //POST: GiaoVien/Delete/1
         [HttpPost]
-        public ActionResult XoaGiaoVien(string id, GiaoVien _giaoVien)
+        public ActionResult Delete(string id, GiaoVien _giaoVien)
         {
             try
             {
