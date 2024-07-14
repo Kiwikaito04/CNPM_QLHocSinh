@@ -18,14 +18,16 @@ namespace CNPM_QLHocSinh.Controllers
             return View(db.GiaoVien.Include(s => s.ChucVu));
         }
 
-        public ActionResult ThemGiaoVien()
+        //ThemGiaoVien
+        //GET: GiaoVien/Create
+        public ActionResult Create()
         {
             ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
-            //return View();
             return View();
         }
+        //POST: GiaoVien/Create
         [HttpPost]
-        public ActionResult ThemGiaoVien(GiaoVien _giaoVien)
+        public ActionResult Create(GiaoVien _giaoVien)
         {
             if (ModelState.IsValid)
             {
@@ -40,7 +42,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
                     return View(_giaoVien);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
@@ -93,7 +95,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
                 return View(_giaoVien);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
     }

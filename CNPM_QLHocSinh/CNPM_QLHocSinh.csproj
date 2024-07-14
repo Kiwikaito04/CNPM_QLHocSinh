@@ -270,7 +270,7 @@
     <Content Include="Views\KhoiLop\Edit.cshtml" />
     <Content Include="Views\KhoiLop\Delete.cshtml" />
     <Content Include="Views\GiaoVien\Index.cshtml" />
-    <Content Include="Views\GiaoVien\ThemGiaoVien.cshtml" />
+    <Content Include="Views\GiaoVien\Create.cshtml" />
     <Content Include="Views\GiaoVien\Details.cshtml" />
     <Content Include="Views\MonHoc\Create.cshtml" />
     <Content Include="Views\MonHoc\Index.cshtml" />
