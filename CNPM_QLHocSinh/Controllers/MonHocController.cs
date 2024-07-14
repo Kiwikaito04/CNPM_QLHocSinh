@@ -1,5 +1,4 @@
-﻿using CNPM_QLHocSinh.Models.ViewModels;
-using CNPM_QLHocSinh.Models;
+﻿using CNPM_QLHocSinh.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
