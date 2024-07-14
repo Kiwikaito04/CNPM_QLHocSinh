@@ -34,9 +34,8 @@ namespace CNPM_QLHocSinh.Controllers
         {
             getAvailableKL();
 
-            if (model.SelectedNumber == null || model.SelectedNumber < 1 || model.SelectedNumber > 9)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("SelectedNumber", "Vui lòng chọn số khả dụng.");
                 return View(model);
             }
 
