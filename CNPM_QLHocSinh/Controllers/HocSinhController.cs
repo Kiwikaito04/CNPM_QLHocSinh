@@ -12,11 +12,12 @@ namespace CNPM_QLHocSinh.Controllers
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
         
-
-        public ActionResult ThemHocSinh()
+        //ThemHocSinh
+        //GET: HocSinh/Create
+        public ActionResult Create()
             => View();
         [HttpPost]
-        public ActionResult ThemHocSinh(HocSinh _hocsinh)
+        public ActionResult Create(HocSinh _hocsinh)
         {
             if (ModelState.IsValid)
             {
