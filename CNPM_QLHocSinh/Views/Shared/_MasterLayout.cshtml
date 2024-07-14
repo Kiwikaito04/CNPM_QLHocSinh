@@ -8,29 +8,29 @@
     <link href="~/Content/MyCss.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    
     @*@section scripts {
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var gioiTinhCheckbox = document.getElementById('GioiTinh');
-                var gioiTinhLabel = document.getElementById('GioiTinhLabel');
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var gioiTinhCheckbox = document.getElementById('GioiTinh');
+                    var gioiTinhLabel = document.getElementById('GioiTinhLabel');
 
-                updateGioiTinhLabel();
-
-                gioiTinhCheckbox.addEventListener('change', function () {
                     updateGioiTinhLabel();
-                });
 
-                function updateGioiTinhLabel() {
-                    if (gioiTinhCheckbox.checked) {
-                        gioiTinhLabel.textContent = 'Nam';
-                    } else {
-                        gioiTinhLabel.textContent = 'Nữ';
+                    gioiTinhCheckbox.addEventListener('change', function () {
+                        updateGioiTinhLabel();
+                    });
+
+                    function updateGioiTinhLabel() {
+                        if (gioiTinhCheckbox.checked) {
+                            gioiTinhLabel.textContent = 'Nam';
+                        } else {
+                            gioiTinhLabel.textContent = 'Nữ';
+                        }
                     }
-                }
-            });
-        </script>
-    }*@
+                });
+            </script>
+        }*@
 
 </head>
 <body>
@@ -80,5 +80,6 @@
             @RenderBody()
         </div>
     </div>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -185,6 +185,7 @@
       <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\KLView.cs" />
+    <Compile Include="Models\ViewModels\LHView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

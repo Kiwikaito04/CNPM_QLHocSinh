@@ -1,4 +1,5 @@
 ﻿using CNPM_QLHocSinh.Models;
+using CNPM_QLHocSinh.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,30 +22,77 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult ChuyenLop()
             => View();
 
+        private string GenerateMaLop(int selectedNumber, string selectedMaKL)
+        {
+            var lastLopHoc = db.LopHoc
+                .Where(l => l.MaKL == selectedMaKL)
+                .OrderByDescending(l => l.MaLop)
+                .FirstOrDefault();
+
+            int newNumber = 1;
+            if (lastLopHoc != null)
+            {
+                int.TryParse(lastLopHoc.MaLop.Substring(1), out newNumber);
+                newNumber++;
+            }
+
+            return $"{selectedNumber}{newNumber}";
+        }
+        private LHView getLHView()
+        {
+            return new LHView
+            {
+                AvailableNumbers = Enumerable.Range(1, 20),
+                DSKhoiLop = db.KhoiLop.ToList()
+            };
+        }
+
         //ThemLopHoc
         //GET: LopHoc/Create
         public ActionResult Create()
-            => View();
+        {
+            LHView viewModel = getLHView();
+            return View(viewModel);
+        }
+
+
         //POST: LopHoc/Create
         [HttpPost]
-        public ActionResult Create(LopHoc _lopHoc)
+        public ActionResult Create(LHView _lopHoc)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    db.LopHoc.Add(_lopHoc);
-                    db.SaveChanges();
-                }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    return View(_lopHoc);
-                }
-                return RedirectToAction(nameof(Index));
+                _lopHoc = getLHView();
+                return View(_lopHoc);
             }
-            ViewBag.ModelError = "Wrong";
-            return View(_lopHoc);
+
+            var tenLop = $"{_lopHoc.SelectedMaKL.Remove(0, 1)}A{_lopHoc.SelectedNumber}";
+            if (db.LopHoc.Any(s => s.TenLop == tenLop))
+            {
+                ViewBag.ModelError = "Lớp đã tồn tại";
+                _lopHoc = getLHView();
+                return View(_lopHoc);
+            }
+
+            var lopHoc = new LopHoc
+            {
+                MaLop = GenerateMaLop(_lopHoc.SelectedNumber, _lopHoc.SelectedMaKL),
+                TenLop = $"{_lopHoc.SelectedMaKL.Remove(0,1)}A{_lopHoc.SelectedNumber}",
+                MoTa = $"Khối {_lopHoc.SelectedMaKL.Remove(0, 1)}, Lớp số {_lopHoc.SelectedNumber}",
+                MaKL = _lopHoc.SelectedMaKL
+            };
+
+            try
+            {
+                db.LopHoc.Add(lopHoc);
+                db.SaveChanges();
+            }
+            catch
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+                return View(_lopHoc);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
 
