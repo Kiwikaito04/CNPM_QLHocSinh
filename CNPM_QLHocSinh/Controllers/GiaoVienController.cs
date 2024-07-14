@@ -54,10 +54,13 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult Details(string id)
             => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
 
-        public ActionResult ChinhSuaThongTinGiaoVien(string id)
+        //ChinhSuaThongTinGiaoVien
+        //GET: GiaoVien/Edit/1
+        public ActionResult Edit(string id)
             => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
+        //POST: GiaoVien/Edit/1
         [HttpPost]
-        public ActionResult ChinhSuaThongTinGiaoVien(string id, GiaoVien _giaoVien)
+        public ActionResult Edit(string id, GiaoVien _giaoVien)
         {
             if (ModelState.IsValid)
             {
