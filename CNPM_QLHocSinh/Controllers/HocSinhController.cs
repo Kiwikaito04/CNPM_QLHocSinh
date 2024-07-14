@@ -98,6 +98,7 @@ namespace CNPM_QLHocSinh.Controllers
                 return View(_hocsinh);
             }
             return RedirectToAction(nameof(Index));
+            //a
         }
 
     }
