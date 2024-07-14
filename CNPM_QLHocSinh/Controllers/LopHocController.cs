@@ -54,10 +54,13 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult Index() 
             => View(db.LopHoc.Include(s => s.KhoiLop).ToList());
 
-        public ActionResult ChinhSuaLopHoc(string id)
+        //ChinhSuaLopHoc
+        //GET: LopHoc/Edit/1
+        public ActionResult Edit(string id)
             => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
+        //POST: LopHoc/Edit/1
         [HttpPost]
-        public ActionResult ChinhSuaLopHoc(string id, LopHoc _lopHoc)
+        public ActionResult Edit(string id, LopHoc _lopHoc)
         {
             if (ModelState.IsValid)
             {

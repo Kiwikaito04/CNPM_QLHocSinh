@@ -43,7 +43,7 @@
             @Html.DisplayFor(modelItem => item.KhoiLop.TenKL)
         </td>
         <td>
-            @Html.ActionLink("Chỉnh sửa", "ChinhSuaLopHoc", new { id=item.MaLop }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.MaLop }, new { @class = "btn btn-success" }) |
             @Html.ActionLink("Chi tiết", "Details", new {  id=item.MaLop }, new { @class = "btn btn-primary" }) |
             @Html.ActionLink("Delete", "XoaLopHoc", new { id=item.MaLop  }, new { @class = "btn btn-danger" })
         </td>
