@@ -85,11 +85,13 @@ namespace CNPM_QLHocSinh.Controllers
         public ActionResult Details(string id)
             => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
 
-
-        public ActionResult XoaLopHoc(string id)
+        //XoaLopHoc
+        //GET: HocSinh/Delete/1
+        public ActionResult Delete(string id)
             => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
+        //POST: HocSinh/Delete/1
         [HttpPost]
-        public ActionResult XoaLopHoc(string id, LopHoc _lopHoc)
+        public ActionResult Delete(string id, LopHoc _lopHoc)
         {
             try
             {

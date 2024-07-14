@@ -283,7 +283,7 @@
     <Content Include="Views\GiaoVien\Delete.cshtml" />
     <Content Include="Views\LopHoc\Create.cshtml" />
     <Content Include="Views\LopHoc\Edit.cshtml" />
-    <Content Include="Views\LopHoc\XoaLopHoc.cshtml" />
+    <Content Include="Views\LopHoc\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />
