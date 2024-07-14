@@ -89,6 +89,7 @@ namespace CNPM_QLHocSinh.Controllers
             }
             catch
             {
+                _lopHoc = getLHView();
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_lopHoc);
             }
