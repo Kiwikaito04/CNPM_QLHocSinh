@@ -113,6 +113,7 @@ namespace CNPM_QLHocSinh.Controllers
         [HttpPost]
         public ActionResult Edit(string id, LopHoc _lopHoc)
         {
+            _lopHoc.KhoiLop = null;
             if (ModelState.IsValid)
             {
                 try
