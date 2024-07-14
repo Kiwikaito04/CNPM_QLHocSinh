@@ -99,7 +99,7 @@ namespace CNPM_QLHocSinh.Controllers
                 }
                 return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
-            ViewBag.ModelError = "Wrong";
+            ViewBag.ModelError = "Biểu mẫu sai";
             return View(_monHoc);
         }
 

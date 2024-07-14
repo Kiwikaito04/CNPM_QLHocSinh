@@ -6,19 +6,17 @@
 
 <h2>Xóa Khối Lớp</h2>
 
-@if (ViewBag.Error != null)
- {
-    <div>@ViewBag.Error</div>
- }
+@Html.Partial("_ViewBagError")
+
 @{bool check = Model.LopHoc.Count > 0; }
 @if (!check)
- {
+{
     <h3>Bạn có chắc muốn xoá khối lớp này không?</h3>
- }
- else
- {
+}
+else
+{
     <h3>Không thể xoá vì có tồn tại lớp học của khối này.</h3>
- }    
+}
 <div>
     <dl class="dl-horizontal">
         <dt>
@@ -52,12 +50,12 @@
         <dd>
             @Html.DisplayFor(model => model.CapBac)
         </dd>
-       @if(check)
+        @if (check)
         {
             <dt>
                 Danh sách lớp của khối
             </dt>
-           foreach (var i in Model.LopHoc)
+            foreach (var i in Model.LopHoc)
             {
                 <dd>
                     @Html.DisplayFor(item => i.TenLop)
@@ -73,7 +71,7 @@
 
         <div class="form-actions no-color">
             @if (!check)
-             {<input type="submit" value="Xoá" class="btn btn-danger" /> <a>|</a>}
+            {<input type="submit" value="Xoá" class="btn btn-danger" /> <a>|</a>}
             @Html.Partial("_BackButton")
         </div>
     }
