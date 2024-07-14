@@ -1,7 +1,7 @@
 ﻿@model CNPM_QLHocSinh.Models.KhoiLop
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Khối lớp";
 }
 
 <h2>Chỉnh sửa khối lớp</h2>
@@ -19,8 +19,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Khối Lớp</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.MaKL, htmlAttributes: new { @class = "control-label col-md-2" })

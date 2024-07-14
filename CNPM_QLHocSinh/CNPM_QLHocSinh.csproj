@@ -288,6 +288,7 @@
     <Content Include="Views\Shared\_BackButton.cshtml" />
     <Content Include="Views\Shared\_CreateButton.cshtml" />
     <Content Include="Views\KhoiLop\Details.cshtml" />
+    <Content Include="Views\LopHoc\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

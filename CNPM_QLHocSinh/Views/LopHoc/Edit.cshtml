@@ -1,7 +1,7 @@
 ﻿@model CNPM_QLHocSinh.Models.LopHoc
 
 @{
-    ViewBag.Title = "ChinhSuaLopHoc";
+    ViewBag.Title = "Lớp học";
 }
 
 <h2>Chỉnh Sửa Lớp Học</h2>
@@ -20,8 +20,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Lớp Học</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.MaLop, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -57,7 +55,7 @@
 
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Lưu" class="btn btn-success" />
                 @Html.Partial("_BackButton")
             </div>
         </div>
