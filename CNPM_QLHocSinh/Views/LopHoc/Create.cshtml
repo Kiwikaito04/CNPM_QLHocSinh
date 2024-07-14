@@ -6,42 +6,35 @@
 
 <h2>Thêm Lớp Học</h2>
 
-@if (ViewBag.ModelError != null)
-{
-    <div>@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+@Html.Partial("_ViewBagError")
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.Label("Chọn số", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SelectedNumber, new SelectList(Model.AvailableNumbers), "-- Chọn số --", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.SelectedNumber, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Chọn số", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedNumber, new SelectList(Model.AvailableNumbers), "-- Chọn số --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedNumber, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Chọn khối lớp", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SelectedMaKL, new SelectList(Model.DSKhoiLop, "MaKL", "TenKL"), "-- Chọn khối lớp --", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.SelectedMaKL, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Chọn khối lớp", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedMaKL, new SelectList(Model.DSKhoiLop, "MaKL", "TenKL"), "-- Chọn khối lớp --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedMaKL, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group" style="margin:10px">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-success">Thêm</button> | 
-            @Html.Partial("_BackButton")
+        <div class="form-group" style="margin:10px">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Thêm</button> |
+                @Html.Partial("_BackButton")
+            </div>
         </div>
     </div>
-</div>
 }

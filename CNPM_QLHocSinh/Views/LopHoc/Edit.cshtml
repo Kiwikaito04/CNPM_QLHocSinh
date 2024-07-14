@@ -6,14 +6,7 @@
 
 <h2>Chỉnh Sửa Lớp Học</h2>
 
-@if (ViewBag.ModelError != null)
-{
-    <div class="text-danger">@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div class="text-danger">@ViewBag.Error</div>
-}
+@Html.Partial("_ViewBagError")
 
 @using (Html.BeginForm())
 {
@@ -24,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MaLop, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaLop, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MaLop, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.MaLop, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TenLop, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenLop, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TenLop, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.TenLop, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -48,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MaKL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaKL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.MaKL, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.MaKL, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -63,5 +56,5 @@
 }
 
 <div>
-    
+
 </div>
