@@ -1,4 +1,4 @@
-﻿@model CNPM_QLHocSinh.Models.KhoiLop
+﻿@model CNPM_QLHocSinh.Models.ViewModels.KLView
 
 @{
     ViewBag.Title = "Thêm khối lớp";
@@ -18,49 +18,43 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @if (ViewBag.AvailableNumbers != null && ViewBag.AvailableNumbers.Count > 0)
+    {
         <div class="form-group">
-            @Html.LabelFor(model => model.MaKL, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MaKL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaKL, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedNumber, new SelectList(ViewBag.AvailableNumbers), "-- Chọn số --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SelectedNumber, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenKL, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenKL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenKL, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CapBac, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CapBac, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CapBac, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
+        <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-success">Tạo mới</button> | 
+                <button type="submit" class="btn btn-success">Tạo mới</button> |
                 @Html.Partial("_BackButton")
             </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="form-group">
+            @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <p>Không có số nào để chọn.</p>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin:10px">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.Partial("_BackButton")
+            </div>
+        </div>
+    }
+</div>
 }
 
 <div>
-    
+
 </div>

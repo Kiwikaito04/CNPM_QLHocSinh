@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CNPM_QLHocSinh.Models;
+using CNPM_QLHocSinh.Models.ViewModels;
 
 namespace CNPM_QLHocSinh.Controllers
 {
@@ -11,30 +12,54 @@ namespace CNPM_QLHocSinh.Controllers
     {
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
+        private void getAvailableKL()
+        {
+            var listKhoiLop = db.KhoiLop.Select(k => k.CapBac).ToList();
+            var availableNumbers = Enumerable.Range(1, 9).Except(listKhoiLop).ToList();
+            ViewBag.AvailableNumbers = availableNumbers;
+        }
+
         //ThemKhoiLop
         //GET: KhoiLop/Create
-        public ActionResult Create() 
-            => View();
+        public ActionResult Create()
+        {
+            getAvailableKL();
+            var model = new KLView();
+            return View(model);
+        }
+
         //POST: KhoiLop/Create
         [HttpPost]
-        public ActionResult Create(KhoiLop _khoiLop)
+        public ActionResult Create(KLView model)
         {
-            if(ModelState.IsValid)
+            getAvailableKL();
+
+            if (model.SelectedNumber == null || model.SelectedNumber < 1 || model.SelectedNumber > 9)
             {
-                try
-                {
-                    db.KhoiLop.Add(_khoiLop);
-                    db.SaveChanges();
-                }
-                catch 
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    return View(_khoiLop);
-                }
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("SelectedNumber", "Vui lòng chọn số từ 1 đến 9.");
+                return View(model);
             }
-            ViewBag.ModelError = "Biểu mẫu không hợp lệ";
-            return View(_khoiLop);
+
+            var _khoiLop = new KhoiLop
+            {
+                MaKL = "K" + model.SelectedNumber,
+                TenKL = "Khối " + model.SelectedNumber,
+                MoTa = "Danh mục khối lớp " + model.SelectedNumber,
+                CapBac = model.SelectedNumber.Value
+            };
+
+            try
+            {
+                db.KhoiLop.Add(_khoiLop);
+                db.SaveChanges();
+            }
+            catch 
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+                return View();
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         //XemKhoiLop
