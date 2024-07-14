@@ -88,6 +88,28 @@
         border-color: #cc0000;
     }
 
-.feature-button{
+.feature-button {
+    margin: 10px;
+    padding-left: 20px;
+}
+
+.search {
+    display: flex;
     margin:10px;
+    align-items:center;
+}
+
+#search_text input{
+    height:40px;
+    width:400px;
+}
+#button_search button{
+    height:40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left:-10px;
+}
+
+#partial_button{
+    margin-left: 30px;
 }
