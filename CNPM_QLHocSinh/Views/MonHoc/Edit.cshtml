@@ -1,11 +1,10 @@
 ﻿@model CNPM_QLHocSinh.Models.MonHoc
 
 @{
-    ViewBag.Title = "ChinhSuaDanhMucMonHoc";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    ViewBag.Title = "Môn học";
 }
 
-<h2>Chỉnh Sửa Danh Mục Môn Học</h2>
+<h2>Chỉnh sửa Môn Học</h2>
 
 @using (Html.BeginForm())
 {
@@ -41,7 +40,7 @@
 
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Lưu" class="btn btn-success" />
                 @Html.Partial("_BackButton")
             </div>
         </div>

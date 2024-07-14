@@ -186,6 +186,7 @@
     </Compile>
     <Compile Include="Models\ViewModels\KLView.cs" />
     <Compile Include="Models\ViewModels\LHView.cs" />
+    <Compile Include="Models\ViewModels\MHView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +290,7 @@
     <Content Include="Views\Shared\_CreateButton.cshtml" />
     <Content Include="Views\KhoiLop\Details.cshtml" />
     <Content Include="Views\LopHoc\Details.cshtml" />
+    <Content Include="Views\MonHoc\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

@@ -1,4 +1,6 @@
 ﻿using CNPM_QLHocSinh.Models;
+using CNPM_QLHocSinh.Models.ViewModels;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,30 +18,58 @@ namespace CNPM_QLHocSinh.Controllers
         //GET: MonHoc
         public ActionResult Index() => View(db.MonHoc);
 
+        private string GenerateMaMH()
+        {
+            var lastMonHoc = db.MonHoc
+                .OrderByDescending(mh => mh.MaMH)
+                .FirstOrDefault();
+
+            int newNumber = 1;
+            if (lastMonHoc != null)
+            {
+                int.TryParse(lastMonHoc.MaMH, out newNumber);
+                newNumber++;
+            }
+
+            return newNumber.ToString("D2");
+        }
+
         //ThemDanhMucMonHoc
         //GET: MonHoc/Create
         public ActionResult Create()
            => View();
         //POST: MonHoc/Create
         [HttpPost]
-        public ActionResult Create(MonHoc _monHoc)
+        public ActionResult Create(MHView model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    db.MonHoc.Add(_monHoc);
-                    db.SaveChanges();
-                }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    return View(_monHoc);
-                }
-                return RedirectToAction(nameof(Index));
+                return View(model);
             }
-            ViewBag.ModelError = "Wrong";
-            return View(_monHoc);
+
+            if(model.MoTa.IsNullOrWhiteSpace())
+            {
+                model.MoTa = $"Môn học {model.TenMH}";
+            }
+            
+            var _monHoc = new MonHoc
+            {
+                MaMH = GenerateMaMH(),
+                TenMH = model.TenMH,
+                MoTa = model.MoTa
+            };
+
+            try
+            {
+                db.MonHoc.Add(_monHoc);
+                db.SaveChanges();
+            }
+            catch
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+                return View(_monHoc);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         //ChinhSuaDanhMucMonHoc
@@ -67,6 +97,11 @@ namespace CNPM_QLHocSinh.Controllers
             ViewBag.ModelError = "Wrong";
             return View(_monHoc);
         }
+
+        //XemThongTinMon
+        //GET: MonHoc/Details/1
+        public ActionResult Details(string id)
+            => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
 
         //XoaDanhMucMonHoc 
         //GET: MonHoc/Delete/1
