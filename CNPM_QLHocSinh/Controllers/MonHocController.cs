@@ -11,9 +11,7 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class MonHocController : Controller
     {
-
         CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
-
 
         //XemDanhMucMonHoc
         //GET: MonHoc
@@ -71,9 +69,7 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_monHoc);
         }
 
-
-
-        //Delete
+        //XoaDanhMucMonHoc  +
         public ActionResult XoaDanhMucMonHoc(string id)
             => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
         [HttpPost]
