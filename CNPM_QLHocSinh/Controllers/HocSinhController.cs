@@ -40,8 +40,22 @@ namespace CNPM_QLHocSinh.Controllers
 
         //TimHocSinh
         //GET: HocSinh
-        public ActionResult Index()
-            => View(db.HocSinh.ToList());
+
+        //public ActionResult Index()
+        //    => View(db.HocSinh.ToList());
+        public ActionResult Index(string searchHS)
+        {
+            var hocsinh = from hsinh in db.HocSinh select hsinh;
+
+            if (!String.IsNullOrEmpty(searchHS))
+            {
+                hocsinh = hocsinh.Where(hsinh => hsinh.MaHS.Contains(searchHS) || hsinh.HoTen.Contains(searchHS));
+                ViewBag.SearchHS = searchHS;
+            }
+
+            return View(hocsinh.ToList());
+        }
+
 
         //XemThongTinHocSinh
         //GET: HocSinh/Details/1
