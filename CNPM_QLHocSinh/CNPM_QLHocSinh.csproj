@@ -291,6 +291,7 @@
     <Content Include="Views\KhoiLop\Details.cshtml" />
     <Content Include="Views\LopHoc\Details.cshtml" />
     <Content Include="Views\MonHoc\Details.cshtml" />
+    <Content Include="Views\Shared\_ViewBagError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

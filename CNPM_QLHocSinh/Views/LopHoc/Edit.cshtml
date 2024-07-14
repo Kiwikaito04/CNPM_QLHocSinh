@@ -8,11 +8,11 @@
 
 @if (ViewBag.ModelError != null)
 {
-    <div>@ViewBag.ModelError</div>
+    <div class="text-danger">@ViewBag.ModelError</div>
 }
 @if (ViewBag.Error != null)
 {
-    <div>@ViewBag.Error</div>
+    <div class="text-danger">@ViewBag.Error</div>
 }
 
 @using (Html.BeginForm())
