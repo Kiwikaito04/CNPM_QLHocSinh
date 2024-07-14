@@ -44,7 +44,7 @@
             </td>
             <td>
                 @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaMH }, new { @class = "btn btn-success" })
-                @Html.ActionLink("Xoá", "XoaDanhMucMonHoc", new { id = item.MaMH }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaMH }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

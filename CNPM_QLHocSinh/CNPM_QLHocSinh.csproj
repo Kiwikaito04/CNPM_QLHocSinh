@@ -273,7 +273,7 @@
     <Content Include="Views\GiaoVien\Details.cshtml" />
     <Content Include="Views\MonHoc\Create.cshtml" />
     <Content Include="Views\MonHoc\Index.cshtml" />
-    <Content Include="Views\MonHoc\XoaDanhMucMonHoc.cshtml" />
+    <Content Include="Views\MonHoc\Delete.cshtml" />
     <Content Include="Views\MonHoc\Edit.cshtml" />
     <Content Include="Views\HocSinh\Delete.cshtml" />
     <Content Include="Views\HocSinh\Create.cshtml" />

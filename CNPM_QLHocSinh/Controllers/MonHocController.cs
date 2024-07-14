@@ -1,5 +1,4 @@
-﻿using CNPM_QLHocSinh.Models.ViewModels;
-using CNPM_QLHocSinh.Models;
+﻿using CNPM_QLHocSinh.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,11 +68,13 @@ namespace CNPM_QLHocSinh.Controllers
             return View(_monHoc);
         }
 
-        //XoaDanhMucMonHoc  +
-        public ActionResult XoaDanhMucMonHoc(string id)
+        //XoaDanhMucMonHoc 
+        //GET: MonHoc/Delete/1
+        public ActionResult Delete(string id)
             => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
+        //POST: MonHoc/Delete/1
         [HttpPost]
-        public ActionResult XoaDanhMucMonHoc(string id, MonHoc _monHoc)
+        public ActionResult Delete(string id, MonHoc _monHoc)
         {
             try
             {
