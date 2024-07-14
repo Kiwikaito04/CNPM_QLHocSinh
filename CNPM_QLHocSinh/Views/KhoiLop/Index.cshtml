@@ -5,10 +5,8 @@
 }
 
 <h2>Danh sách khối lớp</h2>
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+
+@Html.Partial("_ViewBagError")
 
 <p>
     @Html.Partial("_CreateButton")

@@ -55,7 +55,6 @@ namespace CNPM_QLHocSinh.Controllers
             return View(viewModel);
         }
 
-
         //POST: LopHoc/Create
         [HttpPost]
         public ActionResult Create(LHView _lopHoc)
@@ -96,11 +95,15 @@ namespace CNPM_QLHocSinh.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         //XemDanhSachLopHoc
         //GET: LopHoc
         public ActionResult Index() 
             => View(db.LopHoc.Include(s => s.KhoiLop).ToList());
+
+        //ChiTietLopHoc
+        //GET: HocSinh/Details/1
+        public ActionResult Details(string id)
+            => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
 
         //ChinhSuaLopHoc
         //GET: LopHoc/Edit/1
@@ -110,6 +113,7 @@ namespace CNPM_QLHocSinh.Controllers
         [HttpPost]
         public ActionResult Edit(string id, LopHoc _lopHoc)
         {
+            _lopHoc.KhoiLop = null;
             if (ModelState.IsValid)
             {
                 try
@@ -124,14 +128,9 @@ namespace CNPM_QLHocSinh.Controllers
                 }
                 return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
-            ViewBag.ModelError = "Wrong";
+            ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_lopHoc);
         }
-
-        //ChiTietLopHoc
-        //GET: HocSinh/Details/1
-        public ActionResult Details(string id)
-            => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
 
         //XoaLopHoc
         //GET: HocSinh/Delete/1

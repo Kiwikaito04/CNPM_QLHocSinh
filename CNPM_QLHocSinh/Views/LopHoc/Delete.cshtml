@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Lớp học";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 <h2>Xóa Lớp Học</h2>
@@ -35,11 +34,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MaKL)
+            @Html.DisplayNameFor(model => model.KhoiLop.TenKL)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MaKL)
+            @Html.DisplayFor(model => model.KhoiLop.TenKL)
         </dd>
 
     </dl>

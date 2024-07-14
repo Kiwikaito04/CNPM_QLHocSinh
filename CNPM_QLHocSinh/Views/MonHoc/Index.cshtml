@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<CNPM_QLHocSinh.Models.MonHoc>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Môn học";
 }
 
-<h2>Xem Danh Mục Môn Học</h2>
+<h2>Danh Mục Môn Học</h2>
 
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+@Html.Partial("_ViewBagError")
 
 <p>
     @Html.Partial("_CreateButton")
@@ -21,9 +18,6 @@
         </th>
         <th>
             Tên Môn Học
-        </th>
-        <th>
-            Mô Tả
         </th>
         <th></th>
     </tr>
@@ -38,10 +32,8 @@
                 @Html.DisplayFor(modelItem => item.TenMH)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MoTa)
-            </td>
-            <td>
-                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaMH }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaMH }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Xem chi tiết", "Details", new { id = item.MaMH }, new { @class = "btn btn-primary" }) |
                 @Html.ActionLink("Xoá", "Delete", new { id = item.MaMH }, new { @class = "btn btn-danger" })
             </td>
         </tr>

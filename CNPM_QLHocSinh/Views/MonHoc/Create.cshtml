@@ -1,34 +1,19 @@
-﻿@model CNPM_QLHocSinh.Models.MonHoc
+﻿@model CNPM_QLHocSinh.Models.ViewModels.MHView
 
 @{
-    ViewBag.Title = "KhoiLop";
+    ViewBag.Title = "Môn học";
 }
 
-<h2>Thêm Danh Mục Môn Học</h2>
-@if (ViewBag.ModelError != null)
-{
-    <div>@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+<h2>Thêm Môn Học</h2>
+
+@Html.Partial("_ViewBagError")
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Môn Học</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaMH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaMH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaMH, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.TenMH, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -45,10 +30,10 @@
                 @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <button type="submit" class="btn btn-success">Thêm</button> | 
                 @Html.Partial("_BackButton")
             </div>
         </div>
@@ -56,5 +41,5 @@
 }
 
 <div>
-    
+
 </div>

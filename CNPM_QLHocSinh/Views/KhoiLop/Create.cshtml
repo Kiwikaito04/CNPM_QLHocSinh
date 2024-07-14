@@ -5,14 +5,8 @@
 }
 
 <h2>Thêm Khối lớp mới</h2>
-@if (ViewBag.ModelError != null)
-{
-    <div>@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+
+@Html.Partial("_ViewBagError")
 
 @using (Html.BeginForm())
 {
@@ -32,7 +26,7 @@
 
             <div class="form-group" style="margin:10px">
                 <div class="col-md-offset-2 col-md-10">
-                    <button type="submit" class="btn btn-success">Tạo mới</button> |
+                    <button type="submit" class="btn btn-success">Thêm</button> | 
                     @Html.Partial("_BackButton")
                 </div>
             </div>
@@ -55,6 +49,3 @@
     </div>
 }
 
-<div>
-
-</div>
