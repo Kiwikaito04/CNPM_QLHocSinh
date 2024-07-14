@@ -16,6 +16,7 @@ namespace CNPM_QLHocSinh.Controllers
         //GET: HocSinh/Create
         public ActionResult Create()
             => View();
+        //POST: HocSinh/Create
         [HttpPost]
         public ActionResult Create(HocSinh _hocsinh)
         {
@@ -31,13 +32,15 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_hocsinh);
                 }
-                return RedirectToAction("TimHocSinh");
+                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Wrong";
             return View(_hocsinh);
         }
 
-        public ActionResult TimHocSinh()
+        //TimHocSinh
+        //GET: HocSinh
+        public ActionResult Index()
             => View(db.HocSinh.ToList());
 
         //XemThongTinHocSinh
@@ -91,7 +94,7 @@ namespace CNPM_QLHocSinh.Controllers
                 ViewBag.Error = "Something went wrong, please try again later";
                 return View(_hocsinh);
             }
-            return RedirectToAction("TimHocSinh");
+            return RedirectToAction(nameof(Index));
         }
 
     }
