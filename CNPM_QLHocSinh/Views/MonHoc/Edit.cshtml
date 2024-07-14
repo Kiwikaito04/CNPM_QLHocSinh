@@ -42,9 +42,7 @@
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-success" />
-                <a href="@Url.Action("Index")" class="btn btn-secondary">
-                    Quay lại danh mục
-                </a>
+                @Html.Partial("_BackButton")
             </div>
         </div>
     </div>

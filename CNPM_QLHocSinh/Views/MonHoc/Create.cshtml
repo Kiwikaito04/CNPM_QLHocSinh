@@ -1,7 +1,7 @@
 ﻿@model CNPM_QLHocSinh.Models.MonHoc
 
 @{
-    ViewBag.Title = "ThemDanhMucMonHoc";
+    ViewBag.Title = "KhoiLop";
 }
 
 <h2>Thêm Danh Mục Môn Học</h2>
@@ -49,9 +49,7 @@
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
-                <a href="@Url.Action("Index")" class="btn btn-secondary">
-                    Quay lại danh mục
-                </a>
+                @Html.Partial("_BackButton")
             </div>
         </div>
     </div>

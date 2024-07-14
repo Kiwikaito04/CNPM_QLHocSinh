@@ -58,10 +58,8 @@
 
         <div class="form-group" style="margin:10px">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
-                <a href="@Url.Action("XemDanhSachLopHoc")" class="btn btn-secondary">
-                    Quay lại danh mục
-                </a>
+                <input type="submit" value="Create" class="btn btn-success" /> |
+                @Html.Partial("_BackButton")
             </div>
         </div>
     </div>
