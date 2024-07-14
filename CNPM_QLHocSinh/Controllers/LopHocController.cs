@@ -74,12 +74,16 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Wrong";
             return View(_lopHoc);
         }
 
+        //ChiTietLopHoc
+        //GET: HocSinh/Details/1
+        public ActionResult Details(string id)
+            => View(db.LopHoc.Where(s => s.MaLop == id).FirstOrDefault());
 
 
         public ActionResult XoaLopHoc(string id)
