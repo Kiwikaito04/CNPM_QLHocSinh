@@ -72,6 +72,11 @@ namespace CNPM_QLHocSinh.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //XemThongTinMon
+        //GET: MonHoc/Details/1
+        public ActionResult Details(string id)
+            => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
+
         //ChinhSuaDanhMucMonHoc
         //GET: MonHoc/Edit/1
         public ActionResult Edit(string id)
@@ -92,16 +97,11 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_monHoc);
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Wrong";
             return View(_monHoc);
         }
-
-        //XemThongTinMon
-        //GET: MonHoc/Details/1
-        public ActionResult Details(string id)
-            => View(db.MonHoc.Where(s => s.MaMH == id).FirstOrDefault());
 
         //XoaDanhMucMonHoc 
         //GET: MonHoc/Delete/1
