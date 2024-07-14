@@ -33,7 +33,7 @@ namespace CNPM_QLHocSinh.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.ModelError = "Wrong";
+            ViewBag.ModelError = "Biểu mẫu không hợp lệ";
             return View(_khoiLop);
         }
 
