@@ -29,11 +29,11 @@ namespace CNPM_QLHocSinh.Models
 
         [DisplayName("Tên khối lớp")]
         [Required(ErrorMessage = "Tên khối lớp là bắt buộc")]
-        [StringLength(20, ErrorMessage = "Tên khối chỉ có thể chứa 20 ký tự.")]
+        [StringLength(20, ErrorMessage = "Tên khối không thể dài quá 20 ký tự.")]
         public string TenKL { get; set; }
 
         [DisplayName("Mô tả")]
-        [StringLength(100, ErrorMessage = "Mô tả chỉ có thể chứa 100 ký tự.")]
+        [StringLength(100, ErrorMessage = "Mô tả không thể dài quá 100 ký tự.")]
         public string MoTa { get; set; }
 
         [DisplayName("Cấp bậc")]
