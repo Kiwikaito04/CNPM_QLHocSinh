@@ -3,7 +3,8 @@
 }
 
 #div-top{
-    width: 100%;
+    /* width: 100%; */
+    max-width:100%;
     height:60px;
     background-color: blue;
 }
@@ -12,18 +13,30 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
+    max-width: 2000px;
+    /* position: relative; */
+    margin: 0 auto;
 }
 
 #div-left {
-    width: 15%;
+    /*width: 15%;
     height: auto;
     background-color: white;
     padding: 20px;
+    position: relative;*/
+    width: 15%;
+    height: 100%;
+    max-height: 100%;
+    background-color: white;
+    padding: 20px;
     position: relative;
+    overflow-y: auto; 
+    overflow-x: hidden; 
 }
 
 #div-containt{
     width: 85%;
+    max-width:1600px;
     height: 100vh;
     padding-left: 20px;
     background-color: aliceblue;
