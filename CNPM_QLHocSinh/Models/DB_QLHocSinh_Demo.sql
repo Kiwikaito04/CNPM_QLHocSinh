@@ -7,6 +7,18 @@ go
 use CNPM_QLHocSinh
 go
 
+--Select table
+select * from KhoiLop
+select * from LopHoc
+select * from TrangThaiHS
+select * from HocSinh
+select * from ChucVu
+select * from GiaoVien
+select * from MonHoc
+select * from CaHoc
+select * from LichGiangDay
+select * from BangDiem
+
 create table KhoiLop(
 	MaKL char(2) primary key,
 	TenKL nvarchar(20) not null,
