@@ -292,6 +292,7 @@
     <Content Include="Views\LopHoc\Details.cshtml" />
     <Content Include="Views\MonHoc\Details.cshtml" />
     <Content Include="Views\Shared\_ViewBagError.cshtml" />
+    <Content Include="Views\Shared\_ActionButtons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />
