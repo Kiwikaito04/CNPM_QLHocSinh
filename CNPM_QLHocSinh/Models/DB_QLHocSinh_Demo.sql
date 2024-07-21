@@ -145,7 +145,9 @@ create table BangDiem(
 	DiemCK integer,
 )
 
-
+insert into BangDiem
+values	('01', '02', 'HS00000001', 9, 8, 7, 6, 7),
+		('02', '01', 'HS00000001', 9, 8, 7, 6, 7)
 
 
 
