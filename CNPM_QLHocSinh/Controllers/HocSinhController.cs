@@ -1,48 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using CNPM_QLHocSinh.Models;
-using Microsoft.Ajax.Utilities;
+using CNPM_QLHocSinh.Models.ViewModels;
 
 namespace CNPM_QLHocSinh.Controllers
 {
     public class HocSinhController : Controller
     {
-        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+        private readonly CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
         
         //ThemHocSinh
         //GET: HocSinh/Create
         public ActionResult Create()
-            => View();
+        {
+            var viewModel = new HSView
+            {
+                HocSinh = new HocSinh(),
+                LopHocList = db.LopHoc.ToList()
+            };
+            return View(viewModel);
+        }
+
         //POST: HocSinh/Create
         [HttpPost]
-        public ActionResult Create(HocSinh _hocsinh)
+        public ActionResult Create(HSView _hocsinh)
         {
+            _hocsinh.LopHocList = db.LopHoc.ToList();
             if (ModelState.IsValid)
             {
-                try
+                if (((DateTime.Now).Year - (_hocsinh.HocSinh.NgaySinh).Year) < 6)
+                    ModelState.AddModelError(_hocsinh.HocSinh.NgaySinh.ToString(), "Ngày sinh không hợp lệ");
+                else
                 {
-                    db.HocSinh.Add(_hocsinh);
-                    db.SaveChanges();
+                    try
+                    {
+                        if (_hocsinh.HocSinh.LopHoc == null)
+                            _hocsinh.HocSinh.TrangThaiHS = db.TrangThaiHS.FirstOrDefault(s => s.TenTT == "Học sinh mới");
+                        else _hocsinh.HocSinh.TrangThaiHS = db.TrangThaiHS.FirstOrDefault(s => s.TenTT == "Còn học");
+                        db.HocSinh.Add(_hocsinh.HocSinh);
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        ViewBag.Error = "Something went wrong, please try again later";
+                        return View(_hocsinh);
+                    }
+                    return RedirectToAction(nameof(Index));
                 }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    return View(_hocsinh);
-                }
-                return RedirectToAction(nameof(Index));
             }
-            ViewBag.ModelError = "Wrong";
+            ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_hocsinh);
         }
 
         //TimHocSinh
         //GET: HocSinh
-
-        //public ActionResult Index()
-        //    => View(db.HocSinh.ToList());
         public ActionResult Index(string searchHS)
         {
             var hocsinh = from hsinh in db.HocSinh select hsinh;
