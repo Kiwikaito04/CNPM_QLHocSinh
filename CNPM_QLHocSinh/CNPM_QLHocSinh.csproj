@@ -287,7 +287,7 @@
     <Content Include="Views\LopHoc\Edit.cshtml" />
     <Content Include="Views\LopHoc\Delete.cshtml" />
     <Content Include="Views\Shared\_BackBtn.cshtml" />
-    <Content Include="Views\Shared\_CreateButton.cshtml" />
+    <Content Include="Views\Shared\_CreateBtn.cshtml" />
     <Content Include="Views\KhoiLop\Details.cshtml" />
     <Content Include="Views\LopHoc\Details.cshtml" />
     <Content Include="Views\MonHoc\Details.cshtml" />
