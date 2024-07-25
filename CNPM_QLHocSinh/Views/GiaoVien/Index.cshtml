@@ -25,8 +25,18 @@
     {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.HoTen)</td>
-            <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+            <td>
+                @if (item.GioiTinh)
+                {
+                    <text>Nam</text>
+                }
+                else
+                {
+                    <text>Nữ</text>
+                }
+            </td>
             <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
+            <td>@Html.DisplayFor(modelItem => item.SDT)</td>
             @Html.Partial("_ActionButtons", item.MaGV)
         </tr>
     }
