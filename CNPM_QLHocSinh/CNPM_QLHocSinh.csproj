@@ -297,6 +297,7 @@
     <Content Include="Views\Shared\_DeleteBtn.cshtml" />
     <Content Include="Views\Shared\_DetailsBtn.cshtml" />
     <Content Include="Views\Shared\_EditBtn.cshtml" />
+    <Content Include="Views\Shared\PartialViews\_HocSinhDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

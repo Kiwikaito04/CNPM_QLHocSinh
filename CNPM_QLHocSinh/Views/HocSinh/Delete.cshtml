@@ -8,111 +8,26 @@
 <hr />
 
 @Html.Partial("_ViewBagError")
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    @Html.Partial("PartialViews/_HocSinhDetails", Model)
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Học Sinh</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaHS)
-        </dt>
+                    <div class="text-center mt-4">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.MaHS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoTen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </dt>
-
-        @*<dd>
-                @Html.DisplayFor(model => model.GioiTinh)
-            </dd>*@
-        <dd>
-            @if (Model.GioiTinh)
-            {
-                <text>Nam</text>
-            }
-            else
-            {
-                <text>Nữ</text>
-            }
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgaySinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgaySinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SDT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaTT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaTT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLop)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaLop)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pass)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pass)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.Partial("_BackBtn")
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Xóa" class="btn btn-danger" /> |
+                                @Html.Partial("_BackBtn")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </div>

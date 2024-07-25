@@ -10,104 +10,20 @@
 
 @Html.Partial("_ViewBagError")
 
-<div>
-    <h4>Học Sinh</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaHS)
-        </dt>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    @Html.Partial("PartialViews/_HocSinhDetails", Model)
 
-        <dd>
-            @Html.DisplayFor(model => model.MaHS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HoTen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoTen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </dt>
-
-        @*<dd>
-                @Html.DisplayFor(model => model.GioiTinh)
-            </dd>*@
-        <dd>
-            @if (Model.GioiTinh)
-            {
-                <text>Nam</text>
-            }
-            else
-            {
-                <text>Nữ</text>
-            }
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NgaySinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgaySinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SDT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaTT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaTT)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLop)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaLop)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pass)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pass)
-        </dd>
-
-    </dl>
+                    <div class="text-center mt-4">
+                        @Html.Partial("_EditBtn", new { id = Model.MaHS })
+                        @Html.Partial("_DeleteBtn", new { id = Model.MaHS })
+                        @Html.Partial("_BackBtn")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaHS }, new { @class = "btn btn-success" }) |
-    @Html.ActionLink("Xoá", "Delete", new { id = Model.MaHS }, new { @class = "btn btn-danger" }) |
-    @Html.Partial("_BackBtn")
-</p>
