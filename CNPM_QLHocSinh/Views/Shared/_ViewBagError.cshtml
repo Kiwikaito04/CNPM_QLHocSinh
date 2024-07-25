@@ -1,8 +1,12 @@
 ﻿@if (ViewBag.ModelError != null)
 {
-    <div class="text-danger">@ViewBag.ModelError</div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @Html.Raw(ViewBag.ModelError)
+    </div>
 }
 @if (ViewBag.Error != null)
 {
-    <div class="text-danger">@ViewBag.Error</div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @Html.Raw(ViewBag.Error)
+    </div>
 }
