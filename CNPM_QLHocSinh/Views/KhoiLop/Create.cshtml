@@ -5,6 +5,7 @@
 }
 
 <h2>Thêm Khối lớp mới</h2>
+<hr />
 
 @Html.Partial("_ViewBagError")
 
@@ -12,12 +13,12 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal container">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @if (ViewBag.AvailableNumbers != null && ViewBag.AvailableNumbers.Count > 0)
         {
             <div class="form-group">
-                @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.SelectedNumber, new SelectList(ViewBag.AvailableNumbers), "-- Chọn số --", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.SelectedNumber, "", new { @class = "text-danger" })
@@ -34,7 +35,7 @@
         else
         {
             <div class="form-group">
-                @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label("Chọn số từ danh sách dưới đây:", htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-10">
                     <p>Không có số nào để chọn.</p>
                 </div>
