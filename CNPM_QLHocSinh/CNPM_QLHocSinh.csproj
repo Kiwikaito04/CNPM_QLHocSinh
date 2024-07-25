@@ -298,6 +298,7 @@
     <Content Include="Views\Shared\_DetailsBtn.cshtml" />
     <Content Include="Views\Shared\_EditBtn.cshtml" />
     <Content Include="Views\Shared\PartialViews\_HocSinhDetails.cshtml" />
+    <Content Include="Views\Shared\PartialViews\_HocSinhForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

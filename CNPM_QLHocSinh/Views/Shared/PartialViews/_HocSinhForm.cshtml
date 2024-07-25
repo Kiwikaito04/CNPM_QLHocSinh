@@ -1,0 +1,75 @@
+﻿@model CNPM_QLHocSinh.Models.ViewModels.HSView
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.HoTen, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.HoTen, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.GioiTinh, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        <input type="checkbox" id="GioiTinhCheckbox" name="GioiTinh" value="true" @(Model.HocSinh.GioiTinh ? "checked" : "")>
+        <label for="GioiTinhCheckbox" id="GioiTinhLabel"></label>
+        <input type="hidden" name="GioiTinh" value="false">
+        @Html.ValidationMessageFor(model => model.HocSinh.GioiTinh, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.NgaySinh, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.NgaySinh, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.DiaChi, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.DiaChi, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.Email, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.Email, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.SDT, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.SDT, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.SDT, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.MaLop, "Lớp Học", htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.DropDownListFor(model => model.HocSinh.MaLop, new SelectList(Model.LopHocList, "MaLop", "TenLop"), "--Chọn--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.HocSinh.MaLop, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.HocSinh.Pass, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.HocSinh.Pass, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.HocSinh.Pass, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-offset-4 col-md-8">
+        <button type="submit" class="btn btn-success">Lưu</button> |
+        @Html.Partial("_BackBtn")
+    </div>
+</div>
+

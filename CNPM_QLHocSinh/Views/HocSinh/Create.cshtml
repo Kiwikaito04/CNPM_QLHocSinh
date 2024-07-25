@@ -3,16 +3,39 @@
 @{
     ViewBag.Title = "Học Sinh";
 }
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Thêm Học Sinh</h2>
+                    <hr />
 
-<h2>Thêm Học Sinh</h2>
-<hr />
+                    @Html.Partial("_ViewBagError")
 
-@Html.Partial("_ViewBagError")
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
+                        <div class="row mb-3">
+                            @Html.LabelFor(model => model.HocSinh.MaHS, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.HocSinh.MaHS, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.HocSinh.MaHS, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @Html.Partial("PartialViews/_HocSinhForm", Model)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var gioiTinhCheckbox = document.getElementById('GioiTinh');
+        var gioiTinhCheckbox = document.getElementById('GioiTinhCheckbox');
         var gioiTinhLabel = document.getElementById('GioiTinhLabel');
 
         updateGioiTinhLabel();
@@ -30,97 +53,3 @@
         }
     });
 </script>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.MaHS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.MaHS, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.MaHS, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.HoTen, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.HoTen, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.CheckBoxFor(model => model.HocSinh.GioiTinh, new { htmlAttributes = new { @class = "form-check-input", id = "GioiTinh" } })
-                @Html.Label("GioiTinhLabel", "Nam", htmlAttributes: new { @class = "form-check-label", id = "GioiTinhLabel" })
-                @Html.ValidationMessageFor(model => model.HocSinh.GioiTinh, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.NgaySinh, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.NgaySinh, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.DiaChi, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.Email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.SDT, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.SDT, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.MaLop, "Lop Hoc", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.HocSinh.MaLop, new SelectList(Model.LopHocList, "MaLop", "TenLop"), "--Chọn--", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.HocSinh.MaLop, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.HocSinh.Pass, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.HocSinh.Pass, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.HocSinh.Pass, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group" style="margin:10px">
-        <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-success">Thêm</button> |
-            @Html.Partial("_BackBtn")
-        </div>
-    </div>
-</div>
-}
-
-<div>
-
-</div>
