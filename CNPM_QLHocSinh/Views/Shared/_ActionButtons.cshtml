@@ -1,7 +1,7 @@
 ﻿@model string
 
 <td>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model }, new { @class = "btn btn-success" }) |
-    @Html.ActionLink("Xem chi tiết", "Details", new { id = Model }, new { @class = "btn btn-primary" }) |
-    @Html.ActionLink("Xoá", "Delete", new { id = Model }, new { @class = "btn btn-danger" })
+    @Html.Partial("_EditButton", Model) | 
+    @Html.Partial("_DetailsButton", Model) | 
+    @Html.Partial("_DeleteButton", Model)
 </td>
