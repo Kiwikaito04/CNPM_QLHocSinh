@@ -5,15 +5,9 @@
 }
 
 <h2>Tìm Học Sinh</h2>
+<hr />
 
-@if (ViewBag.ModelError != null)
-{
-    <div>@ViewBag.ModelError</div>
-}
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+@Html.Partial("_ViewBagError")
 
 <form method="get" action="@Url.Action("Index")">
     <div class="search">
@@ -27,11 +21,11 @@
             @Html.Partial("_CreateBtn")
         </div>
     </div>
-    
+
 </form>
 
 <p>
-    
+
 </p>
 <table class="table">
     <tr>
@@ -78,8 +72,8 @@
                 @Html.DisplayFor(modelItem => item.HoTen)
             </td>
             @*<td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>*@
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>*@
             <td>
                 @if (item.GioiTinh)
                 {

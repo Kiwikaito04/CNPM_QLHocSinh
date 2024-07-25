@@ -5,38 +5,27 @@
 }
 
 <h2>Danh sách khối lớp</h2>
+<hr />
 
 @Html.Partial("_ViewBagError")
 
 <p>
     @Html.Partial("_CreateBtn")
 </p>
-<table class="table table-hover table-bordered table-sm">
+<table class="table table-hover table-bordered">
     <tr>
-        <th>
-            Mã khối lớp
-        </th>
-        <th>
-            Tên khối lớp
-        </th>
-        <th>
-            Cấp bậc
-        </th>
+        <th>Mã khối lớp</th>
+        <th>Tên khối lớp</th>
+        <th>Cấp bậc</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaKL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenKL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CapBac)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.MaKL)</td>
+            <td>@Html.DisplayFor(modelItem => item.TenKL)</td>
+            <td>@Html.DisplayFor(modelItem => item.CapBac)</td>
             @Html.Partial("_ActionButtons", item.MaKL)
         </tr>
     }

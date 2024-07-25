@@ -5,6 +5,9 @@
 }
 
 <h2>Xem Chi tiết Thông Tin Giáo Viên</h2>
+<hr />
+
+@Html.Partial("_ViewBagError")
 
 <div>
     <h4>Giáo Viên</h4>
@@ -31,8 +34,8 @@
         </dt>
 
         @*<dd>
-            @Html.DisplayFor(model => model.GioiTinh)
-        </dd>*@
+                @Html.DisplayFor(model => model.GioiTinh)
+            </dd>*@
         <dd>
             @if (Model.GioiTinh)
             {

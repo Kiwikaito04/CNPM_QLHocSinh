@@ -5,40 +5,28 @@
 }
 
 <h2>Xem Thông Tin Giáo Viên</h2>
-@if (ViewBag.Error != null)
-{
-    <div>@ViewBag.Error</div>
-}
+<hr />
+
+@Html.Partial("_ViewBagError")
 
 <p>
     @Html.Partial("_CreateBtn")
 </p>
-<table class="table">
+<table class="table table-hover table-bordered">
     <tr>
-        <th>
-            Mã giáo viên
-        </th>
-        <th>
-            Họ tên
-        </th>
-        <th>
-            Tên chức vụ
-        </th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Số điện thoại</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaGV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoTen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChucVu.TenCV)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.HoTen)</td>
+            <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+            <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
             @Html.Partial("_ActionButtons", item.MaGV)
         </tr>
     }

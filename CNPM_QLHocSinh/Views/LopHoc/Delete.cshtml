@@ -5,6 +5,9 @@
 }
 
 <h2>Xóa Lớp Học</h2>
+<hr />
+
+@Html.Partial("_ViewBagError")
 
 <h3>Bạn có chắc muốn xoá lớp học này không?</h3>
 <div>
@@ -43,7 +46,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

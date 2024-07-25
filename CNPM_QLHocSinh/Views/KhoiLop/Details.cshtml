@@ -5,6 +5,9 @@
 }
 
 <h2>Chi tiết khối lớp</h2>
+<hr />
+
+@Html.Partial("_ViewBagError")
 
 <div>
     <dl class="dl-horizontal">
@@ -43,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaKL }, new { @class = "btn btn-success" }) | 
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaKL }, new { @class = "btn btn-success" }) |
     @Html.Partial("_BackBtn")
 </p>
