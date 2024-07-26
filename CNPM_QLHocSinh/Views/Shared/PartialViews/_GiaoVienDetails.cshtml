@@ -1,0 +1,56 @@
+﻿@model CNPM_QLHocSinh.Models.GiaoVien
+
+@Html.Partial("_ViewBagError")
+
+<dl class="row">
+    <dt class="col-sm-4">Mã Giáo viên</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.MaGV)</dd>
+
+    <dt class="col-sm-4">Họ và Tên</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.HoTen)</dd>
+
+    <dt class="col-sm-4">Giới Tính</dt>
+    <dd class="col-sm-8">
+        @if (Model.GioiTinh)
+        {
+            <span class="badge bg-primary">Nam</span>
+        }
+        else
+        {
+            <span class="badge bg-danger">Nữ</span>
+        }
+    </dd>
+
+    <dt class="col-sm-4">Ngày Sinh</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.NgaySinh)</dd>
+
+    <dt class="col-sm-4">Địa Chỉ</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.DiaChi)</dd>
+
+    <dt class="col-sm-4">Email</dt>
+    @if (Model.Email != null)
+    {
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+    }
+    else
+    {
+        <dd class="col-sm-8">N/A</dd>
+    }
+
+    <dt class="col-sm-4">Số Điện Thoại</dt>
+    @if (Model.SDT != null)
+    {
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.SDT)</dd>
+    }
+    else
+    {
+        <dd class="col-sm-8">N/A</dd>
+    }
+
+    <dt class="col-sm-4">Chức vụ</dt>
+    <dd class="col-sm-8">@Html.DisplayFor(model => model.ChucVu.TenCV)</dd>
+
+    <dt class="col-sm-4">Mật Khẩu</dt>
+    <dd class="col-sm-8">Có cái nịt</dd>
+</dl>
+

@@ -299,6 +299,7 @@
     <Content Include="Views\Shared\PartialViews\_HocSinhDetails.cshtml" />
     <Content Include="Views\Shared\PartialViews\_HocSinhForm.cshtml" />
     <Content Include="Views\HocSinh\Edit.cshtml" />
+    <Content Include="Views\Shared\PartialViews\_GiaoVienDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />
