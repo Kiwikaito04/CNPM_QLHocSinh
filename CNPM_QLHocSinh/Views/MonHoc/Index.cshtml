@@ -11,26 +11,18 @@
 <p>
     @Html.Partial("_CreateBtn")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
-        <th>
-            Mã Môn Học
-        </th>
-        <th>
-            Tên Môn Học
-        </th>
+        <th>@Html.DisplayNameFor(model => model.MaMH)</th>
+        <th>@Html.DisplayNameFor(model => model.TenMH)</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaMH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenMH)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.MaMH)</td>
+            <td>@Html.DisplayFor(modelItem => item.TenMH)</td>
             @Html.Partial("_ActionButtons", item.MaMH)
         </tr>
     }
