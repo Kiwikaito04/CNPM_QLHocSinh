@@ -55,6 +55,7 @@ namespace CNPM_QLHocSinh.Models
         [StringLength(10)]
         public string SDT { get; set; }
 
+        [Required(ErrorMessage = "Chức vụ là bắt buộc.")]
         public string MaCV { get; set; }
 
         [DisplayName("Mật khẩu")]

@@ -184,6 +184,7 @@
     <Compile Include="Models\TrangThaiHS.cs">
       <DependentUpon>Model_QLHS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\GVView.cs" />
     <Compile Include="Models\ViewModels\HSView.cs" />
     <Compile Include="Models\ViewModels\KLView.cs" />
     <Compile Include="Models\ViewModels\LHView.cs" />
@@ -300,6 +301,7 @@
     <Content Include="Views\Shared\PartialViews\_HocSinhForm.cshtml" />
     <Content Include="Views\HocSinh\Edit.cshtml" />
     <Content Include="Views\Shared\PartialViews\_GiaoVienDetails.cshtml" />
+    <Content Include="Views\Shared\PartialViews\_GiaoVienForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

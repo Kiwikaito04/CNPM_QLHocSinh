@@ -1,9 +1,8 @@
 ﻿using CNPM_QLHocSinh.Models;
+using CNPM_QLHocSinh.Models.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CNPM_QLHocSinh.Controllers
@@ -22,30 +21,41 @@ namespace CNPM_QLHocSinh.Controllers
         //GET: GiaoVien/Create
         public ActionResult Create()
         {
-            ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
-            return View();
+            var viewModel = new GVView
+            {
+                GiaoVien = new GiaoVien(),
+                ChucVuList = db.ChucVu.ToList()
+            };
+            return View(viewModel);
         }
         //POST: GiaoVien/Create
         [HttpPost]
-        public ActionResult Create(GiaoVien _giaoVien)
+        public ActionResult Create(GVView _giaoVien)
         {
+            _giaoVien.ChucVuList = db.ChucVu.ToList();
             if (ModelState.IsValid)
             {
-                try
+                var age = DateTime.Now.Year - _giaoVien.GiaoVien.NgaySinh.Year;
+                if (age < 18 || age > 80)
+                    ModelState.AddModelError("NgaySinh", "Ngày sinh không hợp lệ");
+                else
                 {
-                    db.GiaoVien.Add(_giaoVien);
-                    db.SaveChanges();
+                    try
+                    {
+                        //Tạo ID
+                        _giaoVien.GiaoVien.MaGV = GenerateId();
+                        db.GiaoVien.Add(_giaoVien.GiaoVien);
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        ViewBag.Error = "Something went wrong, please try again later";
+                        return View(_giaoVien);
+                    }
+                    return RedirectToAction(nameof(Details), new {id=_giaoVien.GiaoVien.MaGV});
                 }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
-                    return View(_giaoVien);
-                }
-                return RedirectToAction(nameof(Index));
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
-            ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View(_giaoVien);
         }
 
@@ -105,5 +115,16 @@ namespace CNPM_QLHocSinh.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        private string GenerateId()
+        {
+            int maxId = 1;
+            var latestStudent = db.GiaoVien.OrderByDescending(h => h.MaGV).FirstOrDefault();
+            if (latestStudent != null)
+            {
+                int.TryParse(latestStudent.MaGV, out maxId);
+                maxId++;
+            }
+            return maxId.ToString("D3");
+        }
     }
 }

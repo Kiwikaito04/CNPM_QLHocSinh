@@ -1,0 +1,96 @@
+﻿@model CNPM_QLHocSinh.Models.ViewModels.GVView
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.MaGV, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.MaGV, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @readonly = "readonly" } })
+
+        @Html.ValidationMessageFor(model => model.GiaoVien.MaGV, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.HoTen, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GiaoVien.HoTen, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.GioiTinh, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        <input type="checkbox" id="GioiTinhCheckbox" name="GioiTinh" value="true" @(Model.GiaoVien.GioiTinh ? "checked" : "")>
+        <label for="GioiTinhCheckbox" id="GioiTinhLabel"></label>
+        <input type="hidden" name="GioiTinh" value="false">
+        @Html.ValidationMessageFor(model => model.GiaoVien.GioiTinh, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.NgaySinh, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(model => model.GiaoVien.NgaySinh, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+        @Html.ValidationMessageFor(model => model.GiaoVien.NgaySinh, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.DiaChi, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GiaoVien.DiaChi, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.Email, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GiaoVien.Email, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.SDT, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.SDT, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GiaoVien.SDT, "", new { @class = "text-danger" })
+    </div>
+</div>
+@if (Model.ChucVuList != null)
+{
+    <div class="row mb-3">
+        @Html.LabelFor(model => model.GiaoVien.MaCV, "Chức vụ", htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(model => model.GiaoVien.MaCV, new SelectList(Model.ChucVuList, "MaCV", "TenCV"), "--Chọn--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GiaoVien.MaCV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="row mb-3">
+        @Html.LabelFor(model => model.GiaoVien.ChucVu.TenCV, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.GiaoVien.ChucVu.TenCV, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GiaoVien.ChucVu.TenCV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+            @Html.HiddenFor(model => model.GiaoVien.MaCV, new { @class = "form-control" })
+}
+<div class="row mb-3">
+    @Html.LabelFor(model => model.GiaoVien.Pass, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+    <div class="col-md-8">
+        @Html.EditorFor(model => model.GiaoVien.Pass, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+        @Html.ValidationMessageFor(model => model.GiaoVien.Pass, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-offset-4 col-md-8">
+        <button type="submit" class="btn btn-success">Lưu</button> |
+        @Html.Partial("_BackBtn")
+    </div>
+</div>
+

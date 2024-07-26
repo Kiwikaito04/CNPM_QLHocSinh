@@ -30,14 +30,14 @@ namespace CNPM_QLHocSinh.Controllers
             if (ModelState.IsValid)
             {
                 var age = DateTime.Now.Year - _hocsinh.HocSinh.NgaySinh.Year;
-                if (age < 6 && age > 80)
+                if (age < 6 || age > 80)
                     ModelState.AddModelError("NgaySinh", "Ngày sinh không hợp lệ");
                 else
                 {
                     try
                     {
                         //Tạo ID
-                        _hocsinh.HocSinh.MaHS = GenerateStudentId();
+                        _hocsinh.HocSinh.MaHS = GenerateId();
                         //Tạo trạng thái
                         if (_hocsinh.HocSinh.LopHoc == null)
                             _hocsinh.HocSinh.TrangThaiHS = db.TrangThaiHS.FirstOrDefault(s => s.TenTT == "Học sinh mới");
@@ -147,7 +147,7 @@ namespace CNPM_QLHocSinh.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private string GenerateStudentId()
+        private string GenerateId()
         {
             int maxId = 1;
             var latestStudent = db.HocSinh.OrderByDescending(h => h.MaHS).FirstOrDefault();
