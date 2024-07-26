@@ -265,7 +265,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HocSinh\Index.cshtml" />
-    <Content Include="Views\HocSinh\Edit.cshtml" />
     <Content Include="Views\LopHoc\Index.cshtml" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\KhoiLop\Index.cshtml" />
@@ -299,6 +298,7 @@
     <Content Include="Views\Shared\_EditBtn.cshtml" />
     <Content Include="Views\Shared\PartialViews\_HocSinhDetails.cshtml" />
     <Content Include="Views\Shared\PartialViews\_HocSinhForm.cshtml" />
+    <Content Include="Views\HocSinh\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LichGiangDay\" />

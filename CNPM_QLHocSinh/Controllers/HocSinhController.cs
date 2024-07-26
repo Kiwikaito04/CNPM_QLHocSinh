@@ -77,16 +77,28 @@ namespace CNPM_QLHocSinh.Controllers
         //ChinhSuaThongTinHocSinh
         //GET: HocSinh/Edit/1
         public ActionResult Edit(string id)
-            => View(db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault());
+        {
+            if (id == null)
+                return HttpNotFound();
+            var hs = new HSView
+            {
+                HocSinh = db.HocSinh.Where(s => s.MaHS == id).FirstOrDefault()
+            };
+            if (hs.HocSinh == null)
+                return HttpNotFound();
+
+            return View(hs);
+        }
+
         //POST: HocSinh/Edit/1
         [HttpPost]
-        public ActionResult Edit(string id, HocSinh _hocsinh)
+        public ActionResult Edit(string id, HSView _hocsinh)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    db.Entry(_hocsinh).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry(_hocsinh.HocSinh).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 catch

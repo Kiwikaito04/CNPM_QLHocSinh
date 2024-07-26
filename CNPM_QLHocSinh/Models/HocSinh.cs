@@ -37,7 +37,7 @@ namespace CNPM_QLHocSinh.Models
 
         [DisplayName("Ngày sinh")]
         [Required(ErrorMessage = "Ngày sinh là bắt buộc.")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime NgaySinh { get; set; }
 
         [DisplayName("Địa chỉ")]

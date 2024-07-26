@@ -21,7 +21,7 @@
 <div class="row mb-3">
     @Html.LabelFor(model => model.HocSinh.NgaySinh, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
     <div class="col-md-8">
-        @Html.EditorFor(model => model.HocSinh.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.TextBoxFor(model => model.HocSinh.NgaySinh, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
         @Html.ValidationMessageFor(model => model.HocSinh.NgaySinh, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -49,15 +49,27 @@
         @Html.ValidationMessageFor(model => model.HocSinh.SDT, "", new { @class = "text-danger" })
     </div>
 </div>
-
-<div class="row mb-3">
-    @Html.LabelFor(model => model.HocSinh.MaLop, "Lớp Học", htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
-    <div class="col-md-8">
-        @Html.DropDownListFor(model => model.HocSinh.MaLop, new SelectList(Model.LopHocList, "MaLop", "TenLop"), "--Chọn--", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.HocSinh.MaLop, "", new { @class = "text-danger" })
+@if (Model.LopHocList != null)
+{
+    <div class="row mb-3">
+        @Html.LabelFor(model => model.HocSinh.MaLop, "Lớp Học", htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(model => model.HocSinh.MaLop, new SelectList(Model.LopHocList, "MaLop", "TenLop"), "--Chọn--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.HocSinh.MaLop, "", new { @class = "text-danger" })
+        </div>
     </div>
-</div>
-
+}
+else
+{
+    <div class="row mb-3">
+        @Html.LabelFor(model => model.HocSinh.LopHoc.TenLop, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+        <div class="col-md-8">
+            @Html.DisplayFor(model => model.HocSinh.LopHoc.TenLop, new { htmlAttributes = new { @class = "form-control" }, @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.HocSinh.LopHoc.TenLop, "", new { @class = "text-danger" })
+        </div>
+    </div>
+            @Html.HiddenFor(model => model.HocSinh.MaLop, new { @class = "form-control" })
+}
 <div class="row mb-3">
     @Html.LabelFor(model => model.HocSinh.Pass, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
     <div class="col-md-8">
