@@ -9,11 +9,14 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-body">
+                    <h2 class="card-title text-center mb-4">@Html.DisplayFor(model => model.HoTen)</h2>
+                    <hr />
+
                     @Html.Partial("PartialViews/_HocSinhDetails", Model)
 
                     <div class="text-center mt-4">
-                        @Html.Partial("_EditBtn", new { id = Model.MaHS })
-                        @Html.Partial("_DeleteBtn", new { id = Model.MaHS })
+                        @Html.Partial("_EditBtn", Model.MaHS)
+                        @Html.Partial("_DeleteBtn", Model.MaHS)
                         @Html.Partial("_BackBtn")
                     </div>
                 </div>

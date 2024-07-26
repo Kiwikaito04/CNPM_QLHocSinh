@@ -4,15 +4,14 @@
     ViewBag.Title = "Học Sinh";
 }
 
-<h2>Xóa Học Sinh</h2>
-<hr />
-
-@Html.Partial("_ViewBagError")
 <div class="container mt-4">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Xác nhận xóa @Html.DisplayFor(model => model.HoTen)?</h2>
+                    <hr />
+
                     @Html.Partial("PartialViews/_HocSinhDetails", Model)
 
                     <div class="text-center mt-4">
