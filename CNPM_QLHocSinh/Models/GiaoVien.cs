@@ -51,7 +51,7 @@ namespace CNPM_QLHocSinh.Models
         public string Email { get; set; }
 
         [DisplayName("Số điện thoại")]
-        [Required(ErrorMessage = "Số điện thoạilà bắt buộc.")]
+        [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
         [StringLength(10)]
         public string SDT { get; set; }
 

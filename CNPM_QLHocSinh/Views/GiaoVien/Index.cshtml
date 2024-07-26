@@ -4,7 +4,7 @@
     ViewBag.Title = "Giáo Viên";
 }
 
-<h2>Xem Thông Tin Giáo Viên</h2>
+<h2>Danh sách Giáo Viên</h2>
 <hr />
 
 @Html.Partial("_ViewBagError")
@@ -12,18 +12,21 @@
 <p>
     @Html.Partial("_CreateBtn")
 </p>
-<table class="table table-hover table-bordered">
+
+<table class="table table-hover">
     <tr>
-        <th>Họ tên</th>
-        <th>Giới tính</th>
-        <th>Ngày sinh</th>
-        <th>Số điện thoại</th>
+        <th>@Html.DisplayNameFor(model => model.MaGV)</th>
+        <th>@Html.DisplayNameFor(model => model.HoTen)</th>
+        <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
+        <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+        <th>@Html.DisplayNameFor(model => model.SDT)</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaGV)</td>
             <td>@Html.DisplayFor(modelItem => item.HoTen)</td>
             <td>
                 @if (item.GioiTinh)

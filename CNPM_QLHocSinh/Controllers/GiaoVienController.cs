@@ -10,7 +10,7 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class GiaoVienController : Controller
     {
-        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+        private readonly CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
         // GET: GiaoVien
         public ActionResult Index()
