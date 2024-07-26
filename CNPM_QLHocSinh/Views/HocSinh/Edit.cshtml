@@ -4,10 +4,27 @@
     ViewBag.Title = "Học Sinh";
 }
 
-<h2>Chỉnh Sửa Thông Tin Học Sinh</h2>
-<hr />
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Chỉnh sửa học sinh</h2>
+                    <hr />
 
-@Html.Partial("_ViewBagError")
+                    @Html.Partial("_ViewBagError")
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.Partial("PartialViews/_HocSinhForm", Model)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -29,33 +46,3 @@
         }
     });
 </script>
-
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Thêm Học Sinh</h2>
-                    <hr />
-
-                    @Html.Partial("_ViewBagError")
-
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <div class="row mb-3">
-                            @Html.LabelFor(model => model.HocSinh.MaHS, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
-                            <div class="col-md-8">
-                                @Html.EditorFor(model => model.HocSinh.MaHS, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.HocSinh.MaHS, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        @Html.Partial("PartialViews/_HocSinhForm", Model)
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

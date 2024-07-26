@@ -29,12 +29,16 @@ namespace CNPM_QLHocSinh.Controllers
             _hocsinh.LopHocList = db.LopHoc.ToList();
             if (ModelState.IsValid)
             {
-                if (((DateTime.Now).Year - (_hocsinh.HocSinh.NgaySinh).Year) < 6)
-                    ModelState.AddModelError(_hocsinh.HocSinh.NgaySinh.ToString(), "Ngày sinh không hợp lệ");
+                var age = DateTime.Now.Year - _hocsinh.HocSinh.NgaySinh.Year;
+                if (age < 6 && age > 80)
+                    ModelState.AddModelError("NgaySinh", "Ngày sinh không hợp lệ");
                 else
                 {
                     try
                     {
+                        //Tạo ID
+                        _hocsinh.HocSinh.MaHS = GenerateStudentId();
+                        //Tạo trạng thái
                         if (_hocsinh.HocSinh.LopHoc == null)
                             _hocsinh.HocSinh.TrangThaiHS = db.TrangThaiHS.FirstOrDefault(s => s.TenTT == "Học sinh mới");
                         else _hocsinh.HocSinh.TrangThaiHS = db.TrangThaiHS.FirstOrDefault(s => s.TenTT == "Còn học");
@@ -46,7 +50,7 @@ namespace CNPM_QLHocSinh.Controllers
                         ViewBag.Error = "Something went wrong, please try again later";
                         return View(_hocsinh);
                     }
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Details), new {id=_hocsinh.HocSinh.MaHS});
                 }
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
@@ -67,7 +71,6 @@ namespace CNPM_QLHocSinh.Controllers
 
             return View(hocsinh.ToList());
         }
-
 
         //XemThongTinHocSinh
         //GET: HocSinh/Details/1
@@ -96,17 +99,23 @@ namespace CNPM_QLHocSinh.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var age = DateTime.Now.Year - _hocsinh.HocSinh.NgaySinh.Year;
+                if (age < 6 && age > 80)
+                    ModelState.AddModelError("NgaySinh", "Ngày sinh không hợp lệ");
+                else
                 {
-                    db.Entry(_hocsinh.HocSinh).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                    try
+                    {
+                        db.Entry(_hocsinh.HocSinh).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        ViewBag.Error = "Something went wrong, please try again later";
+                        return View(_hocsinh);
+                    }
+                    return RedirectToAction(nameof(Details), new { id });
                 }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    return View(_hocsinh);
-                }
-               return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_hocsinh);
@@ -136,7 +145,18 @@ namespace CNPM_QLHocSinh.Controllers
                 return View(_hocsinh);
             }
             return RedirectToAction(nameof(Index));
-            //a
+        }
+
+        private string GenerateStudentId()
+        {
+            int maxId = 1;
+            var latestStudent = db.HocSinh.OrderByDescending(h => h.MaHS).FirstOrDefault();
+            if (latestStudent != null)
+            {
+                int.TryParse(latestStudent.MaHS.Substring(2), out maxId);
+                maxId++;
+            }
+            return "HS" + maxId.ToString("D8");
         }
 
     }
