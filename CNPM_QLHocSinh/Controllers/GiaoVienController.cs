@@ -28,6 +28,7 @@ namespace CNPM_QLHocSinh.Controllers
             };
             return View(viewModel);
         }
+
         //POST: GiaoVien/Create
         [HttpPost]
         public ActionResult Create(GVView _giaoVien)
@@ -109,7 +110,6 @@ namespace CNPM_QLHocSinh.Controllers
             catch
             {
                 ViewBag.Error = "Something went wrong, please try again later";
-                ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
                 return View(_giaoVien);
             }
             return RedirectToAction(nameof(Index));
