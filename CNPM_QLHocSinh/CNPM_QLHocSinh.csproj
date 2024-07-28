@@ -327,10 +327,9 @@
     <Content Include="Views\CaHoc\Edit.cshtml" />
     <Content Include="Views\CaHoc\Details.cshtml" />
     <Content Include="Views\CaHoc\Delete.cshtml" />
+    <Content Include="Views\QuanLyDiemBoMon\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\QuanLyDiemBoMon\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />

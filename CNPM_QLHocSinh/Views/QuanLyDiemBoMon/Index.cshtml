@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.BangDiem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemLan1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemLan2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemLan3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemGK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemCK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HocSinh.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LopHoc.TenLop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemLan1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemLan2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemLan3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemGK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemCK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HocSinh.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LopHoc.TenLop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonHoc.TenMH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

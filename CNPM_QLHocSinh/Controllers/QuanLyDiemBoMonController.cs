@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNPM_QLHocSinh.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class QuanLyDiemBoMonController : Controller
     {
+        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
         // GET: QuanLyDiemBoMon
         public ActionResult Index()
         {
-            return View();
+            return View(db.BangDiem);
         }
 
         public ActionResult NhapDiem()
