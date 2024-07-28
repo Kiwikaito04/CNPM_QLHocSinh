@@ -3,30 +3,21 @@
 }
 
 #div-top {
-    /* width: 100%; */
-    max-width: 100%;
+    width: 100%;
     height: 60px;
     background-color: royalblue;
 }
 
 #div-main {
     display: flex;
-    flex-direction: row;
     height: 100vh;
     max-width: 2000px;
-    /* position: relative; */
     margin: 0 auto;
 }
 
 #div-left {
-    /*width: 15%;
-    height: auto;
-    background-color: white;
-    padding: 20px;
-    position: relative;*/
     width: 15%;
     height: 100%;
-    max-height: 100%;
     background-color: lightsteelblue;
     padding: 10px;
     position: relative;
@@ -34,60 +25,51 @@
     overflow-x: hidden;
 }
 
-#div-containt{
+#div-containt {
     width: 85%;
-    max-width:1600px;
-    height: 100vh;
     padding-left: 20px;
     background-color: aliceblue;
-    align-items: center;
+    overflow-y: auto;
 }
 
 .menu {
-    align-items: center;
-    position: absolute;
-    flex-wrap: wrap;
-}
-
-.menu ul{
-    padding: 0px;
-    margin: 0;
-    list-style-type: none;
-}
-
-.menu li{
-    height:50px;
-    width:100%;
-    padding: 5px;
-    list-style:none;
     display: flex;
-    align-items:center;
+    flex-direction: column;
 }
 
-    .menu li:hover {
-        background-color: royalblue;
-        padding: 12px;
+    .menu ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
     }
 
-.menu li a{
-    width:100%;
-    height: 100%;
-    display:flex;
-    align-items:center;
-    color: black;
-    text-decoration:none;
-    font-size: 20px;
-}
+    .menu li {
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+    }
 
-.name_app{
-    text-decoration:none;
-    /*margin:10px;
-    padding:15px;*/
-    font-size:25px;
-    font-weight:bold;
-    color:white;
-}
+        .menu li:hover {
+            background-color: royalblue;
+        }
 
+        .menu li a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+.name_app {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
 
 .red-button {
     color: #fff;
@@ -110,30 +92,30 @@
 
 .search {
     display: flex;
-    margin:10px;
-    align-items:center;
+    margin: 10px;
+    align-items: center;
 }
 
-#search_text input{
-    height:40px;
-    width:400px;
+#search_text input {
+    height: 40px;
+    width: 400px;
 }
-#button_search button{
-    height:40px;
+
+#button_search button {
+    height: 40px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    margin-left:-10px;
+    margin-left: -10px;
 }
 
-#partial_button{
+#partial_button {
     margin-left: 30px;
 }
 
-.namebox{
-    padding:10px;
+.namebox {
+    padding: 10px;
 }
 
-/*Cái này cho thông báo lỗi*/
 .alert {
     position: relative;
     padding: 0.75rem 1.25rem;

@@ -8,30 +8,29 @@
     <link href="~/Content/MyCss.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    
+
     @section scripts {
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    var gioiTinhCheckbox = document.getElementById('GioiTinh');
-                    var gioiTinhLabel = document.getElementById('GioiTinhLabel');
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var gioiTinhCheckbox = document.getElementById('GioiTinh');
+                var gioiTinhLabel = document.getElementById('GioiTinhLabel');
 
+                updateGioiTinhLabel();
+
+                gioiTinhCheckbox.addEventListener('change', function () {
                     updateGioiTinhLabel();
-
-                    gioiTinhCheckbox.addEventListener('change', function () {
-                        updateGioiTinhLabel();
-                    });
-
-                    function updateGioiTinhLabel() {
-                        if (gioiTinhCheckbox.checked) {
-                            gioiTinhLabel.textContent = 'Nam';
-                        } else {
-                            gioiTinhLabel.textContent = 'Nữ';
-                        }
-                    }
                 });
-            </script>
-        }
 
+                function updateGioiTinhLabel() {
+                    if (gioiTinhCheckbox.checked) {
+                        gioiTinhLabel.textContent = 'Nam';
+                    } else {
+                        gioiTinhLabel.textContent = 'Nữ';
+                    }
+                }
+            });
+        </script>
+    }
 </head>
 <body>
     <div id="div-top">
@@ -41,7 +40,6 @@
     </div>
 
     <div id="div-main">
-
         <div id="div-left">
             <div class="menu">
                 @if (User.Identity.IsAuthenticated)
@@ -66,53 +64,18 @@
                     </ul>
                 }
                 <ul class="list_menu">
-                    <li class="nav-link">
-                        <a href="#">
-                            <span>Trang chủ</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Hồ Sơ Học Sinh", "Index", "HocSinh")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Khối Lớp", "Index", "KhoiLop")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Lớp học", "Index", "LopHoc")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Môn học", "Index", "MonHoc")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Quản lý Giáo viên", "Index", "GiaoVien")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Chức vụ", "Index", "ChucVu")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Lịch giảng dạy", "Index", "LichGiangDay")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Trạng Thái học sinh", "Index", "TrangThaiHS")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Ca học", "Index", "CaHoc")
-                    </li>
-
-                    <li class="nav-link">
-                        @Html.ActionLink("Điểm Bộ Môn", "Index", "QuanLyDiemBoMon")
-                    </li>
+                    <li class="nav-link"><a href="#"><span>Trang chủ</span></a></li>
+                    <li class="nav-link">@Html.ActionLink("Hồ Sơ Học Sinh", "Index", "HocSinh")</li>
+                    <li class="nav-link">@Html.ActionLink("Khối Lớp", "Index", "KhoiLop")</li>
+                    <li class="nav-link">@Html.ActionLink("Lớp học", "Index", "LopHoc")</li>
+                    <li class="nav-link">@Html.ActionLink("Môn học", "Index", "MonHoc")</li>
+                    <li class="nav-link">@Html.ActionLink("Quản lý Giáo viên", "Index", "GiaoVien")</li>
+                    <li class="nav-link">@Html.ActionLink("Chức vụ", "Index", "ChucVu")</li>
+                    <li class="nav-link">@Html.ActionLink("Lịch giảng dạy", "Index", "LichGiangDay")</li>
+                    <li class="nav-link">@Html.ActionLink("Trạng Thái học sinh", "Index", "TrangThaiHS")</li>
+                    <li class="nav-link">@Html.ActionLink("Ca học", "Index", "CaHoc")</li>
+                    <li class="nav-link">@Html.ActionLink("Điểm Bộ Môn", "Index", "QuanLyDiemBoMon")</li>
                 </ul>
-
             </div>
         </div>
 
