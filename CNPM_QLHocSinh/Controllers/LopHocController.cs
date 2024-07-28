@@ -11,7 +11,7 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class LopHocController : Controller
     {
-        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+        private readonly CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
         public ActionResult XetDuyetLopMoi()
             => View();
@@ -113,12 +113,11 @@ namespace CNPM_QLHocSinh.Controllers
         [HttpPost]
         public ActionResult Edit(string id, LopHoc _lopHoc)
         {
-            _lopHoc.KhoiLop = null;
             if (ModelState.IsValid)
             {
                 try
                 {
-                    db.Entry(_lopHoc).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry(_lopHoc).State = EntityState.Modified;
                     db.SaveChanges();
                 }
                 catch
@@ -126,7 +125,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_lopHoc);
                 }
-                return RedirectToAction(nameof(Details) + "/" + id.ToString());
+                return RedirectToAction(nameof(Details), new {id});
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_lopHoc);

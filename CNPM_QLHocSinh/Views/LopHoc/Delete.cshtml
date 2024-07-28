@@ -4,55 +4,47 @@
     ViewBag.Title = "Lớp Học";
 }
 
-<h2>Xóa Lớp Học</h2>
-<hr />
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
 
-@Html.Partial("_ViewBagError")
+                    <h2 class="card-title text-center mb-4">Xác nhận xóa @Html.DisplayFor(model => model.TenLop)?</h2>
+                    <hr />
 
-<h3>Bạn có chắc muốn xoá lớp học này không?</h3>
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLop)
-        </dt>
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MaLop)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.MaLop)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaLop)
-        </dd>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TenLop)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.TenLop)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenLop)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenLop)
-        </dd>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MoTa)</dt>
+                        @if (Model.MoTa != null)
+                        {<dd class="col-sm-8">@Html.DisplayFor(model => model.MoTa)</dd>}
+                        else
+                        {<dd class="col-sm-8">N/A</dd>}
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.KhoiLop.TenKL)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.KhoiLop.TenKL)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+                    </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.KhoiLop.TenKL)
-        </dt>
+                    <div class="text-center mt-4">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.KhoiLop.TenKL)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Xoá" class="btn btn-danger" /> |
-            @Html.Partial("_BackBtn")
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Xóa" class="btn btn-danger" /> | 
+                                @Html.Partial("_BackBtn")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </div>

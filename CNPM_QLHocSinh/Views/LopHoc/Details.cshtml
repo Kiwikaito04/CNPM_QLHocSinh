@@ -3,49 +3,39 @@
 @{
     ViewBag.Title = "Lớp Học";
 }
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">@Html.DisplayFor(model => model.TenLop)</h2>
+                    <hr />
 
-<h2>Chi tiết lớp học</h2>
-<hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MaLop)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.MaLop)</dd>
+                        
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TenLop)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.TenLop)</dd>
 
-@Html.Partial("_ViewBagError")
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MoTa)</dt>
+                        @if (Model.MoTa != null)
+                        {<dd class="col-sm-8">@Html.DisplayFor(model => model.MoTa)</dd>}
+                        else
+                        {<dd class="col-sm-8">N/A</dd>}
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLop)
-        </dt>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.KhoiLop.TenKL)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.KhoiLop.TenKL)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaLop)
-        </dd>
+                    </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenLop)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenLop)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KhoiLop.TenKL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KhoiLop.TenKL)
-        </dd>
-
-    </dl>
+                    <div class="text-center mt-4">
+                        @Html.Partial("_EditBtn", Model.MaLop)
+                        @Html.Partial("_DeleteBtn", Model.MaLop)
+                        @Html.Partial("_BackBtn")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaLop }, new { @class = "btn btn-success" }) |
-    @Html.Partial("_BackBtn")
-</p>
