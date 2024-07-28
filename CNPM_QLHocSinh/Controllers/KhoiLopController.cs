@@ -91,7 +91,7 @@ namespace CNPM_QLHocSinh.Controllers
                     ViewBag.Error = "Something went wrong, please try again later";
                     return View(_khoiLop);
                 }
-                return RedirectToAction(nameof(Details) + "/" + id.ToString());
+                return RedirectToAction(nameof(Details), new {id});
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
             return View(_khoiLop);
