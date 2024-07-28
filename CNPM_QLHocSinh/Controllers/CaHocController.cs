@@ -9,7 +9,7 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class CaHocController : Controller
     {
-        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+        private readonly CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
         // GET: CaHoc
         public ActionResult Index()
         {
