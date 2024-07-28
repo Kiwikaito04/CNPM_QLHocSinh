@@ -188,6 +188,7 @@
     <Compile Include="Models\ViewModels\GVView.cs" />
     <Compile Include="Models\ViewModels\HSView.cs" />
     <Compile Include="Models\ViewModels\KLView.cs" />
+    <Compile Include="Models\ViewModels\LGDView.cs" />
     <Compile Include="Models\ViewModels\LHView.cs" />
     <Compile Include="Models\ViewModels\MHView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

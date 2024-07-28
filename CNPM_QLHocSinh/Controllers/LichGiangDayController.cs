@@ -51,19 +51,19 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         // GET: LichGiangDay/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            LichGiangDay lichGiangDay = db.LichGiangDay.Find(id);
-            if (lichGiangDay == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lichGiangDay);
-        }
+        //public ActionResult Details(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    LichGiangDay lichGiangDay = db.LichGiangDay.Find(id);
+        //    if (lichGiangDay == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(lichGiangDay);
+        //}
 
         // GET: LichGiangDay/Create
         public ActionResult Create()
@@ -76,23 +76,42 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         // POST: LichGiangDay/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaLop,MaMH,MaGV,MaCa")] LichGiangDay lichGiangDay)
         {
-            if (ModelState.IsValid)
-            {
-                db.LichGiangDay.Add(lichGiangDay);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
             ViewBag.MaCa = new SelectList(db.CaHoc, "MaCa", "MaCa", lichGiangDay.MaCa);
             ViewBag.MaGV = new SelectList(db.GiaoVien, "MaGV", "HoTen", lichGiangDay.MaGV);
             ViewBag.MaLop = new SelectList(db.LopHoc, "MaLop", "TenLop", lichGiangDay.MaLop);
             ViewBag.MaMH = new SelectList(db.MonHoc, "MaMH", "TenMH", lichGiangDay.MaMH);
+            
+            if (ModelState.IsValid)
+            {
+                var existingEntry = db.LichGiangDay.FirstOrDefault(
+                    l => l.MaLop == lichGiangDay.MaLop &&
+                         l.MaMH == lichGiangDay.MaMH &&
+                         l.MaGV == lichGiangDay.MaGV &&
+                         l.MaCa == lichGiangDay.MaCa);
+
+                if (existingEntry != null)
+                {
+                    ViewBag.ModelError = "Lịch bị trùng!";
+                }
+                else
+                {
+                    try
+                    {
+                        db.LichGiangDay.Add(lichGiangDay);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    catch
+                    {
+                        ViewBag.Error = "Something went wrong, please try again later";
+                    }
+                }
+            }
+
             return View(lichGiangDay);
         }
 

@@ -58,7 +58,7 @@
             <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianKetThuc)</td>
             <td>
                 @Html.ActionLink("Sửa", "Edit", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-warning btn-sm" }) | 
-                @Html.ActionLink("Xem", "Details", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-info btn-sm" }) | 
+                @*@Html.ActionLink("Xem", "Details", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-info btn-sm" }) |*@ 
                 @Html.ActionLink("Xóa", "Delete", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-danger btn-sm" })
             </td>
         </tr>
