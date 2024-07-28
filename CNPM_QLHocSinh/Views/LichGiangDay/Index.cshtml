@@ -6,6 +6,31 @@
 
 <h2>Lịch Giảng Dạy</h2>
 
+@using (Html.BeginForm("Index", "LichGiangDay", FormMethod.Get))
+{
+    <div class="form-inline">
+        <div class="form-group">
+            @Html.Label("Lớp", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownList("MaLop", (SelectList)ViewBag.MaLop, "Tất cả", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Môn", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownList("MaMH", (SelectList)ViewBag.MaMH, "Tất cả", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Giáo Viên", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownList("MaGV", (SelectList)ViewBag.MaGV, "Tất cả", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Ca Học", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownList("MaCa", (SelectList)ViewBag.MaCa, "Tất cả", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Filter" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
