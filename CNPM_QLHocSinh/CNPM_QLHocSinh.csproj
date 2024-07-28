@@ -319,10 +319,6 @@
     <Content Include="Views\TrangThaiHS\Details.cshtml" />
     <Content Include="Views\TrangThaiHS\Delete.cshtml" />
     <Content Include="Views\ChucVu\Index.cshtml" />
-    <Content Include="Views\ChucVu\Create.cshtml" />
-    <Content Include="Views\ChucVu\Edit.cshtml" />
-    <Content Include="Views\ChucVu\Details.cshtml" />
-    <Content Include="Views\ChucVu\Delete.cshtml" />
     <Content Include="Views\CaHoc\Index.cshtml" />
     <Content Include="Views\CaHoc\Create.cshtml" />
     <Content Include="Views\CaHoc\Edit.cshtml" />
