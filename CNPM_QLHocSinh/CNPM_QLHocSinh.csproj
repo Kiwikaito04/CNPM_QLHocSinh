@@ -312,12 +312,24 @@
     <Content Include="Views\LichGiangDay\Details.cshtml" />
     <Content Include="Views\LichGiangDay\Edit.cshtml" />
     <Content Include="Views\LichGiangDay\Index.cshtml" />
+    <Content Include="Views\TrangThaiHS\Index.cshtml" />
+    <Content Include="Views\TrangThaiHS\Create.cshtml" />
+    <Content Include="Views\TrangThaiHS\Edit.cshtml" />
+    <Content Include="Views\TrangThaiHS\Details.cshtml" />
+    <Content Include="Views\TrangThaiHS\Delete.cshtml" />
+    <Content Include="Views\ChucVu\Index.cshtml" />
+    <Content Include="Views\ChucVu\Create.cshtml" />
+    <Content Include="Views\ChucVu\Edit.cshtml" />
+    <Content Include="Views\ChucVu\Details.cshtml" />
+    <Content Include="Views\ChucVu\Delete.cshtml" />
+    <Content Include="Views\CaHoc\Index.cshtml" />
+    <Content Include="Views\CaHoc\Create.cshtml" />
+    <Content Include="Views\CaHoc\Edit.cshtml" />
+    <Content Include="Views\CaHoc\Details.cshtml" />
+    <Content Include="Views\CaHoc\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\CaHoc\" />
-    <Folder Include="Views\ChucVu\" />
     <Folder Include="Views\QuanLyDiemBoMon\" />
-    <Folder Include="Views\TrangThaiHS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
