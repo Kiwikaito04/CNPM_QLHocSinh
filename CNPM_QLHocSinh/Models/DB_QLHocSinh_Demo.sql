@@ -95,7 +95,9 @@ create table GiaoVien(
 	Pass nvarchar(20) not null
 )
 insert into GiaoVien
-values	('001',N'Quỳnh Thị A', 1, '20110122', N'123 ABC', null, null, 'GV', 'abc')
+values	('001',N'Quỳnh Thị A', 1, '20110122', N'123 ABC', null, null, 'GV', 'abc'),
+		('002',N'Quỳnh Thị B', 1, '20110121', N'123 ABC', null, null, 'DD', 'abc'),
+		('003',N'Quỳnh Thị A', 1, '20110120', N'123 ABC', null, null, 'NS', 'abc')
 
 create table MonHoc(
 	MaMH char(2) primary key,
