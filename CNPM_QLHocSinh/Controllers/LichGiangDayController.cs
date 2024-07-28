@@ -99,6 +99,21 @@ namespace CNPM_QLHocSinh.Controllers
                 }
                 else
                 {
+                    var teacherConflict = db.LichGiangDay.Any(l => l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa &&
+                                                        !(l.MaLop == lichGiangDay.MaLop && l.MaMH == lichGiangDay.MaMH && l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa));
+
+                    var classConflict = db.LichGiangDay.Any(l => l.MaLop == lichGiangDay.MaLop && l.MaCa == lichGiangDay.MaCa &&
+                                                                  !(l.MaLop == lichGiangDay.MaLop && l.MaMH == lichGiangDay.MaMH && l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa));
+
+                    if (teacherConflict)
+                    {
+                        ViewBag.ModelError = "Giáo viên không thể dạy hai lớp trong cùng một ca!";
+                    }
+                    else if (classConflict)
+                    {
+                        ViewBag.ModelError = "Một lớp chỉ có thể học một môn trong một ca!";
+                    }
+                    else
                     try
                     {
                         db.LichGiangDay.Add(lichGiangDay);
@@ -111,7 +126,6 @@ namespace CNPM_QLHocSinh.Controllers
                     }
                 }
             }
-
             return View(lichGiangDay);
         }
 
@@ -140,19 +154,57 @@ namespace CNPM_QLHocSinh.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaLop,MaMH,MaGV,MaCa")] LichGiangDay lichGiangDay)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(lichGiangDay).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             ViewBag.MaCa = new SelectList(db.CaHoc, "MaCa", "MaCa", lichGiangDay.MaCa);
             ViewBag.MaGV = new SelectList(db.GiaoVien, "MaGV", "HoTen", lichGiangDay.MaGV);
             ViewBag.MaLop = new SelectList(db.LopHoc, "MaLop", "TenLop", lichGiangDay.MaLop);
             ViewBag.MaMH = new SelectList(db.MonHoc, "MaMH", "TenMH", lichGiangDay.MaMH);
+
+            if (ModelState.IsValid)
+            {
+                var existingEntry = db.LichGiangDay.AsNoTracking().FirstOrDefault(
+                    l => l.MaLop == lichGiangDay.MaLop &&
+                            l.MaMH == lichGiangDay.MaMH &&
+                            l.MaGV == lichGiangDay.MaGV);
+
+                if (existingEntry != null)
+                {
+                    //Nếu tồn tại lịch
+                    var teacherConflict = db.LichGiangDay.Any(l => l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa &&
+                                                        !(l.MaLop == lichGiangDay.MaLop && l.MaMH == lichGiangDay.MaMH && l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa));
+
+                    var classConflict = db.LichGiangDay.Any(l => l.MaLop == lichGiangDay.MaLop && l.MaCa == lichGiangDay.MaCa &&
+                                                                  !(l.MaLop == lichGiangDay.MaLop && l.MaMH == lichGiangDay.MaMH && l.MaGV == lichGiangDay.MaGV && l.MaCa == lichGiangDay.MaCa));
+
+                    if (teacherConflict)
+                    {
+                        ViewBag.ModelError = "Giáo viên không thể dạy hai lớp trong cùng một ca!";
+                    }
+                    else if (classConflict)
+                    {
+                        ViewBag.ModelError = "Một lớp chỉ có thể học một môn trong một ca!";
+                    }
+                    else
+                    {
+                        try
+                        {
+                            db.Entry(lichGiangDay).State = EntityState.Modified;
+                            db.SaveChanges();
+                            return RedirectToAction("Index");
+                        }
+                        catch
+                        {
+                            ViewBag.Error = "Something went wrong, please try again later";
+                        }
+                    }
+                }
+                else
+                {
+                    //Nếu không tồn tại lịch, tạo lịch mới
+                    return RedirectToAction(nameof(Create), new { lichGiangDay });
+                }
+            }
             return View(lichGiangDay);
         }
-
 
         // GET: LichGiangDay/Delete/5
         public ActionResult Delete(string id)
