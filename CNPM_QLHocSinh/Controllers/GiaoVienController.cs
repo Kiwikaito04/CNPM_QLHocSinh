@@ -68,28 +68,44 @@ namespace CNPM_QLHocSinh.Controllers
         //ChinhSuaThongTinGiaoVien
         //GET: GiaoVien/Edit/1
         public ActionResult Edit(string id)
-            => View(db.GiaoVien.Where(s => s.MaGV == id).Include(s => s.ChucVu).FirstOrDefault());
+        {
+            if (id == null)
+                return HttpNotFound();
+            var gv = new GVView
+            {
+                GiaoVien = db.GiaoVien.Where(s => s.MaGV == id).FirstOrDefault()
+            };
+            if (gv.GiaoVien == null)
+                return HttpNotFound();
+
+            return View(gv);
+        }
+
         //POST: GiaoVien/Edit/1
         [HttpPost]
-        public ActionResult Edit(string id, GiaoVien _giaoVien)
+        public ActionResult Edit(string id, GVView _giaoVien)
         {
             if (ModelState.IsValid)
             {
-                try
+                var age = DateTime.Now.Year - _giaoVien.GiaoVien.NgaySinh.Year;
+                if (age < 18 && age > 80)
+                    ModelState.AddModelError("NgaySinh", "Ngày sinh không hợp lệ");
+                else
                 {
-                    db.Entry(_giaoVien).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                    try
+                    {
+                        db.Entry(_giaoVien.GiaoVien).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        ViewBag.Error = "Something went wrong, please try again later";
+                        return View(_giaoVien);
+                    }
+                    return RedirectToAction(nameof(Details), new { id });
                 }
-                catch
-                {
-                    ViewBag.Error = "Something went wrong, please try again later";
-                    ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
-                    return View(_giaoVien);
-                }
-                return RedirectToAction(nameof(Details) + "/" + id.ToString());
             }
             ViewBag.ModelError = "Biểu mẫu không đúng";
-            ViewBag.ChucVuList = new SelectList(db.ChucVu, "MaCV", "TenCV");
             return View(_giaoVien);
         }
 
