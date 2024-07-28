@@ -47,6 +47,13 @@ namespace CNPM_QLHocSinh.Controllers
                 return View(model);
             }
 
+            var dupeSubject = db.MonHoc.Any(s => s.TenMH == model.TenMH);
+            if (dupeSubject)
+            {
+                ViewBag.ModelError = "Tên môn học đã tồn tại";
+                return View(model);
+            }    
+
             if(model.MoTa.IsNullOrWhiteSpace())
             {
                 model.MoTa = $"Môn học {model.TenMH}";
