@@ -37,34 +37,37 @@
         <div class="namebox">
             @Html.ActionLink("Quản Lý Học Sinh", "Index", "HocSinh", null, new { @class = "name_app" })
         </div>
+
+        <div class="user">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span class="navbar-text">Hello, @User.Identity.Name!</span>
+                    </li>
+                    <li class="nav-item">
+                        @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-link nav-link" style="color: white; text-decoration: none;">Logout</button>
+                        }
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav">
+                    <li class="nav-item">@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            }
+        </div>
     </div>
 
     <div id="div-main">
         <div id="div-left">
             <div class="menu">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <span class="navbar-text">Hello, @User.Identity.Name!</span>
-                        </li>
-                        <li class="nav-item">
-                            @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <button type="submit" class="btn btn-link nav-link" style="color: white; text-decoration: none;">Logout</button>
-                            }
-                        </li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="navbar-nav">
-                        <li class="nav-item">@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
-                }
+                
                 <ul class="list_menu">
-                    <li class="nav-link"><a href="#"><span>Trang chủ</span></a></li>
                     <li class="nav-link">@Html.ActionLink("Hồ Sơ Học Sinh", "Index", "HocSinh")</li>
                     <li class="nav-link">@Html.ActionLink("Khối Lớp", "Index", "KhoiLop")</li>
                     <li class="nav-link">@Html.ActionLink("Lớp học", "Index", "LopHoc")</li>

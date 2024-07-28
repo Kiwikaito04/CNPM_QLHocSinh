@@ -4,6 +4,11 @@
     ViewBag.Title = "Student Login";
 }
 
+<style>
+    #div-containt {
+        text-align: -webkit-center;
+    }
+</style>
 <h2>Student Login</h2>
 
 @using (Html.BeginForm("StudentLogin", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
