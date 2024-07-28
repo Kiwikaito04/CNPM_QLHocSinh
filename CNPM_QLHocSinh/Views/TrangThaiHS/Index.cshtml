@@ -2,37 +2,33 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
+<h2>Danh sách trạng thái</h2>
+<hr />
 
-<h2>Index</h2>
+@Html.Partial("_ViewBagError")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table table-hover">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenTT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.MaTT)</th>
+        <th>@Html.DisplayNameFor(model => model.TenTT)</th>
+        <th>@Html.DisplayNameFor(model => model.MoTa)</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenTT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MoTa)
-        </td>
-        <td>
-            @Html.Partial("_ActionButtons", item.MaTT)
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaTT)</td>
+            <td>@Html.DisplayFor(modelItem => item.TenTT)</td>
+            @if (item.MoTa != null)
+            {
+                <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
 }
+            else
+            {
+                <td>N/A</td>
+}
+        </tr>
+    }
 
 </table>

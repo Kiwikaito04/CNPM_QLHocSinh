@@ -314,10 +314,6 @@
     <Content Include="Views\LichGiangDay\Edit.cshtml" />
     <Content Include="Views\LichGiangDay\Index.cshtml" />
     <Content Include="Views\TrangThaiHS\Index.cshtml" />
-    <Content Include="Views\TrangThaiHS\Create.cshtml" />
-    <Content Include="Views\TrangThaiHS\Edit.cshtml" />
-    <Content Include="Views\TrangThaiHS\Details.cshtml" />
-    <Content Include="Views\TrangThaiHS\Delete.cshtml" />
     <Content Include="Views\ChucVu\Index.cshtml" />
     <Content Include="Views\CaHoc\Index.cshtml" />
     <Content Include="Views\CaHoc\Create.cshtml" />
