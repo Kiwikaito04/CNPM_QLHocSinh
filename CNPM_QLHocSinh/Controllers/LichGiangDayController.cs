@@ -207,13 +207,14 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         // GET: LichGiangDay/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(string MaLop, string MaMH, string MaGV, string MaCa)
         {
-            if (id == null)
+            if (MaLop == null || MaMH == null || MaGV == null || MaCa == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LichGiangDay lichGiangDay = db.LichGiangDay.Find(id);
+            LichGiangDay lichGiangDay = db.LichGiangDay
+                   .FirstOrDefault(l => l.MaLop == MaLop && l.MaMH == MaMH && l.MaGV == MaGV && l.MaCa == MaCa);
             if (lichGiangDay == null)
             {
                 return HttpNotFound();
@@ -222,14 +223,24 @@ namespace CNPM_QLHocSinh.Controllers
         }
 
         // POST: LichGiangDay/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult Delete(string MaLop, string MaMH, string MaGV, string MaCa, LichGiangDay lichGiangDay)
         {
-            LichGiangDay lichGiangDay = db.LichGiangDay.Find(id);
-            db.LichGiangDay.Remove(lichGiangDay);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                lichGiangDay = db.LichGiangDay
+                    .Where(s => s.MaLop == MaLop && s.MaMH == MaMH && s.MaGV == MaGV && s.MaCa == MaCa)
+                    .FirstOrDefault();
+                db.LichGiangDay.Remove(lichGiangDay);
+                db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                ViewBag.Error = "Something went wrong, please try again later";
+            }
+            return View(lichGiangDay);
         }
 
         protected override void Dispose(bool disposing)
