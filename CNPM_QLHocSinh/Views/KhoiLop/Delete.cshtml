@@ -4,77 +4,72 @@
     ViewBag.Title = "Khối Lớp";
 }
 
-<h2>Xóa Khối Lớp</h2>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
 
-<hr />
+                    <h2 class="card-title text-center mb-4">Xác nhận xóa @Html.DisplayFor(model => model.TenKL)?</h2>
+                    <hr />
+                    @{bool check = Model.LopHoc.Count > 0; }
+                    @if (check)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            Không thể xóa vì có lớp trong khối này
+                        </div>
+                    }
 
-@Html.Partial("_ViewBagError")
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MaKL)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.MaKL)</dd>
 
-@{bool check = Model.LopHoc.Count > 0; }
-@if (!check)
-{
-    <h3>Bạn có chắc muốn xoá khối lớp này không?</h3>
-}
-else
-{
-    <h3>Không thể xoá vì có tồn tại lớp học của khối này.</h3>
-}
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaKL)
-        </dt>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TenKL)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.TenKL)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaKL)
-        </dd>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.CapBac)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.CapBac)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenKL)
-        </dt>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MoTa)</dt>
+                        @if (Model.MoTa != null)
+                        {<dd class="col-sm-8">@Html.DisplayFor(model => model.MoTa)</dd>}
+                        else {<dd class="col-sm-8">N/A</dd>}
 
-        <dd>
-            @Html.DisplayFor(model => model.TenKL)
-        </dd>
+                        @if (check)
+                        {
+                            <dt class="col-sm-4">
+                                Danh sách lớp của khối
+                            </dt>
+                            <dd class="col-sm-8">
+                                <ul>
+                                    @foreach (var i in Model.LopHoc)
+                                    {
+                                        <li>@Html.DisplayFor(item => i.TenLop)</li>
+                                    }
+                                </ul>
+                            </dd>
+                        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+                    </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+                    <div class="text-center mt-4">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CapBac)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CapBac)
-        </dd>
-        @if (check)
-        {
-            <dt>
-                Danh sách lớp của khối
-            </dt>
-            foreach (var i in Model.LopHoc)
-            {
-                <dd>
-                    @Html.DisplayFor(item => i.TenLop)
-                </dd>
-            }
-        }
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            @if (!check)
-            {<input type="submit" value="Xoá" class="btn btn-danger" /> <a>|</a>}
-            @Html.Partial("_BackBtn")
+                            <div class="form-actions no-color">
+                                @if (!check)
+                                {
+                                    <input type="submit" value="Xóa" class="btn btn-danger" /> 
+                                    <a> | </a>
+                                }
+                                @Html.Partial("_BackBtn")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-    }
+    </div>
 </div>
+
