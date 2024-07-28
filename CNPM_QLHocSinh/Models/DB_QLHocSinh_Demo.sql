@@ -96,37 +96,47 @@ create table HocSinh(
 	MaLop char(2) foreign key references LopHoc(MaLop),
 	Pass nvarchar(20) not null
 )
-insert into HocSinh
-values	('HS00000001',N'Phạm Văn A', 1, '20110122', N'123 ABC', null, null, 'TS', null, 'abc'),
-		('HS00000002',N'Nguyễn Văn B', 1, '20110102', N'123 ABC', null, null, 'TS', null, 'abc'),
-		('HS00000003',N'Đào Thị C', 0, '20101102', N'123 ABC', null, null, 'TS', null, 'abc')
--- Thêm học sinh 1 đến 10
+-- Thêm học sinh cho lớp 1A1 (MaLop = '01')
 insert into HocSinh (MaHS, HoTen, GioiTinh, NgaySinh, DiaChi, Email, SDT, MaTT, MaLop, Pass)
 values
-    ('HS00000004', N'Trần Thị D', 0, '20101212', N'456 XYZ', 'trand@example.com', '1234567890', 'TS', null, 'abc'),
-    ('HS00000005', N'Lê Văn E', 1, '20110305', N'789 PQR', 'levane@example.com', '0987654321', 'TS', null, 'abc'),
-    ('HS00000006', N'Hoàng Văn F', 1, '20100515', N'567 UVW', 'hoangvanf@example.com', '9876543210', 'TS', null, 'abc'),
-    ('HS00000007', N'Mai Thị G', 0, '20110228', N'234 EFG', 'maithig@example.com', '8765432109', 'TS', null, 'abc'),
-    ('HS00000008', N'Vũ Văn H', 1, '20101010', N'890 HIJ', 'vuvanh@example.com', '7654321098', 'TS', null, 'abc'),
-    ('HS00000009', N'Ngô Thị I', 0, '20100707', N'123 JKL', 'ngothii@example.com', '6543210987', 'TS', null, 'abc'),
-    ('HS00000010', N'Đặng Văn K', 1, '20110420', N'456 MNO', 'dangvank@example.com', '5432109876', 'TS', null, 'abc'),
-    ('HS00000011', N'Lương Thị L', 0, '20100808', N'789 PQR', 'luongthil@example.com', '4321098765', 'TS', null, 'abc'),
-    ('HS00000012', N'Phan Văn M', 1, '20100909', N'567 STU', 'phanvanm@example.com', '3210987654', 'TS', null, 'abc'),
-    ('HS00000013', N'Đỗ Thị N', 0, '20101225', N'890 VWX', 'dothin@example.com', '2109876543', 'TS', null, 'abc');
+    ('HS00000001', N'Phạm Văn A', 1, '20110122', N'123 ABC', 'phamvana@example.com', '1234567890', 'TS', '01', 'abc'),
+    ('HS00000002', N'Nguyễn Văn B', 1, '20110102', N'123 ABC', 'nguyenvanb@example.com', '0987654321', 'TS', '01', 'abc'),
+    ('HS00000003', N'Đào Thị C', 0, '20101102', N'123 ABC', 'daothic@example.com', '9876543210', 'TS', '01', 'abc'),
+    ('HS00000004', N'Trần Thị D', 0, '20101212', N'456 XYZ', 'trand@example.com', '8765432109', 'TS', '01', 'abc'),
+    ('HS00000005', N'Lê Văn E', 1, '20110305', N'789 PQR', 'levane@example.com', '7654321098', 'TS', '01', 'abc'),
+    ('HS00000006', N'Hoàng Văn F', 1, '20100515', N'567 UVW', 'hoangvanf@example.com', '6543210987', 'TS', '01', 'abc'),
+    ('HS00000007', N'Mai Thị G', 0, '20110228', N'234 EFG', 'maithig@example.com', '5432109876', 'TS', '01', 'abc'),
+    ('HS00000008', N'Vũ Văn H', 1, '20101010', N'890 HIJ', 'vuvanh@example.com', '4321098765', 'TS', '01', 'abc'),
+    ('HS00000009', N'Ngô Thị I', 0, '20100707', N'123 JKL', 'ngothii@example.com', '3210987654', 'TS', '01', 'abc'),
+    ('HS00000010', N'Đặng Văn K', 1, '20110420', N'456 MNO', 'dangvank@example.com', '2109876543', 'TS', '01', 'abc');
 
--- Thêm học sinh 11 đến 20
+-- Thêm học sinh cho lớp 1A2 (MaLop = '02')
 insert into HocSinh (MaHS, HoTen, GioiTinh, NgaySinh, DiaChi, Email, SDT, MaTT, MaLop, Pass)
 values
-    ('HS00000014', N'Bùi Văn O', 1, '20110501', N'123 YZA', 'buivano@example.com', '1098765432', 'TS', null, 'abc'),
-    ('HS00000015', N'Chu Thị P', 0, '20101111', N'456 BCD', 'chuthip@example.com', '0987654321', 'TS', null, 'abc'),
-    ('HS00000016', N'Lý Văn Q', 1, '20100606', N'789 CDE', 'lyvanq@example.com', '9876543210', 'TS', null, 'abc'),
-    ('HS00000017', N'Hoàng Thị R', 0, '20110315', N'567 DEF', 'hoangthir@example.com', '8765432109', 'TS', null, 'abc'),
-    ('HS00000018', N'Nguyễn Văn S', 1, '20100220', N'890 EFG', 'nguyenvans@example.com', '7654321098', 'TS', null, 'abc'),
-    ('HS00000019', N'Trần Thị T', 0, '20110101', N'123 GHI', 'trant@example.com', '6543210987', 'TS', null, 'abc'),
-    ('HS00000020', N'Phạm Văn U', 1, '20100909', N'456 HIJ', 'phamvanu@example.com', '5432109876', 'TS', null, 'abc'),
-    ('HS00000021', N'Đỗ Thị V', 0, '20100808', N'789 JKL', 'dothiv@example.com', '4321098765', 'TS', null, 'abc'),
-    ('HS00000022', N'Nguyễn Văn X', 1, '20100707', N'567 MNO', 'nguyenvanx@example.com', '3210987654', 'TS', null, 'abc'),
-    ('HS00000023', N'Trần Thị Y', 0, '20101225', N'890 PQR', 'tranthiy@example.com', '2109876543', 'TS', null, 'abc');
+    ('HS00000011', N'Lương Thị L', 0, '20100808', N'789 PQR', 'luongthil@example.com', '1234567890', 'TS', '02', 'abc'),
+    ('HS00000012', N'Phan Văn M', 1, '20100909', N'567 STU', 'phanvanm@example.com', '0987654321', 'TS', '02', 'abc'),
+    ('HS00000013', N'Đỗ Thị N', 0, '20101225', N'890 VWX', 'dothin@example.com', '9876543210', 'TS', '02', 'abc'),
+    ('HS00000014', N'Bùi Văn O', 1, '20110501', N'123 YZA', 'buivano@example.com', '8765432109', 'TS', '02', 'abc'),
+    ('HS00000015', N'Chu Thị P', 0, '20101111', N'456 BCD', 'chuthip@example.com', '7654321098', 'TS', '02', 'abc'),
+    ('HS00000016', N'Lý Văn Q', 1, '20100606', N'789 CDE', 'lyvanq@example.com', '6543210987', 'TS', '02', 'abc'),
+    ('HS00000017', N'Hoàng Thị R', 0, '20110315', N'567 DEF', 'hoangthir@example.com', '5432109876', 'TS', '02', 'abc'),
+    ('HS00000018', N'Nguyễn Văn S', 1, '20100220', N'890 EFG', 'nguyenvans@example.com', '4321098765', 'TS', '02', 'abc'),
+    ('HS00000019', N'Trần Thị T', 0, '20110101', N'123 GHI', 'trant@example.com', '3210987654', 'TS', '02', 'abc'),
+    ('HS00000020', N'Phạm Văn U', 1, '20100909', N'456 HIJ', 'phamvanu@example.com', '2109876543', 'TS', '02', 'abc');
+
+-- Thêm học sinh cho lớp 1A3 (MaLop = '03')
+insert into HocSinh (MaHS, HoTen, GioiTinh, NgaySinh, DiaChi, Email, SDT, MaTT, MaLop, Pass)
+values
+    ('HS00000021', N'Đỗ Thị V', 0, '20100808', N'789 JKL', 'dothiv@example.com', '1098765432', 'TS', '03', 'abc'),
+    ('HS00000022', N'Nguyễn Văn X', 1, '20100707', N'567 MNO', 'nguyenvanx@example.com', '0987654321', 'TS', '03', 'abc'),
+    ('HS00000023', N'Trần Thị Y', 0, '20101225', N'890 PQR', 'tranthiy@example.com', '9876543210', 'TS', '03', 'abc'),
+    ('HS00000024', N'Nguyễn Văn Z', 1, '20110505', N'123 STU', 'nguyenvanz@example.com', '8765432109', 'TS', '03', 'abc'),
+    ('HS00000025', N'Vũ Thị A', 0, '20100715', N'456 VWX', 'vuthaia@example.com', '7654321098', 'TS', '03', 'abc'),
+    ('HS00000026', N'Phan Thị B', 1, '20100330', N'789 YZA', 'phanthib@example.com', '6543210987', 'TS', '03', 'abc'),
+    ('HS00000027', N'Trần Văn C', 0, '20110808', N'123 BCD', 'tranvanc@example.com', '5432109876', 'TS', '03', 'abc'),
+    ('HS00000028', N'Đặng Thị D', 1, '20110620', N'456 CDE', 'dangthid@example.com', '4321098765', 'TS', '03', 'abc'),
+    ('HS00000029', N'Bùi Thị E', 0, '20100212', N'789 DEF', 'buithie@example.com', '3210987654', 'TS', '03', 'abc'),
+    ('HS00000030', N'Hoàng Văn F', 1, '20100910', N'890 GHI', 'hoangf@example.com', '2109876543', 'TS', '03', 'abc');
 
 create table ChucVu(
 	MaCV char(2) primary key,

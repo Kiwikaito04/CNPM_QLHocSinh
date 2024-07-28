@@ -12,7 +12,7 @@ namespace CNPM_QLHocSinh.Controllers
 {
     public class MonHocController : Controller
     {
-        CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
+        private readonly CNPM_QLHocSinhEntities db = new CNPM_QLHocSinhEntities();
 
         //XemDanhMucMonHoc
         //GET: MonHoc
