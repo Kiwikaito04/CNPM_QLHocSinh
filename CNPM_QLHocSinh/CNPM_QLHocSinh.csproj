@@ -129,6 +129,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CaHocController.cs" />
+    <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\GiaoVienController.cs" />
     <Compile Include="Controllers\HocSinhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -137,6 +139,7 @@
     <Compile Include="Controllers\LopHocController.cs" />
     <Compile Include="Controllers\MonHocController.cs" />
     <Compile Include="Controllers\QuanLyDiemBoMonController.cs" />
+    <Compile Include="Controllers\TrangThaiHSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -310,10 +313,24 @@
     <Content Include="Views\LichGiangDay\Details.cshtml" />
     <Content Include="Views\LichGiangDay\Edit.cshtml" />
     <Content Include="Views\LichGiangDay\Index.cshtml" />
+    <Content Include="Views\TrangThaiHS\Index.cshtml" />
+    <Content Include="Views\TrangThaiHS\Create.cshtml" />
+    <Content Include="Views\TrangThaiHS\Edit.cshtml" />
+    <Content Include="Views\TrangThaiHS\Details.cshtml" />
+    <Content Include="Views\TrangThaiHS\Delete.cshtml" />
+    <Content Include="Views\ChucVu\Index.cshtml" />
+    <Content Include="Views\ChucVu\Create.cshtml" />
+    <Content Include="Views\ChucVu\Edit.cshtml" />
+    <Content Include="Views\ChucVu\Details.cshtml" />
+    <Content Include="Views\ChucVu\Delete.cshtml" />
+    <Content Include="Views\CaHoc\Index.cshtml" />
+    <Content Include="Views\CaHoc\Create.cshtml" />
+    <Content Include="Views\CaHoc\Edit.cshtml" />
+    <Content Include="Views\CaHoc\Details.cshtml" />
+    <Content Include="Views\CaHoc\Delete.cshtml" />
+    <Content Include="Views\QuanLyDiemBoMon\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\QuanLyDiemBoMon\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
