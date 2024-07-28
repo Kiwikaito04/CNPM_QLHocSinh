@@ -30,9 +30,7 @@
             @Html.DisplayFor(modelItem => item.MoTa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTT })
+            @Html.Partial("_ActionButtons", item.MaTT)
         </td>
     </tr>
 }
