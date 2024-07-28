@@ -4,7 +4,7 @@
     @Html.LabelFor(model => model.HocSinh.MaHS, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
     <div class="col-md-8">
         @Html.EditorFor(model => model.HocSinh.MaHS, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @readonly = "readonly" } })
-
+        @Html.HiddenFor(model => model.HocSinh.MaHS)
         @Html.ValidationMessageFor(model => model.HocSinh.MaHS, "", new { @class = "text-danger" })
     </div>
 </div>

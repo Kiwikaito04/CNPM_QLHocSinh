@@ -4,7 +4,7 @@
     @Html.LabelFor(model => model.GiaoVien.MaGV, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
     <div class="col-md-8">
         @Html.EditorFor(model => model.GiaoVien.MaGV, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @readonly = "readonly" } })
-
+        @Html.HiddenFor(model => model.GiaoVien.MaGV)
         @Html.ValidationMessageFor(model => model.GiaoVien.MaGV, "", new { @class = "text-danger" })
     </div>
 </div>
