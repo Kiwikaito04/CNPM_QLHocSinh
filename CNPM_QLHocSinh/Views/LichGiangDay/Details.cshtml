@@ -1,0 +1,50 @@
+﻿@model CNPM_QLHocSinh.Models.LichGiangDay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LichGiangDay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CaHoc.MaCa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaHoc.MaCa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaoVien.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaoVien.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LopHoc.TenLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LopHoc.TenLop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonHoc.TenMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonHoc.TenMH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

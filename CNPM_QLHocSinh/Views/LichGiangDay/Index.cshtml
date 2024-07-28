@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CNPM_QLHocSinh.Models.LichGiangDay>
+
+@{
+    ViewBag.Title = "Lịch Giảng Dạy";
+}
+
+<h2>Lịch Giảng Dạy</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.LopHoc.TenLop)</th>
+            <th>@Html.DisplayNameFor(model => model.MonHoc.TenMH)</th>
+            <th>@Html.DisplayNameFor(model => model.GiaoVien.HoTen)</th>
+            <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianBatDau)</th>
+            <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianKetThuc)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.LopHoc.TenLop)</td>
+                <td>@Html.DisplayFor(modelItem => item.MonHoc.TenMH)</td>
+                <td>@Html.DisplayFor(modelItem => item.GiaoVien.HoTen)</td>
+                <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianBatDau)</td>
+                <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianKetThuc)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Details", "Details", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Delete", "Delete", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
