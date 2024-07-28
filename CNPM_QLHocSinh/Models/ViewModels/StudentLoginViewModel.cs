@@ -9,7 +9,7 @@ namespace CNPM_QLHocSinh.Models.ViewModels
     public class StudentLoginViewModel
     {
         [Required]
-        [Display(Name = "Mã Học Sinh")]
+        [Display(Name = "Mã học sinh")]
         public string MaHS { get; set; }
 
         [Required]
