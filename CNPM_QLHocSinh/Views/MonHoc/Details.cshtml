@@ -3,38 +3,36 @@
 @{
     ViewBag.Title = "Môn Học";
 }
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">@Html.DisplayFor(model => model.TenMH)</h2>
+                    <hr />
 
-<h2>Chi tiết môn học</h2>
+                    <dl class="row">
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MaMH)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.MaMH)</dd>
+                        
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.TenMH)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.TenMH)</dd>
 
-<div>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MaMH)
-        </dt>
+                        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.MoTa)</dt>
+                        @if (Model.MoTa != null)
+                        {<dd class="col-sm-8">@Html.DisplayFor(model => model.MoTa)</dd>}
+                        else
+                        {<dd class="col-sm-8">N/A</dd>}
 
-        <dd>
-            @Html.DisplayFor(model => model.MaMH)
-        </dd>
+                    </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TenMH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenMH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-
-    </dl>
+                    <div class="text-center mt-4">
+                        @Html.Partial("_EditBtn", Model.MaMH)
+                        @Html.Partial("_DeleteBtn", Model.MaMH)
+                        @Html.Partial("_BackBtn")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaMH }, new { @class = "btn btn-primary" }) |
-    @Html.Partial("_BackBtn")
-</p>

@@ -3,52 +3,56 @@
 @{
     ViewBag.Title = "Môn Học";
 }
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Chỉnh sửa môn học</h2>
+                    <hr />
 
-<h2>Chỉnh sửa Môn Học</h2>
+                    @Html.Partial("_ViewBagError")
 
-@Html.Partial("_ViewBagError")
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+                        <div class="row mb-3">
+                            @Html.LabelFor(model => model.MaMH, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.MaMH, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @readonly = "readonly" } })
+                                @Html.HiddenFor(model => model.MaMH)
+                                @Html.ValidationMessageFor(model => model.MaMH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-    <div class="form-horizontal">
-        <h4>Môn Học</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaMH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaMH, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                @Html.ValidationMessageFor(model => model.MaMH, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="row mb-3">
+                            @Html.LabelFor(model => model.TenMH, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.TenMH, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.HiddenFor(model => model.TenMH)
+                                @Html.ValidationMessageFor(model => model.TenMH, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TenMH, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TenMH, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenMH, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="row mb-3">
+                            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-end" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MoTa, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MoTa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-success">Lưu</button> |
+                                @Html.Partial("_BackBtn")
+                            </div>
+                        </div>
 
-        <div class="form-group" style="margin:10px">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lưu" class="btn btn-success" />
-                @Html.Partial("_BackBtn")
+                    }
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-
 </div>
