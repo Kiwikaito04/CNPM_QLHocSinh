@@ -1,5 +1,5 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-    var gioiTinhCheckbox = document.getElementById('GioiTinh');
+    var gioiTinhCheckbox = document.getElementById('GioiTinhCheckbox');
     var gioiTinhLabel = document.getElementById('GioiTinhLabel');
 
     updateGioiTinhLabel();
