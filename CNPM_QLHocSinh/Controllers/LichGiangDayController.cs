@@ -17,31 +17,31 @@ namespace CNPM_QLHocSinh.Controllers
         // GET: LichGiangDay
         public ActionResult Index(string MaLop, string MaMH, string MaGV, string MaCa)
         {
-            var lichGiangDay = db.LichGiangDay.Include(l => l.CaHoc)
-                                              .Include(l => l.GiaoVien)
-                                              .Include(l => l.LopHoc)
-                                              .Include(l => l.MonHoc);
+            var lichGiangDay = db.LichGiangDay
+                .Include(l => l.CaHoc)
+                .Include(l => l.GiaoVien)
+                .Include(l => l.LopHoc)
+                .Include(l => l.MonHoc);
 
+            //Filter
             if (!string.IsNullOrEmpty(MaLop))
             {
                 lichGiangDay = lichGiangDay.Where(l => l.MaLop == MaLop);
             }
-
             if (!string.IsNullOrEmpty(MaMH))
             {
                 lichGiangDay = lichGiangDay.Where(l => l.MaMH == MaMH);
             }
-
             if (!string.IsNullOrEmpty(MaGV))
             {
                 lichGiangDay = lichGiangDay.Where(l => l.MaGV == MaGV);
             }
-
             if (!string.IsNullOrEmpty(MaCa))
             {
                 lichGiangDay = lichGiangDay.Where(l => l.MaCa == MaCa);
             }
 
+            //Danh sách lọc
             ViewBag.MaLop = new SelectList(db.LopHoc, "MaLop", "TenLop");
             ViewBag.MaMH = new SelectList(db.MonHoc, "MaMH", "TenMH");
             ViewBag.MaGV = new SelectList(db.GiaoVien, "MaGV", "HoTen");
@@ -49,7 +49,6 @@ namespace CNPM_QLHocSinh.Controllers
 
             return View(lichGiangDay.ToList());
         }
-
 
         // GET: LichGiangDay/Details/5
         public ActionResult Details(string id)

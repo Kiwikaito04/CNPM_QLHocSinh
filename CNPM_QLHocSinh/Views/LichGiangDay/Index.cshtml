@@ -4,63 +4,63 @@
     ViewBag.Title = "Lịch Giảng Dạy";
 }
 
-<h2>Lịch Giảng Dạy</h2>
+<h2 class="mb-4">Lịch Giảng Dạy</h2>
+
+<hr />
+
+@Html.Partial("_ViewBagError")
 
 @using (Html.BeginForm("Index", "LichGiangDay", FormMethod.Get))
 {
-    <div class="form-inline">
-        <div class="form-group">
-            @Html.Label("Lớp", htmlAttributes: new { @class = "control-label" })
-            @Html.DropDownList("MaLop", (SelectList)ViewBag.MaLop, "Tất cả", new { @class = "form-control" })
+    <div class="row mb-3">
+        <div class="col-md-3">
+            @Html.Label("Lớp", htmlAttributes: new { @class = "form-label" })
+            @Html.DropDownList("MaLop", (SelectList)ViewBag.MaLop, "Tất cả", new { @class = "form-select" })
         </div>
-        <div class="form-group">
-            @Html.Label("Môn", htmlAttributes: new { @class = "control-label" })
-            @Html.DropDownList("MaMH", (SelectList)ViewBag.MaMH, "Tất cả", new { @class = "form-control" })
+        <div class="col-md-3">
+            @Html.Label("Môn", htmlAttributes: new { @class = "form-label" })
+            @Html.DropDownList("MaMH", (SelectList)ViewBag.MaMH, "Tất cả", new { @class = "form-select" })
         </div>
-        <div class="form-group">
-            @Html.Label("Giáo Viên", htmlAttributes: new { @class = "control-label" })
-            @Html.DropDownList("MaGV", (SelectList)ViewBag.MaGV, "Tất cả", new { @class = "form-control" })
+        <div class="col-md-3">
+            @Html.Label("Giáo Viên", htmlAttributes: new { @class = "form-label" })
+            @Html.DropDownList("MaGV", (SelectList)ViewBag.MaGV, "Tất cả", new { @class = "form-select" })
         </div>
-        <div class="form-group">
-            @Html.Label("Ca Học", htmlAttributes: new { @class = "control-label" })
-            @Html.DropDownList("MaCa", (SelectList)ViewBag.MaCa, "Tất cả", new { @class = "form-control" })
+        <div class="col-md-3">
+            @Html.Label("Ca Học", htmlAttributes: new { @class = "form-label" })
+            @Html.DropDownList("MaCa", (SelectList)ViewBag.MaCa, "Tất cả", new { @class = "form-select" })
         </div>
-        <div class="form-group">
-            <input type="submit" value="Filter" class="btn btn-primary" />
-        </div>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Lọc" class="btn btn-primary" />
+    </div>
+    <div class="mb-3">
+        @Html.Partial("_CreateBtn")
     </div>
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
-</p>
 
-<table class="table table-bordered">
-    <thead>
+<table class="table table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.LopHoc.TenLop)</th>
+        <th>@Html.DisplayNameFor(model => model.MonHoc.TenMH)</th>
+        <th>@Html.DisplayNameFor(model => model.GiaoVien.HoTen)</th>
+        <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianBatDau)</th>
+        <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianKetThuc)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>@Html.DisplayNameFor(model => model.LopHoc.TenLop)</th>
-            <th>@Html.DisplayNameFor(model => model.MonHoc.TenMH)</th>
-            <th>@Html.DisplayNameFor(model => model.GiaoVien.HoTen)</th>
-            <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianBatDau)</th>
-            <th>@Html.DisplayNameFor(model => model.CaHoc.ThoiGianKetThuc)</th>
-            <th>Actions</th>
+            <td>@Html.DisplayFor(modelItem => item.LopHoc.TenLop)</td>
+            <td>@Html.DisplayFor(modelItem => item.MonHoc.TenMH)</td>
+            <td>@Html.DisplayFor(modelItem => item.GiaoVien.HoTen)</td>
+            <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianBatDau)</td>
+            <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianKetThuc)</td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-warning btn-sm" }) | 
+                @Html.ActionLink("Xem", "Details", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-info btn-sm" }) | 
+                @Html.ActionLink("Xóa", "Delete", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-danger btn-sm" })
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.LopHoc.TenLop)</td>
-                <td>@Html.DisplayFor(modelItem => item.MonHoc.TenMH)</td>
-                <td>@Html.DisplayFor(modelItem => item.GiaoVien.HoTen)</td>
-                <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianBatDau)</td>
-                <td>@Html.DisplayFor(modelItem => item.CaHoc.ThoiGianKetThuc)</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-warning btn-sm" }) |
-                    @Html.ActionLink("Details", "Details", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-info btn-sm" }) |
-                    @Html.ActionLink("Delete", "Delete", new { MaLop = item.MaLop, MaMH = item.MaMH, MaGV = item.MaGV, MaCa = item.MaCa }, new { @class = "btn btn-danger btn-sm" })
-                </td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>
